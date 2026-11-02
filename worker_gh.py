@@ -99,7 +99,7 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
             for attempt in range(4):
                 cmd = [
                     "yt-dlp",
-                    "-f", "136+140/298+140/18/bestvideo[height>=720][height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height>=720]/best",
+                    "-f", "bestvideo[height>=720][height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=1080]+bestaudio/best[height>=720]/136+140/18/best",
                     "--merge-output-format", "mp4", "--concurrent-fragments", "16",
                     "--retries", "10", "--fragment-retries", "10", "--no-part", "--no-playlist",
                     "-o", out_tmpl, u
@@ -107,9 +107,8 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                 if "vimeo.com" in u:
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
-                    clients = ["ios,web", "android,web", "tv,web", "mweb,web"]
-                    p = 40020 + ((idx + attempt) % 2)
-                    cmd[1:1] = ["--proxy", f"socks5://127.0.0.1:{p}", "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]}"]
+                    clients = ["tv,web", "mweb,web", "android,web", "ios,web"]
+                    cmd[1:1] = ["--proxy", "socks5://127.0.0.1:40020", "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]}"]
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
                 dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                 if dl:

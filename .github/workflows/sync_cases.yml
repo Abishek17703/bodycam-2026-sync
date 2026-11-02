@@ -22,8 +22,7 @@ jobs:
           pip install --upgrade yt-dlp bgutil-ytdlp-pot-provider
           curl -sL https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_amd64 -o /tmp/wgcf && chmod +x /tmp/wgcf
           curl -sL https://github.com/pufferffish/wireproxy/releases/download/v1.0.9/wireproxy_linux_amd64.tar.gz | tar -xz -C /tmp && chmod +x /tmp/wireproxy
-          mkdir -p /tmp/w0 /tmp/w1 && cd /tmp/w0 && /tmp/wgcf register --accept-tos && /tmp/wgcf generate && printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf && nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
-          cd /tmp/w1 && /tmp/wgcf register --accept-tos && /tmp/wgcf generate && printf "\n[Socks5]\nBindAddress = 127.0.0.1:40021\n" >> wgcf-profile.conf && nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
+          mkdir -p /tmp/w0 && cd /tmp/w0 && /tmp/wgcf register --accept-tos && /tmp/wgcf generate && printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf && nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
           sleep 3
 
       - name: Run Shard Worker with Live Drive Token Refresh
