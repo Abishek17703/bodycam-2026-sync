@@ -45,20 +45,11 @@ jobs:
             sleep $(( (attempt * 6) + (RANDOM % 10) ))
           done
 
-      - name: Run Shard Worker with Live Drive Token Refresh
+      - name: Run Shard Worker with Auto-Refreshing OAuth Token
         env:
           SHARD_INDEX: ${{ matrix.shard }}
           SHARD_TOTAL: "20"
         run: |
           mkdir -p ~/.config/rclone
-          # Start background loop that pulls fresh rclone.conf from Drive staging every 10 minutes atomically
-          (
-            while true; do
-              sleep 600
-              rclone --config ~/.config/rclone/rclone.conf copyto gdrive2026_staging:rclone_fresh.conf /tmp/rclone_fresh.tmp 2>/dev/null && [ -s /tmp/rclone_fresh.tmp ] && mv -f /tmp/rclone_fresh.tmp ~/.config/rclone/rclone.conf || true
-            done
-          ) &
-          # Initial bootstrap of rclone.conf from secret
           echo "${{ secrets.RCLONE_CONF_B64 }}" | base64 -d > ~/.config/rclone/rclone.conf
-          rclone --config ~/.config/rclone/rclone.conf copyto gdrive2026_staging:rclone_fresh.conf /tmp/rclone_fresh.tmp 2>/dev/null && [ -s /tmp/rclone_fresh.tmp ] && mv -f /tmp/rclone_fresh.tmp ~/.config/rclone/rclone.conf || true
           python3 -u worker_gh.py
