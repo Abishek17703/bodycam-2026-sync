@@ -19,17 +19,16 @@ jobs:
         run: |
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
 
-      - name: Install rclone, ffmpeg, yt-dlp, bgutil PO-Token server, and WARP SOCKS5 proxy
+      - name: Install rclone, ffmpeg, yt-dlp, google-auth, and WARP SOCKS5 proxy
         env:
           SHARD_INDEX: ${{ matrix.shard }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg rclone aria2
-          pip install --upgrade yt-dlp bgutil-ytdlp-pot-provider
-          sudo docker run --name bgutil-provider -d -p 4416:4416 --init brainicism/bgutil-ytdlp-pot-provider:latest || true
+          pip install --upgrade yt-dlp google-auth
           curl -sL https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_amd64 -o /tmp/wgcf && chmod +x /tmp/wgcf
           curl -sL https://github.com/pufferffish/wireproxy/releases/download/v1.0.9/wireproxy_linux_amd64.tar.gz | tar -xz -C /tmp && chmod +x /tmp/wireproxy
-          sleep $(( (SHARD_INDEX * 3) + (RANDOM % 7) ))
+          sleep $(( (SHARD_INDEX * 2) + (RANDOM % 5) ))
           for attempt in 1 2 3 4 5; do
             pkill -9 wireproxy 2>/dev/null || true
             rm -rf /tmp/w0 && mkdir -p /tmp/w0 && cd /tmp/w0
@@ -42,7 +41,7 @@ jobs:
                 break
               fi
             fi
-            sleep $(( (attempt * 6) + (RANDOM % 10) ))
+            sleep $(( (attempt * 5) + (RANDOM % 8) ))
           done
 
       - name: Run Shard Worker with Auto-Refreshing OAuth Token
@@ -52,4 +51,5 @@ jobs:
         run: |
           mkdir -p ~/.config/rclone
           echo "${{ secrets.RCLONE_CONF_B64 }}" | base64 -d > ~/.config/rclone/rclone.conf
+          echo "${{ secrets.SA_KEYS_B64 }}" | base64 -d > ~/.config/rclone/sa_pool.json
           python3 -u worker_gh.py
