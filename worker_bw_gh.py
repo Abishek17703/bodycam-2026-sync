@@ -20,9 +20,9 @@ def log(msg):
 def push_diag():
     if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
         try:
-            subprocess.Popen(
+            subprocess.run(
                 ["rclone", "copyto", "--ignore-times", "--contimeout", "10s", "--timeout", "20s", "--retries", "1", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"],
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+                capture_output=True, timeout=25
             )
         except Exception:
             pass
@@ -208,29 +208,34 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
         subprocess.run(["pip", "uninstall", "-y", "bgutil-ytdlp-pot-provider"], capture_output=True)
         subprocess.run(["sudo", "docker", "rm", "-f", "bgutil-provider"], capture_output=True)
         ensure_warp_alive()
-        # 0. Exact Cloud Shell proven yt-dlp command over WARP SOCKS5 (no extractor-args)
-        for att in range(3):
-            ensure_warp_alive()
+        # 0. Try Direct (no proxy) and WARP SOCKS5 with 90s timeout per attempt so we never hang 15m
+        for att, use_p in [(1, False), (2, True), (3, True)]:
+            if use_p:
+                ensure_warp_alive()
             cmd_fast = [
                 "yt-dlp",
-                "--proxy", "socks5://127.0.0.1:40020",
                 "-f", "136+140/298+140/137+140/bestvideo[height>=720][height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height>=720]/best",
                 "--merge-output-format", "mp4",
                 "--concurrent-fragments", "8",
-                "--socket-timeout", "20",
-                "--retries", "6",
-                "--fragment-retries", "6",
+                "--socket-timeout", "15",
+                "--retries", "3",
+                "--fragment-retries", "3",
                 "--no-part",
                 "--no-playlist",
                 "-o", out_tmpl,
                 u
             ]
+            if use_p:
+                cmd_fast[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
+            log(f"  [{cid}] Starting yt-dlp att={att} proxy={use_p}...")
+            push_diag()
             try:
-                r_fast = subprocess.run(cmd_fast, capture_output=True, text=True, timeout=900)
+                r_fast = subprocess.run(cmd_fast, capture_output=True, text=True, timeout=180)
             except subprocess.TimeoutExpired:
-                log(f"  [{cid}] Fast WARP yt-dlp attempt {att+1} timed out")
+                log(f"  [{cid}] yt-dlp att={att} proxy={use_p} timed out (180s)")
                 push_diag()
-                start_fresh_warp(att + 1)
+                if use_p:
+                    start_fresh_warp(att + 1)
                 continue
             dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
             if dl:
@@ -238,15 +243,16 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                 info = probe_video(fp)
                 if info and info["dur"] > 0:
                     sz = os.path.getsize(fp)
-                    log(f"  [{cid}] SUCCESS Fast WARP yt-dlp {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                    log(f"  [{cid}] SUCCESS yt-dlp att={att} proxy={use_p} {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
                     push_diag()
                     up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
                     return up_ok, info["dur"], sz, dl[0]
             else:
                 err_lines = [ln for ln in (r_fast.stderr or "").splitlines() if "ERROR:" in ln]
-                log(f"  [{cid}] Fast WARP yt-dlp attempt {att+1} err: {err_lines[-2:]}")
+                log(f"  [{cid}] yt-dlp att={att} proxy={use_p} err: {err_lines[-2:]}")
                 push_diag()
-                start_fresh_warp(att + 1)
+                if use_p:
+                    start_fresh_warp(att + 1)
 
         api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
         ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
