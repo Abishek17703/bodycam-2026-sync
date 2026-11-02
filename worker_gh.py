@@ -185,7 +185,14 @@ def sa_upload_file_to_folder(fp, fn, vfolder_id):
                 resp = urllib.request.urlopen(req_patch, timeout=30)
                 upload_url = resp.headers.get("Location")
                 if upload_url:
-                    r_up = subprocess.run(["curl", "-s", "-g", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--data-binary", f"@{fp}", upload_url], capture_output=True, text=True)
+                    up_tmp = f"/tmp/up_payload_{SHARD_INDEX}.mp4"
+                    try:
+                        os.link(fp, up_tmp)
+                    except Exception:
+                        shutil.copyfile(fp, up_tmp)
+                    r_up = subprocess.run(["curl", "-s", "-g", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "-T", up_tmp, upload_url], capture_output=True, text=True)
+                    try: os.remove(up_tmp)
+                    except Exception: pass
                     if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
                         return True
                 delete_drive_file_id(file_id)
