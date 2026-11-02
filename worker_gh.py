@@ -184,11 +184,11 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                 if "vimeo.com" in u:
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
-                    clients = ["ios,mweb", "android_vr,ios", "tv,web", "mweb,web"]
+                    clients = ["ios,web", "mweb,web", "tv,web", "web,default"]
                     extra_args = [
                         "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
                     ]
-                    if attempt in (0, 1, 2):
+                    if attempt % 2 == 1:
                         extra_args = ["--proxy", "socks5://127.0.0.1:40020"] + extra_args
                     cmd[1:1] = extra_args
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
