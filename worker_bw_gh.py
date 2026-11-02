@@ -204,6 +204,8 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
     os.makedirs(tmp_dir, exist_ok=True)
     out_tmpl = os.path.join(tmp_dir, f"%(title).90B [{vid}].%(ext)s")
     try:
+        subprocess.run(["pip", "uninstall", "-y", "bgutil-ytdlp-pot-provider"], capture_output=True)
+        subprocess.run(["sudo", "docker", "rm", "-f", "bgutil-provider"], capture_output=True)
         ensure_warp_alive()
         # 0. Exact Cloud Shell proven yt-dlp command over WARP SOCKS5 (no extractor-args)
         for att in range(3):
