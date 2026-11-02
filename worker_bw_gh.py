@@ -97,12 +97,42 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
         api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
         ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
 
-        env_noproxy = os.environ.copy()
-        env_noproxy["NO_PROXY"] = "127.0.0.1,localhost"
-        env_noproxy["no_proxy"] = "127.0.0.1,localhost"
+        for rot in range(1, 8):
+            # Step A: Try DIRECT (no proxy) with bgutil PO-Token server first!
+            # When --proxy is NOT passed, yt-dlp reaches 127.0.0.1:4416 immediately with zero deadlock.
+            for cl in ["mweb,web", "ios,web", "tv,web", "web,default"]:
+                log(f"  [{cid}] rot={rot} Trying DIRECT yt-dlp({cl}) + bgutil...")
+                push_diag()
+                cmd = [
+                    "yt-dlp",
+                    "--extractor-args", f"youtube:player_client={cl};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416",
+                    "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140/best",
+                    "--merge-output-format", "mp4", "--concurrent-fragments", "16",
+                    "--socket-timeout", "15", "--retries", "4", "--fragment-retries", "4", "--no-part", "--no-playlist", "--no-mtime",
+                    "-o", out_tmpl, u
+                ]
+                try:
+                    r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=360)
+                except subprocess.TimeoutExpired:
+                    log(f"  [{cid}] DIRECT yt-dlp({cl}) timed out after 360s")
+                    push_diag()
+                    continue
+                dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
+                if dl:
+                    fp = os.path.join(tmp_dir, dl[0])
+                    info = probe_video(fp)
+                    if info and info["dur"] > 0:
+                        sz = os.path.getsize(fp)
+                        log(f"  [{cid}] SUCCESS DIRECT yt-dlp({cl}) {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                        push_diag()
+                        up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                        return up_ok, info["dur"], sz, dl[0]
+                else:
+                    err_lines = [ln for ln in (r_yt.stderr or "").splitlines() if "ERROR:" in ln or "WARNING:" in ln]
+                    log(f"  [{cid}] DIRECT yt-dlp({cl}) err: {err_lines[-2:]}")
+                    push_diag()
 
-        # Rotate WARP using /tmp/wgcf and /tmp/wireproxy until we get a clean WARP IP
-        for rot in range(1, 10):
+            # Step B: Try WARP proxy + InnerTube IOS HLS manifest (or curl -L with -r 0-9437183)
             ensure_warp_alive()
             r_p = subprocess.run([
                 "curl", "-sL", "--max-time", "15", "-x", "socks5h://127.0.0.1:40020",
@@ -122,46 +152,29 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                 try: d = json.loads(r_p.stdout)
                 except Exception: d = {}
             play_status = d.get("playabilityStatus", {}).get("status")
-            log(f"  [{cid}] rot={rot} IOS status={play_status}")
+            hls_url = d.get("streamingData", {}).get("hlsManifestUrl")
+            log(f"  [{cid}] rot={rot} WARP IOS status={play_status} hls={bool(hls_url)}")
             push_diag()
-
-            if play_status == "OK":
-                # Now run the exact proven yt-dlp command that succeeded on BW_2026_24!
-                for cl in ["web,default", "mweb,web", "tv,web", "ios,web"]:
-                    ensure_warp_alive()
-                    log(f"  [{cid}] Starting yt-dlp({cl}) over WARP + bgutil...")
-                    push_diag()
-                    cmd = [
-                        "yt-dlp",
-                        "--proxy", "socks5://127.0.0.1:40020",
-                        "--extractor-args", f"youtube:player_client={cl};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416",
-                        "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140/best",
-                        "--merge-output-format", "mp4", "--concurrent-fragments", "16",
-                        "--socket-timeout", "20", "--retries", "6", "--fragment-retries", "6", "--no-part", "--no-playlist", "--no-mtime",
-                        "-o", out_tmpl, u
-                    ]
-                    try:
-                        r_yt = subprocess.run(cmd, env=env_noproxy, capture_output=True, text=True, timeout=540)
-                    except subprocess.TimeoutExpired:
-                        log(f"  [{cid}] yt-dlp({cl}) timed out after 540s")
+            if play_status == "OK" and hls_url:
+                raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
+                safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
+                final_fn = f"{safe_title} [{vid}].mp4"
+                merged_fp = os.path.join(tmp_dir, final_fn)
+                r_hls = subprocess.run([
+                    "yt-dlp", "--proxy", "socks5://127.0.0.1:40020",
+                    "-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4",
+                    "--concurrent-fragments", "16", "--user-agent", ios_ua, "--no-part", "-o", merged_fp, hls_url
+                ], capture_output=True, text=True, timeout=600)
+                if os.path.exists(merged_fp) and os.path.getsize(merged_fp) > 50000:
+                    info = probe_video(merged_fp)
+                    if info and info["dur"] > 0:
+                        sz = os.path.getsize(merged_fp)
+                        log(f"  [{cid}] SUCCESS WARP HLS {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
                         push_diag()
-                        continue
-                    dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
-                    if dl:
-                        fp = os.path.join(tmp_dir, dl[0])
-                        info = probe_video(fp)
-                        if info and info["dur"] > 0:
-                            sz = os.path.getsize(fp)
-                            log(f"  [{cid}] SUCCESS yt-dlp({cl}) {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
-                            push_diag()
-                            up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
-                            return up_ok, info["dur"], sz, dl[0]
-                    else:
-                        err_lines = [ln for ln in (r_yt.stderr or "").splitlines() if "ERROR:" in ln or "WARNING:" in ln]
-                        log(f"  [{cid}] yt-dlp({cl}) err: {err_lines[-2:]}")
-                        push_diag()
+                        up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                        return up_ok, info["dur"], sz, final_fn
 
-            log(f"  [{cid}] Rotating WARP IP via /tmp/wgcf (attempt {rot+1})...")
+            log(f"  [{cid}] Rotating WARP IP (attempt {rot+1})...")
             push_diag()
             start_fresh_warp(rot + 10)
             time.sleep(1)
