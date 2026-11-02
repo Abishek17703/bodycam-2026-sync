@@ -40,25 +40,27 @@ def get_drive_token():
 def push_diag():
     if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
         try:
-            import urllib.request
+            import urllib.request, urllib.parse
             tok = get_drive_token()
-            if not tok:
+            sa_tok = get_sa_token(0)
+            if not tok or not sa_tok:
                 return
-            boundary = "===DIAG_BOUND==="
-            meta = json.dumps({"name": f"_diag_s{SHARD_INDEX}.txt", "parents": ["1J9jdt8QIYa5x7ykOx8tGfPyf1FFiZRyg"]}).encode("utf-8")
-            body = (
-                f"--{boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n".encode("utf-8") +
-                meta +
-                f"\r\n--{boundary}\r\nContent-Type: text/plain\r\n\r\n".encode("utf-8") +
-                open(DIAG_FILE, "rb").read() +
-                f"\r\n--{boundary}--\r\n".encode("utf-8")
+            dname = f"_diag_s{SHARD_INDEX}.txt"
+            q = urllib.parse.quote(f"'1J9jdt8QIYa5x7ykOx8tGfPyf1FFiZRyg' in parents and name = '{dname}' and trashed = false")
+            req_ls = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id)", headers={"Authorization": f"Bearer {tok}"})
+            files = json.loads(urllib.request.urlopen(req_ls, timeout=15).read().decode("utf-8")).get("files", [])
+            if files:
+                fid = files[0]["id"]
+            else:
+                meta = json.dumps({"name": dname, "parents": ["1J9jdt8QIYa5x7ykOx8tGfPyf1FFiZRyg"], "mimeType": "text/plain"}).encode("utf-8")
+                req_c = urllib.request.Request("https://www.googleapis.com/drive/v3/files?fields=id", data=meta, method="POST", headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
+                fid = json.loads(urllib.request.urlopen(req_c, timeout=15).read().decode("utf-8"))["id"]
+            req_u = urllib.request.Request(
+                f"https://www.googleapis.com/upload/drive/v3/files/{fid}?uploadType=media",
+                data=open(DIAG_FILE, "rb").read(), method="PATCH",
+                headers={"Authorization": f"Bearer {sa_tok}", "Content-Type": "text/plain"}
             )
-            req = urllib.request.Request(
-                "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
-                data=body, method="POST",
-                headers={"Authorization": f"Bearer {tok}", "Content-Type": f"multipart/related; boundary={boundary}"}
-            )
-            urllib.request.urlopen(req, timeout=20).read()
+            urllib.request.urlopen(req_u, timeout=20).read()
         except Exception:
             pass
 
@@ -117,6 +119,24 @@ def probe_video(fp):
     except Exception:
         return None
 
+def get_sa_token(idx=0):
+    try:
+        from google.oauth2 import service_account
+        import google.auth.transport.requests
+        pool_path = os.path.expanduser("~/.config/rclone/sa_pool.json")
+        if os.path.exists(pool_path):
+            pool = json.load(open(pool_path, encoding="utf-8"))
+            if pool:
+                info = pool[(SHARD_INDEX + idx) % len(pool)]
+                creds = service_account.Credentials.from_service_account_info(
+                    info, scopes=["https://www.googleapis.com/auth/drive"]
+                )
+                creds.refresh(google.auth.transport.requests.Request())
+                return creds.token
+    except Exception as e:
+        log(f"  [SA TOKEN ERR] {e}")
+    return None
+
 def rclone_upload_dir(local_dir, vfolder_id):
     tok = get_drive_token()
     mp4s = [x for x in os.listdir(local_dir) if x.endswith(".mp4")]
@@ -124,29 +144,45 @@ def rclone_upload_dir(local_dir, vfolder_id):
         return False
     fp = os.path.join(local_dir, mp4s[0])
     fn = mp4s[0]
+    fsize = os.path.getsize(fp)
     if tok:
-        for attempt in range(4):
+        for attempt in range(5):
             try:
                 import urllib.request
-                meta = json.dumps({"name": fn, "parents": [vfolder_id]}).encode("utf-8")
-                req_init = urllib.request.Request(
-                    "https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable",
-                    data=meta, method="POST",
-                    headers={
-                        "Authorization": f"Bearer {tok}",
-                        "Content-Type": "application/json; charset=UTF-8",
-                        "X-Upload-Content-Type": "video/mp4",
-                        "X-Upload-Content-Length": str(os.path.getsize(fp))
-                    }
-                )
-                resp = urllib.request.urlopen(req_init, timeout=30)
-                upload_url = resp.headers.get("Location")
-                if upload_url:
-                    r_up = subprocess.run(["curl", "-s", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--upload-file", fp, upload_url], capture_output=True, text=True)
-                    if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
-                        return True
+                sa_tok = get_sa_token(attempt)
+                if sa_tok:
+                    # Step 1: Create 0-byte placeholder owned by user (19 TB free quota, zero upload rate limit)
+                    meta = json.dumps({"name": fn, "parents": [vfolder_id], "mimeType": "video/mp4"}).encode("utf-8")
+                    req_create = urllib.request.Request(
+                        "https://www.googleapis.com/drive/v3/files?fields=id",
+                        data=meta, method="POST",
+                        headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json; charset=UTF-8"}
+                    )
+                    file_id = json.loads(urllib.request.urlopen(req_create, timeout=30).read().decode("utf-8"))["id"]
+                    # Step 2: Initiate PATCH resumable upload via Service Account (bypasses userRateLimitExceeded!)
+                    req_patch = urllib.request.Request(
+                        f"https://www.googleapis.com/upload/drive/v3/files/{file_id}?uploadType=resumable",
+                        data=b"{}", method="PATCH",
+                        headers={
+                            "Authorization": f"Bearer {sa_tok}",
+                            "Content-Type": "application/json; charset=UTF-8",
+                            "X-Upload-Content-Type": "video/mp4",
+                            "X-Upload-Content-Length": str(fsize)
+                        }
+                    )
+                    resp = urllib.request.urlopen(req_patch, timeout=30)
+                    upload_url = resp.headers.get("Location")
+                    if upload_url:
+                        r_up = subprocess.run(["curl", "-s", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--upload-file", fp, upload_url], capture_output=True, text=True)
+                        if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
+                            return True
+                    # Clean up failed placeholder
+                    try:
+                        urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/drive/v3/files/{file_id}", headers={"Authorization": f"Bearer {tok}"}, method="DELETE"), timeout=15)
+                    except Exception:
+                        pass
             except Exception as e:
-                log(f"  [DRIVE API UPLOAD RETRY {attempt+1}] {vfolder_id}: {e}")
+                log(f"  [DRIVE SA UPLOAD RETRY {attempt+1}] {vfolder_id}: {e}")
                 push_diag()
                 time.sleep(3)
     return False
