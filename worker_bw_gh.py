@@ -19,7 +19,7 @@ def log(msg):
 
 def push_diag():
     if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
-        subprocess.run(["rclone", "copyto", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"], capture_output=True)
+        subprocess.run(["rclone", "copyto", "--ignore-times", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"], capture_output=True)
 
 def is_warp_open():
     try:
@@ -124,7 +124,7 @@ def ranged_download_stream(url, content_len, out_fp, ua):
         push_diag()
         use_query_range = False
 
-    chunk_sz = 9 * 1024 * 1024
+    chunk_sz = 2 * 1024 * 1024
     ranges = []
     pos = 0
     idx = 0
@@ -146,18 +146,23 @@ def ranged_download_stream(url, content_len, out_fp, ua):
         for att in range(6):
             ensure_warp_alive()
             if use_query_range:
-                cmd = ["curl", "-sL", "--max-time", "90", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", pfp, f"{url}{sep}range={s}-{e}"]
+                cmd = ["curl", "-sL", "--max-time", "45", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", pfp, f"{url}{sep}range={s}-{e}"]
             else:
-                cmd = ["curl", "-sL", "--max-time", "90", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-r", f"{s}-{e}", "-o", pfp, url]
+                cmd = ["curl", "-sL", "--max-time", "45", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-r", f"{s}-{e}", "-o", pfp, url]
             subprocess.run(cmd, capture_output=True)
             if os.path.exists(pfp) and os.path.getsize(pfp) == expected:
                 return True
             time.sleep(1)
         return False
 
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    log(f"  [Ranged-DL] Starting {len(ranges)} chunks ({total/1e6:.1f} MB total)...")
+    push_diag()
+    with ThreadPoolExecutor(max_workers=2) as ex:
         results = list(ex.map(fetch_part, ranges))
 
+    ok_cnt = sum(1 for x in results if x)
+    log(f"  [Ranged-DL] Completed {ok_cnt}/{len(ranges)} chunks.")
+    push_diag()
     if not all(results):
         shutil.rmtree(part_dir, ignore_errors=True)
         return False
@@ -225,6 +230,34 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
             push_diag()
 
             if play_status == "OK":
+                hls_url = sdata.get("hlsManifestUrl")
+                raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
+                safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
+                final_fn = f"{safe_title} [{vid}].mp4"
+                merged_fp = os.path.join(tmp_dir, final_fn)
+                if hls_url:
+                    log(f"  [{cid}] Trying IOS hlsManifestUrl via yt-dlp...")
+                    push_diag()
+                    try:
+                        subprocess.run([
+                            "yt-dlp", "--proxy", "socks5://127.0.0.1:40020",
+                            "--user-agent", ios_ua,
+                            "-f", "bestvideo[height>=720][height<=1920]+bestaudio/best[height>=720][height<=1920]/best",
+                            "--merge-output-format", "mp4", "--concurrent-fragments", "4",
+                            "--socket-timeout", "20", "--retries", "6", "--fragment-retries", "6", "--no-part",
+                            "-o", merged_fp, hls_url
+                        ], capture_output=True, text=True, timeout=600)
+                    except Exception:
+                        pass
+                    if os.path.exists(merged_fp):
+                        info = probe_video(merged_fp)
+                        if info and info["dur"] > 0:
+                            sz = os.path.getsize(merged_fp)
+                            log(f"  [{cid}] SUCCESS IOS-HLS {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                            push_diag()
+                            up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                            return up_ok, info["dur"], sz, final_fn
+
                 # 1. Try Ranged-DL with curl -L (follows 302 redirect!)
                 if v_with_url and a_with_url:
                     raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
