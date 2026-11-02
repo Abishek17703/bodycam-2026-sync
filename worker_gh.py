@@ -211,8 +211,8 @@ def download_and_upload_one_url(u, idx, vfolder_id, cid):
     try:
         subprocess.run(["pip", "uninstall", "-y", "bgutil-ytdlp-pot-provider"], capture_output=True)
         ensure_warp_alive()
-        # 1. Fast yt-dlp via WARP SOCKS5 (and direct fallback) requiring >=720p HD
-        for att, use_p in [(1, True), (2, False), (3, True), (4, True)]:
+        # 1. Fast yt-dlp via WARP SOCKS5 (rotating fresh WARP IP on every retry) requiring >=720p HD
+        for att, use_p in [(1, True), (2, True), (3, True), (4, True), (5, True), (6, True), (7, True), (8, True)]:
             if use_p:
                 ensure_warp_alive()
             cmd_fast = [
