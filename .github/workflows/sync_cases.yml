@@ -29,16 +29,17 @@ jobs:
         env:
           SHARD_INDEX: ${{ matrix.shard }}
           SHARD_TOTAL: "5"
+          RCLONE_CONFIG_READ_ONLY: "true"
         run: |
           mkdir -p ~/.config/rclone
-          # Start background loop that pulls fresh rclone.conf from Drive staging every 10 minutes
+          # Start background loop that pulls fresh rclone.conf from Drive staging every 10 minutes atomically
           (
             while true; do
               sleep 600
-              rclone copyto gdrive2026_staging:rclone_fresh.conf ~/.config/rclone/rclone.conf 2>/dev/null || true
+              rclone --config-read-only copyto gdrive2026_staging:rclone_fresh.conf /tmp/rclone_fresh.tmp 2>/dev/null && mv -f /tmp/rclone_fresh.tmp ~/.config/rclone/rclone.conf || true
             done
           ) &
           # Initial bootstrap of rclone.conf from secret
           echo "${{ secrets.RCLONE_CONF_B64 }}" | base64 -d > ~/.config/rclone/rclone.conf
-          rclone copyto gdrive2026_staging:rclone_fresh.conf ~/.config/rclone/rclone.conf 2>/dev/null || true
+          rclone --config-read-only copyto gdrive2026_staging:rclone_fresh.conf /tmp/rclone_fresh.tmp 2>/dev/null && mv -f /tmp/rclone_fresh.tmp ~/.config/rclone/rclone.conf || true
           python3 -u worker_gh.py
