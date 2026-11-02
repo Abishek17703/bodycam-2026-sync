@@ -11,7 +11,7 @@ os.makedirs(STAGING_ROOT, exist_ok=True)
 PAYLOAD_FILE = "pure_171_cases_payload.json"
 
 log_lock = threading.Lock()
-disk_sem = threading.Semaphore(2)
+disk_sem = threading.Semaphore(4)
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -39,16 +39,16 @@ def probe_video(fp):
 
 def rclone_upload_dir(local_dir, remote_subpath):
     dest = f"gdrive2026_cases:{remote_subpath}"
-    for attempt in range(3):
+    for attempt in range(5):
         r = subprocess.run([
             "rclone", "copy", local_dir, dest,
-            "--ignore-times", "--transfers", "8", "--checkers", "8", "--drive-chunk-size", "128M", "--fast-list"
+            "--ignore-times", "--transfers", "4", "--checkers", "4", "--drive-chunk-size", "128M", "--fast-list", "--tpslimit", "6"
         ], capture_output=True, text=True)
         if r.returncode == 0:
             return True
         else:
             log(f"  [RCLONE RETRY {attempt+1}] {dest}: {r.stderr.strip()[:160]}")
-            time.sleep(2)
+            time.sleep(3 * (attempt + 1))
     return False
 
 def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
@@ -296,7 +296,7 @@ def main():
     cases.sort(key=lambda c: (0 if any("sandiego.gov" in u or "dropbox.com" in u or "archive.org" in u for u in c["video_urls"]) else (2 if any("vimeo.com" in u for u in c["video_urls"]) else 1), c["case_id"]))
     my_cases = [c for idx, c in enumerate(cases) if idx % SHARD_TOTAL == SHARD_INDEX]
     log(f"Starting Clean GitHub Actions Worker Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)} assigned cases)...")
-    with ThreadPoolExecutor(max_workers=2) as ex:
+    with ThreadPoolExecutor(max_workers=4) as ex:
         futs = [ex.submit(process_case, c) for c in my_cases]
         for fut in as_completed(futs):
             try:

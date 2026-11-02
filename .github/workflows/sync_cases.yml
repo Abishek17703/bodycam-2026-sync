@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
       - name: Run Shard Worker with Live Drive Token Refresh
         env:
           SHARD_INDEX: ${{ matrix.shard }}
-          SHARD_TOTAL: "5"
+          SHARD_TOTAL: "20"
         run: |
           mkdir -p ~/.config/rclone
           # Start background loop that pulls fresh rclone.conf from Drive staging every 10 minutes atomically
