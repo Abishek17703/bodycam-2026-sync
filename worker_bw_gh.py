@@ -21,7 +21,7 @@ def push_diag():
     if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
         try:
             subprocess.Popen(
-                ["rclone", "copyto", "--ignore-times", "--contimeout", "10s", "--timeout", "20s", "--retries", "1", DIAG_FILE, f"gdrive2026_cases,root_folder_id=1J9jdt8QIYa5x7ykOx8tGfPyf1FFiZRyg:_diag_s{SHARD_INDEX}.txt"],
+                ["rclone", "copyto", "--ignore-times", "--contimeout", "10s", "--timeout", "20s", "--retries", "1", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"],
                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
             )
         except Exception:
@@ -83,16 +83,17 @@ def probe_video(fp):
         return None
 
 def rclone_upload_dir(local_dir, vfolder_id):
-    dest = f"gdrive2026_cases,root_folder_id={vfolder_id}:"
+    dest = f"gdrive_bw2026:--drive-root-folder-id"
     for attempt in range(5):
         r = subprocess.run([
-            "rclone", "copy", local_dir, dest,
+            "rclone", "copy", local_dir, "gdrive_bw2026:",
+            "--drive-root-folder-id", vfolder_id,
             "--ignore-times", "--transfers", "4", "--checkers", "4", "--drive-chunk-size", "128M", "--fast-list", "--tpslimit", "6"
         ], capture_output=True, text=True, timeout=600)
         if r.returncode == 0:
             return True
         else:
-            log(f"  [RCLONE RETRY {attempt+1}] {dest}: {r.stderr.strip()[:200]}")
+            log(f"  [RCLONE RETRY {attempt+1}] {vfolder_id}: {r.stderr.strip()[:200]}")
             push_diag()
             time.sleep(3 * (attempt + 1))
     return False
@@ -388,7 +389,7 @@ def process_case(case):
     cid = case["case_id"]
     vfolder_id = case["drive_videos_folder_id"]
     try:
-        r_ls = subprocess.run(["rclone", "lsf", "--contimeout", "10s", "--timeout", "20s", "--retries", "1", f"gdrive2026_cases,root_folder_id={vfolder_id}:"], capture_output=True, text=True, timeout=30)
+        r_ls = subprocess.run(["rclone", "lsf", "--drive-root-folder-id", vfolder_id, "--contimeout", "10s", "--timeout", "20s", "--retries", "1", "gdrive_bw2026:"], capture_output=True, text=True, timeout=30)
         existing = [x.strip() for x in r_ls.stdout.splitlines() if x.strip().endswith(".mp4")]
     except Exception:
         existing = []
