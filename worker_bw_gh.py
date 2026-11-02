@@ -69,95 +69,113 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
     os.makedirs(tmp_dir, exist_ok=True)
     out_tmpl = os.path.join(tmp_dir, f"%(title).90B [{vid}].%(ext)s")
     try:
-        # 1. Fast Direct InnerTube iOS / ANDROID_VR (both direct and via WARP proxy)
-        for use_proxy in (False, True):
+        # 1. Primary: InnerTube IOS over WARP SOCKS5 (which returns status=OK + hlsManifestUrl + adaptiveFormats)
+        for use_proxy in (True, False):
             try:
                 api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
                 ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
-                for cname, cver, ua, dev_extra in [
-                    ("IOS", "20.03.02", ios_ua, {"deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"}),
-                    ("ANDROID_VR", "1.60.19", "Mozilla/5.0", {})
-                ]:
-                    client_obj = {"clientName": cname, "clientVersion": cver, "hl": "en", "gl": "US"}
-                    client_obj.update(dev_extra)
-                    payload = json.dumps({"videoId": vid, "context": {"client": client_obj}, "racyCheckOk": True, "contentCheckOk": True})
-                    curl_cmd = ["curl", "-sL", "--max-time", "15", "-H", "Content-Type: application/json", "-A", ua, "-d", payload, api]
+                client_obj = {
+                    "clientName": "IOS", "clientVersion": "20.03.02", "hl": "en", "gl": "US",
+                    "deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"
+                }
+                payload = json.dumps({"videoId": vid, "context": {"client": client_obj}, "racyCheckOk": True, "contentCheckOk": True})
+                curl_cmd = ["curl", "-sL", "--max-time", "15", "-H", "Content-Type: application/json", "-A", ios_ua, "-d", payload, api]
+                if use_proxy:
+                    curl_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
+                r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
+                if r_p.returncode != 0 or not r_p.stdout.strip():
+                    continue
+                d = json.loads(r_p.stdout)
+                play_status = d.get("playabilityStatus", {}).get("status")
+                sdata = d.get("streamingData", {})
+                fmts = sdata.get("adaptiveFormats", [])
+                hls_url = sdata.get("hlsManifestUrl")
+                raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
+                safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
+                final_fn = f"{safe_title} [{vid}].mp4"
+                merged_fp = os.path.join(tmp_dir, final_fn)
+                log(f"  [{cid}] InnerTube IOS proxy={use_proxy} status={play_status} fmts={len(fmts)} hls={bool(hls_url)}")
+                push_diag()
+
+                # 1a. Try adaptiveFormats (any video + audio with url)
+                v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "")]
+                a_fmts = [f for f in fmts if "url" in f and "audio" in f.get("mimeType", "")]
+                if v_fmts and a_fmts:
+                    v_fmts.sort(key=lambda f: (1 if "video/mp4" in f.get("mimeType", "") else 0, max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)), int(f.get("bitrate", 0) or 0)), reverse=True)
+                    a_fmts.sort(key=lambda f: (1 if "audio/mp4" in f.get("mimeType", "") else 0, int(f.get("bitrate", 0) or 0)), reverse=True)
+                    best_v = v_fmts[0]
+                    best_a = a_fmts[0]
+                    v_ext = "mp4" if "mp4" in best_v.get("mimeType", "") else "webm"
+                    a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
+                    v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
+                    a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
+                    dl_v_cmd = ["curl", "-sL", "--retry", "5", "-A", ios_ua, "-o", v_tmp, best_v["url"]]
+                    dl_a_cmd = ["curl", "-sL", "--retry", "5", "-A", ios_ua, "-o", a_tmp, best_a["url"]]
                     if use_proxy:
-                        curl_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
-                    r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
-                    if r_p.returncode != 0 or not r_p.stdout.strip():
-                        log(f"  [{cid}] InnerTube {cname} proxy={use_proxy} empty/rc={r_p.returncode}")
-                        continue
-                    d = json.loads(r_p.stdout)
-                    play_status = d.get("playabilityStatus", {}).get("status")
-                    fmts = d.get("streamingData", {}).get("adaptiveFormats", [])
-                    log(f"  [{cid}] InnerTube {cname} proxy={use_proxy} status={play_status} fmts={len(fmts)}")
+                        dl_v_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
+                        dl_a_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
+                    subprocess.run(dl_v_cmd, timeout=1800)
+                    subprocess.run(dl_a_cmd, timeout=900)
+                    v_sz = os.path.getsize(v_tmp) if os.path.exists(v_tmp) else 0
+                    a_sz = os.path.getsize(a_tmp) if os.path.exists(a_tmp) else 0
+                    log(f"  [{cid}] InnerTube adaptive dl v_sz={v_sz} a_sz={a_sz}")
                     push_diag()
-                    v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)) >= 1024 and int(f.get("height", 0) or 0) <= 1080]
-                    if not v_fmts:
-                        v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and (int(f.get("height", 0) or 0) >= 720 or int(f.get("width", 0) or 0) >= 720)]
-                    a_fmts = [f for f in fmts if "url" in f and "audio/mp4" in f.get("mimeType", "")]
-                    if not a_fmts:
-                        a_fmts = [f for f in fmts if "url" in f and "audio" in f.get("mimeType", "")]
-                    if v_fmts and a_fmts:
-                        v_fmts.sort(key=lambda f: (1 if "video/mp4" in f.get("mimeType", "") else 0, int(f.get("height", 0) or 0), int(f.get("bitrate", 0) or 0)), reverse=True)
-                        a_fmts.sort(key=lambda f: int(f.get("bitrate", 0) or 0), reverse=True)
-                        best_v = v_fmts[0]
-                        best_a = a_fmts[0]
-                        raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
-                        safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
-                        final_fn = f"{safe_title} [{vid}].mp4"
-                        v_ext = "mp4" if "mp4" in best_v.get("mimeType", "") else "webm"
-                        a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
-                        v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
-                        a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
-                        dl_v_cmd = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"v.{v_ext}", best_v["url"]]
-                        dl_a_cmd = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"a.{a_ext}", best_a["url"]]
-                        if use_proxy:
-                            dl_v_cmd = ["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", v_tmp, best_v["url"]]
-                            dl_a_cmd = ["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", a_tmp, best_a["url"]]
-                        subprocess.run(dl_v_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
-                        subprocess.run(dl_a_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=900)
-                        if os.path.exists(v_tmp) and os.path.exists(a_tmp) and os.path.getsize(v_tmp) > 50000:
-                            merged_fp = os.path.join(tmp_dir, final_fn)
-                            acodec = "copy" if a_ext == "m4a" else "aac"
-                            subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", v_tmp, "-i", a_tmp, "-c:v", "copy", "-c:a", acodec, merged_fp], timeout=900)
-                            try:
-                                os.remove(v_tmp)
-                                os.remove(a_tmp)
-                            except Exception:
-                                pass
-                            if os.path.exists(merged_fp):
-                                info = probe_video(merged_fp)
-                                if info and info["dur"] > 0:
-                                    sz = os.path.getsize(merged_fp)
-                                    log(f"  [{cid}] Downloaded Direct-InnerTube HD {info['w']}x{info['h']} {final_fn} ({sz/1e6:.1f} MB) -> uploading...")
-                                    push_diag()
-                                    up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
-                                    return up_ok, info["dur"], sz, final_fn
+                    if v_sz > 50000 and a_sz > 10000:
+                        acodec = "copy" if a_ext == "m4a" else "aac"
+                        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", v_tmp, "-i", a_tmp, "-c:v", "copy", "-c:a", acodec, merged_fp], timeout=900)
                         for t in (v_tmp, a_tmp):
-                            try:
-                                if os.path.exists(t): os.remove(t)
+                            try: os.remove(t)
                             except Exception: pass
+                        if os.path.exists(merged_fp):
+                            info = probe_video(merged_fp)
+                            if info and info["dur"] > 0:
+                                sz = os.path.getsize(merged_fp)
+                                log(f"  [{cid}] Downloaded InnerTube-Adaptive {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                                push_diag()
+                                up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                                return up_ok, info["dur"], sz, final_fn
+                    for t in (v_tmp, a_tmp):
+                        try:
+                            if os.path.exists(t): os.remove(t)
+                        except Exception: pass
+
+                # 1b. Try hlsManifestUrl via yt-dlp over same proxy
+                if hls_url:
+                    hls_cmd = [
+                        "yt-dlp", "-f", "bestvideo+bestaudio/best",
+                        "--merge-output-format", "mp4", "--concurrent-fragments", "16",
+                        "--user-agent", ios_ua, "--no-part", "-o", merged_fp, hls_url
+                    ]
+                    if use_proxy:
+                        hls_cmd[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
+                    r_hls = subprocess.run(hls_cmd, capture_output=True, text=True, timeout=2400)
+                    if os.path.exists(merged_fp) and os.path.getsize(merged_fp) > 50000:
+                        info = probe_video(merged_fp)
+                        if info and info["dur"] > 0:
+                            sz = os.path.getsize(merged_fp)
+                            log(f"  [{cid}] Downloaded InnerTube-HLS {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                            push_diag()
+                            up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                            return up_ok, info["dur"], sz, final_fn
+                    else:
+                        log(f"  [{cid}] InnerTube-HLS err: {(r_hls.stderr or '').strip().splitlines()[-2:]}")
+                        push_diag()
             except Exception as e_in:
                 log(f"  [{cid}] InnerTube attempt err: {e_in}")
+                push_diag()
 
-        # 2. Fallback: yt-dlp with bgutil PO-Token server
-        for attempt in range(4):
+        # 2. Fallback: yt-dlp with pure non-SABR clients over WARP proxy
+        clients = ["ios", "mweb", "tv", "android_vr", "ios,web"]
+        for attempt, cl in enumerate(clients):
             cmd = [
                 "yt-dlp",
-                "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140/best",
+                "--proxy", "socks5://127.0.0.1:40020",
+                "--extractor-args", f"youtube:player_client={cl};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416",
+                "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best",
                 "--merge-output-format", "mp4", "--concurrent-fragments", "16",
                 "--socket-timeout", "20", "--retries", "6", "--fragment-retries", "6", "--no-part", "--no-playlist", "--no-mtime",
                 "-o", out_tmpl, u
             ]
-            clients = ["ios,web", "mweb,web", "tv,web", "web,default"]
-            extra_args = [
-                "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
-            ]
-            if attempt % 2 == 1:
-                extra_args = ["--proxy", "socks5://127.0.0.1:40020"] + extra_args
-            cmd[1:1] = extra_args
             r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
             dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
             if dl:
@@ -165,13 +183,13 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                 info = probe_video(fp)
                 if info and info["dur"] > 0:
                     sz = os.path.getsize(fp)
-                    log(f"  [{cid}] Downloaded {info['w']}x{info['h']} {dl[0]} ({sz/1e6:.1f} MB) -> uploading...")
+                    log(f"  [{cid}] Downloaded ({cl}) {info['w']}x{info['h']} {dl[0]} ({sz/1e6:.1f} MB) -> uploading...")
                     push_diag()
                     up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
                     return up_ok, info["dur"], sz, dl[0]
             else:
                 err_snip = (r_yt.stderr or "").strip().splitlines()[-2:]
-                log(f"  [{cid}] yt-dlp attempt {attempt+1} err: {err_snip}")
+                log(f"  [{cid}] yt-dlp ({cl}) err: {err_snip}")
                 push_diag()
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
