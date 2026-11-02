@@ -176,13 +176,19 @@ def rclone_upload_dir(local_dir, vfolder_id):
                         r_up = subprocess.run(["curl", "-s", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--upload-file", fp, upload_url], capture_output=True, text=True)
                         if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
                             return True
+                        else:
+                            log(f"  [SA PUT FAIL att={attempt+1}] rc={r_up.returncode} out={(r_up.stdout or '')[:200]} err={(r_up.stderr or '')[:200]}")
                     # Clean up failed placeholder
                     try:
                         urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/drive/v3/files/{file_id}", headers={"Authorization": f"Bearer {tok}"}, method="DELETE"), timeout=15)
                     except Exception:
                         pass
             except Exception as e:
-                log(f"  [DRIVE SA UPLOAD RETRY {attempt+1}] {vfolder_id}: {e}")
+                err_body = ""
+                if hasattr(e, "read"):
+                    try: err_body = e.read().decode("utf-8", errors="ignore")[:200]
+                    except Exception: pass
+                log(f"  [DRIVE SA UPLOAD RETRY {attempt+1}] {vfolder_id}: {e} {err_body}")
                 push_diag()
                 time.sleep(3)
     return False
