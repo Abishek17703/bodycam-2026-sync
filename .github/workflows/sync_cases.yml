@@ -20,6 +20,8 @@ jobs:
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
 
       - name: Install rclone, ffmpeg, yt-dlp, bgutil PO-Token server, and WARP SOCKS5 proxy
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg rclone aria2
@@ -27,8 +29,21 @@ jobs:
           sudo docker run --name bgutil-provider -d -p 4416:4416 --init brainicism/bgutil-ytdlp-pot-provider:latest || true
           curl -sL https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_amd64 -o /tmp/wgcf && chmod +x /tmp/wgcf
           curl -sL https://github.com/pufferffish/wireproxy/releases/download/v1.0.9/wireproxy_linux_amd64.tar.gz | tar -xz -C /tmp && chmod +x /tmp/wireproxy
-          mkdir -p /tmp/w0 && cd /tmp/w0 && /tmp/wgcf register --accept-tos && /tmp/wgcf generate && printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf && nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
-          sleep 3
+          sleep $(( (SHARD_INDEX * 3) + (RANDOM % 7) ))
+          for attempt in 1 2 3 4 5; do
+            pkill -9 wireproxy 2>/dev/null || true
+            rm -rf /tmp/w0 && mkdir -p /tmp/w0 && cd /tmp/w0
+            if /tmp/wgcf register --accept-tos && /tmp/wgcf generate; then
+              printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf
+              nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
+              sleep 4
+              if curl -sI --max-time 8 -x socks5h://127.0.0.1:40020 https://www.youtube.com >/dev/null 2>&1; then
+                echo "WARP SOCKS5 proxy verified working on attempt $attempt"
+                break
+              fi
+            fi
+            sleep $(( (attempt * 6) + (RANDOM % 10) ))
+          done
 
       - name: Run Shard Worker with Live Drive Token Refresh
         env:

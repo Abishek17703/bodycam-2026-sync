@@ -167,23 +167,25 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                     except Exception as e_in:
                         log(f"  [{cid}] InnerTube HD attempt err: {e_in}")
 
-            # 2. Fallback: yt-dlp with bgutil PO-Token server
+            # 2. Fallback: yt-dlp with bgutil PO-Token server (direct + WARP proxy)
             for attempt in range(4):
                 cmd = [
                     "yt-dlp",
                     "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140",
                     "--merge-output-format", "mp4", "--concurrent-fragments", "16",
-                    "--retries", "10", "--fragment-retries", "10", "--no-part", "--no-playlist", "--no-mtime",
+                    "--socket-timeout", "20", "--retries", "6", "--fragment-retries", "6", "--no-part", "--no-playlist", "--no-mtime",
                     "-o", out_tmpl, u
                 ]
                 if "vimeo.com" in u:
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
                     clients = ["ios,web", "mweb,web", "tv,web", "web,default"]
-                    cmd[1:1] = [
-                        "--proxy", "socks5://127.0.0.1:40020",
+                    extra_args = [
                         "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
                     ]
+                    if attempt % 2 == 1:
+                        extra_args = ["--proxy", "socks5://127.0.0.1:40020"] + extra_args
+                    cmd[1:1] = extra_args
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
                 dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                 if dl:
