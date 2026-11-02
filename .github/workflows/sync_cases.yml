@@ -15,11 +15,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install rclone, ffmpeg, yt-dlp, and WARP SOCKS5 proxy
+      - name: Install rclone, ffmpeg, yt-dlp, bgutil PO-Token server, and WARP SOCKS5 proxy
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg rclone
+          sudo apt-get install -y -qq ffmpeg rclone aria2
           pip install --upgrade yt-dlp bgutil-ytdlp-pot-provider
+          sudo docker run --name bgutil-provider -d -p 4416:4416 --init brainicism/bgutil-ytdlp-pot-provider:latest || true
           curl -sL https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_amd64 -o /tmp/wgcf && chmod +x /tmp/wgcf
           curl -sL https://github.com/pufferffish/wireproxy/releases/download/v1.0.9/wireproxy_linux_amd64.tar.gz | tar -xz -C /tmp && chmod +x /tmp/wireproxy
           mkdir -p /tmp/w0 && cd /tmp/w0 && /tmp/wgcf register --accept-tos && /tmp/wgcf generate && printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf && nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &

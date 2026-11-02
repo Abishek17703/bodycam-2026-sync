@@ -96,10 +96,10 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
         os.makedirs(tmp_dir, exist_ok=True)
         out_tmpl = os.path.join(tmp_dir, f"%(title).90B [{vid}].%(ext)s")
         try:
-            for attempt in range(4):
+            for attempt in range(6):
                 cmd = [
                     "yt-dlp",
-                    "-f", "bestvideo[height>=720][height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=1080]+bestaudio/best[height>=720]/136+140/18/best",
+                    "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140",
                     "--merge-output-format", "mp4", "--concurrent-fragments", "16",
                     "--retries", "10", "--fragment-retries", "10", "--no-part", "--no-playlist",
                     "-o", out_tmpl, u
@@ -107,23 +107,44 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                 if "vimeo.com" in u:
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
-                    clients = ["tv,web", "mweb,web", "android,web", "ios,web"]
-                    cmd[1:1] = ["--proxy", "socks5://127.0.0.1:40020", "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]}"]
+                    clients = [
+                        "android_vr,tv,web",
+                        "mweb,web",
+                        "tv,web",
+                        "web,default",
+                        "ios,web",
+                        "android,web"
+                    ]
+                    if attempt in (0, 3):
+                        # Direct runner IP with ANDROID_VR / WEB + bgutil PO-Token server
+                        cmd[1:1] = [
+                            "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
+                        ]
+                    else:
+                        # Via WARP SOCKS5 proxy + bgutil PO-Token server
+                        cmd[1:1] = [
+                            "--proxy", "socks5://127.0.0.1:40020",
+                            "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
+                        ]
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
                 dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                 if dl:
                     fp = os.path.join(tmp_dir, dl[0])
                     info = probe_video(fp)
-                    if info and info["dur"] > 0:
+                    if info and info["dur"] > 0 and (max(info["w"], info["h"]) >= 1024 or min(info["w"], info["h"]) >= 720):
                         sz = os.path.getsize(fp)
                         dst_fp = os.path.join(vids_dir, dl[0])
                         shutil.move(fp, dst_fp)
                         shutil.rmtree(tmp_dir, ignore_errors=True)
-                        log(f"  [{cid}] Downloaded {dl[0]} ({sz/1e6:.1f} MB, {info['dur']/60:.1f}m)")
+                        log(f"  [{cid}] Downloaded HD {info['w']}x{info['h']} {dl[0]} ({sz/1e6:.1f} MB, {info['dur']/60:.1f}m)")
                         up_ok = rclone_upload_dir(vids_dir, f"{rel_case_path}/Videos")
                         try: os.remove(dst_fp)
                         except Exception: pass
                         return up_ok, info["dur"], sz
+                    elif info:
+                        log(f"  [{cid}] Rejected low-res {info['w']}x{info['h']} on attempt {attempt+1}, retrying for >=720p...")
+                        try: os.remove(fp)
+                        except Exception: pass
                 else:
                     err_snip = (r_yt.stderr or "").strip().splitlines()[-1:]
                     log(f"  [{cid}] yt-dlp attempt {attempt+1} err: {err_snip}")
@@ -133,13 +154,31 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
     log(f"  [{cid}] FAILED URL: {u[:80]}")
     return False, 0.0, 0
 
+LOW_RES_VIDS = set()
+if os.path.exists("low_res_clips.json"):
+    try:
+        for item in json.load(open("low_res_clips.json", encoding="utf-8")):
+            m = re.search(r'\[([A-Za-z0-9_-]{11})\]\.mp4$', item.get("file_name", ""))
+            if m:
+                LOW_RES_VIDS.add(m.group(1))
+    except Exception:
+        pass
+
 def process_case(case):
     cid = case["case_id"]
     rel_case_path = f"{case['category']}/{case['folder']}"
     r_ls = subprocess.run(["rclone", "lsf", f"gdrive2026_cases:{rel_case_path}/Videos"], capture_output=True, text=True)
     existing_drive_files = [x.strip() for x in r_ls.stdout.splitlines() if x.strip().endswith(".mp4")]
-    if len(existing_drive_files) >= len(case["video_urls"]):
-        log(f"*** SKIPPING {cid} (Already 100% on Drive: {len(existing_drive_files)} clips) ***")
+
+    # Identify any 360p files in this case that need upgrading to 720p/1080p
+    needs_upgrade = []
+    for u in case["video_urls"]:
+        m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
+        if m_yt and m_yt.group(1) in LOW_RES_VIDS:
+            needs_upgrade.append(m_yt.group(1))
+
+    if len(existing_drive_files) >= len(case["video_urls"]) and not needs_upgrade:
+        log(f"*** SKIPPING {cid} (Already 100% >=720p on Drive: {len(existing_drive_files)} clips) ***")
         return
 
     case_dir = os.path.join(STAGING_ROOT, f"{cid}_stage")
@@ -169,10 +208,10 @@ def process_case(case):
     shutil.rmtree(docs_dir, ignore_errors=True)
     log(f"=== Started {cid}: {case['folder']} (Existing clips on Drive={len(existing_drive_files)}/{len(case['video_urls'])}) ===")
 
-    v_cnt = len(existing_drive_files)
+    v_cnt = len(existing_drive_files) - len(needs_upgrade)
     for j, u in enumerate(case["video_urls"]):
         m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
-        if m_yt and any(f"[{m_yt.group(1)}]" in ef for ef in existing_drive_files):
+        if m_yt and any(f"[{m_yt.group(1)}]" in ef for ef in existing_drive_files) and m_yt.group(1) not in LOW_RES_VIDS:
             continue
         if not m_yt and "vimeo.com" not in u:
             clean_u = u.replace("?dl=0", "?dl=1")
