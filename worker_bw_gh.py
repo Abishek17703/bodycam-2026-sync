@@ -17,13 +17,48 @@ def log(msg):
         with open(DIAG_FILE, "a", encoding="utf-8") as f:
             f.write(line)
 
+def get_drive_token():
+    try:
+        rc = open(os.path.expanduser("~/.config/rclone/rclone.conf"), encoding="utf-8").read()
+        m_cid = re.search(r'client_id\s*=\s*(\S+)', rc)
+        m_sec = re.search(r'client_secret\s*=\s*(\S+)', rc)
+        m_tok = re.search(r'"refresh_token"\s*:\s*"([^"]+)"', rc)
+        if m_cid and m_sec and m_tok:
+            import urllib.request, urllib.parse
+            data = urllib.parse.urlencode({
+                "client_id": m_cid.group(1),
+                "client_secret": m_sec.group(1),
+                "refresh_token": m_tok.group(1),
+                "grant_type": "refresh_token"
+            }).encode("utf-8")
+            req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
+            return json.loads(urllib.request.urlopen(req, timeout=15).read().decode("utf-8"))["access_token"]
+    except Exception:
+        pass
+    return None
+
 def push_diag():
     if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
         try:
-            subprocess.run(
-                ["rclone", "copyto", "--ignore-times", "--contimeout", "10s", "--timeout", "20s", "--retries", "1", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"],
-                capture_output=True, timeout=25
+            import urllib.request
+            tok = get_drive_token()
+            if not tok:
+                return
+            boundary = "===DIAG_BOUND==="
+            meta = json.dumps({"name": f"_diag_s{SHARD_INDEX}.txt", "parents": ["1J9jdt8QIYa5x7ykOx8tGfPyf1FFiZRyg"]}).encode("utf-8")
+            body = (
+                f"--{boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n".encode("utf-8") +
+                meta +
+                f"\r\n--{boundary}\r\nContent-Type: text/plain\r\n\r\n".encode("utf-8") +
+                open(DIAG_FILE, "rb").read() +
+                f"\r\n--{boundary}--\r\n".encode("utf-8")
             )
+            req = urllib.request.Request(
+                "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
+                data=body, method="POST",
+                headers={"Authorization": f"Bearer {tok}", "Content-Type": f"multipart/related; boundary={boundary}"}
+            )
+            urllib.request.urlopen(req, timeout=20).read()
         except Exception:
             pass
 
@@ -83,19 +118,37 @@ def probe_video(fp):
         return None
 
 def rclone_upload_dir(local_dir, vfolder_id):
-    dest = f"gdrive_bw2026:--drive-root-folder-id"
-    for attempt in range(5):
-        r = subprocess.run([
-            "rclone", "copy", local_dir, "gdrive_bw2026:",
-            "--drive-root-folder-id", vfolder_id,
-            "--ignore-times", "--transfers", "4", "--checkers", "4", "--drive-chunk-size", "128M", "--fast-list", "--tpslimit", "6"
-        ], capture_output=True, text=True, timeout=600)
-        if r.returncode == 0:
-            return True
-        else:
-            log(f"  [RCLONE RETRY {attempt+1}] {vfolder_id}: {r.stderr.strip()[:200]}")
-            push_diag()
-            time.sleep(3 * (attempt + 1))
+    tok = get_drive_token()
+    mp4s = [x for x in os.listdir(local_dir) if x.endswith(".mp4")]
+    if not mp4s:
+        return False
+    fp = os.path.join(local_dir, mp4s[0])
+    fn = mp4s[0]
+    if tok:
+        for attempt in range(4):
+            try:
+                import urllib.request
+                meta = json.dumps({"name": fn, "parents": [vfolder_id]}).encode("utf-8")
+                req_init = urllib.request.Request(
+                    "https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable",
+                    data=meta, method="POST",
+                    headers={
+                        "Authorization": f"Bearer {tok}",
+                        "Content-Type": "application/json; charset=UTF-8",
+                        "X-Upload-Content-Type": "video/mp4",
+                        "X-Upload-Content-Length": str(os.path.getsize(fp))
+                    }
+                )
+                resp = urllib.request.urlopen(req_init, timeout=30)
+                upload_url = resp.headers.get("Location")
+                if upload_url:
+                    r_up = subprocess.run(["curl", "-s", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--upload-file", fp, upload_url], capture_output=True, text=True)
+                    if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
+                        return True
+            except Exception as e:
+                log(f"  [DRIVE API UPLOAD RETRY {attempt+1}] {vfolder_id}: {e}")
+                push_diag()
+                time.sleep(3)
     return False
 
 def ranged_download_stream(url, content_len, out_fp, ua):
@@ -394,9 +447,15 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
 def process_case(case):
     cid = case["case_id"]
     vfolder_id = case["drive_videos_folder_id"]
+    existing = []
     try:
-        r_ls = subprocess.run(["rclone", "lsf", "--drive-root-folder-id", vfolder_id, "--contimeout", "10s", "--timeout", "20s", "--retries", "1", "gdrive_bw2026:"], capture_output=True, text=True, timeout=30)
-        existing = [x.strip() for x in r_ls.stdout.splitlines() if x.strip().endswith(".mp4")]
+        import urllib.request, urllib.parse
+        tok = get_drive_token()
+        if tok:
+            q = urllib.parse.quote(f"'{vfolder_id}' in parents and trashed = false")
+            req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name)", headers={"Authorization": f"Bearer {tok}"})
+            files = json.loads(urllib.request.urlopen(req, timeout=15).read().decode("utf-8")).get("files", [])
+            existing = [f["name"] for f in files if f["name"].endswith(".mp4")]
     except Exception:
         existing = []
     if existing:
