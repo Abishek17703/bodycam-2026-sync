@@ -98,7 +98,7 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
         try:
             # 1. Primary: Direct InnerTube iOS/Android_VR HD (1080p/720p) + Audio extraction via aria2c + ffmpeg
             if m_yt:
-                for use_proxy in (True, False):
+                for use_proxy in (False, True):
                     try:
                         api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
                         ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
@@ -136,13 +136,13 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                                 a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
                                 v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
                                 a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
-                                dl_v_cmd = ["curl", "-sL", "--retry", "5", "-A", ua, "-o", v_tmp, best_v["url"]]
-                                dl_a_cmd = ["curl", "-sL", "--retry", "5", "-A", ua, "-o", a_tmp, best_a["url"]]
+                                dl_v_cmd = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"v.{v_ext}", best_v["url"]]
+                                dl_a_cmd = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"a.{a_ext}", best_a["url"]]
                                 if use_proxy:
-                                    dl_v_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
-                                    dl_a_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
-                                subprocess.run(dl_v_cmd, timeout=1800)
-                                subprocess.run(dl_a_cmd, timeout=900)
+                                    dl_v_cmd = ["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", v_tmp, best_v["url"]]
+                                    dl_a_cmd = ["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", a_tmp, best_a["url"]]
+                                subprocess.run(dl_v_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
+                                subprocess.run(dl_a_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=900)
                                 if os.path.exists(v_tmp) and os.path.exists(a_tmp) and os.path.getsize(v_tmp) > 50000:
                                     merged_fp = os.path.join(tmp_dir, final_fn)
                                     acodec = "copy" if a_ext == "m4a" else "aac"

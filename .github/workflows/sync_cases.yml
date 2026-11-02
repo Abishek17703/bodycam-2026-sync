@@ -15,6 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Free disk space on runner for parallel 1080p HD streams
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+
       - name: Install rclone, ffmpeg, yt-dlp, bgutil PO-Token server, and WARP SOCKS5 proxy
         run: |
           sudo apt-get update -qq
