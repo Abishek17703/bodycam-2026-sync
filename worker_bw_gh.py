@@ -521,7 +521,8 @@ def process_case(case):
 
 def main():
     cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
-    my_cases = [c for idx, c in enumerate(cases) if idx % SHARD_TOTAL == SHARD_INDEX]
+    # Prioritize BW_2026_33 across shards 0..3 as backup while also running normal shard assignment
+    my_cases = [c for idx, c in enumerate(cases) if idx % SHARD_TOTAL == SHARD_INDEX or (SHARD_INDEX < 4 and c["case_id"] == "BW_2026_33")]
     log(f"Starting BW 2026 Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)} assigned cases)...")
     push_diag()
     for c in my_cases:
