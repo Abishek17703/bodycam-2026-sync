@@ -8,14 +8,26 @@ SHARD_TOTAL = int(os.environ.get("SHARD_TOTAL", "1"))
 STAGING_ROOT = f"/tmp/staging_bw_s{SHARD_INDEX}"
 os.makedirs(STAGING_ROOT, exist_ok=True)
 PAYLOAD_FILE = "bw_2026_payload.json"
+LOG_LINES = []
 
 log_lock = threading.Lock()
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    line = f"[{ts}][BW-S{SHARD_INDEX}] {msg}"
     with log_lock:
-        sys.stdout.write(f"[{ts}][BW-S{SHARD_INDEX}] {msg}\n")
+        LOG_LINES.append(line)
+        sys.stdout.write(line + "\n")
         sys.stdout.flush()
+
+def push_diag():
+    if SHARD_INDEX in (0, 18):
+        try:
+            with open(f"/tmp/diag_s{SHARD_INDEX}.txt", "w", encoding="utf-8") as f:
+                f.write("\n".join(LOG_LINES) + "\n")
+            subprocess.run(["rclone", "copyto", f"/tmp/diag_s{SHARD_INDEX}.txt", f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"], capture_output=True, timeout=30)
+        except Exception:
+            pass
 
 def probe_video(fp):
     try:
@@ -45,7 +57,8 @@ def rclone_upload_dir(local_dir, case_folder_name):
         if r.returncode == 0:
             return True
         else:
-            log(f"  [RCLONE RETRY {attempt+1}] {dest}: {r.stderr.strip()[:160]}")
+            log(f"  [RCLONE RETRY {attempt+1}] {dest}: {r.stderr.strip()[:200]}")
+            push_diag()
             time.sleep(3 * (attempt + 1))
     return False
 
@@ -73,9 +86,13 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                         curl_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
                     r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
                     if r_p.returncode != 0 or not r_p.stdout.strip():
+                        log(f"  [{cid}] InnerTube {cname} proxy={use_proxy} empty/rc={r_p.returncode}")
                         continue
                     d = json.loads(r_p.stdout)
+                    play_status = d.get("playabilityStatus", {}).get("status")
                     fmts = d.get("streamingData", {}).get("adaptiveFormats", [])
+                    log(f"  [{cid}] InnerTube {cname} proxy={use_proxy} status={play_status} fmts={len(fmts)}")
+                    push_diag()
                     v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)) >= 1024 and int(f.get("height", 0) or 0) <= 1080]
                     if not v_fmts:
                         v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and (int(f.get("height", 0) or 0) >= 720 or int(f.get("width", 0) or 0) >= 720)]
@@ -115,6 +132,7 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                                 if info and info["dur"] > 0:
                                     sz = os.path.getsize(merged_fp)
                                     log(f"  [{cid}] Downloaded Direct-InnerTube HD {info['w']}x{info['h']} {final_fn} ({sz/1e6:.1f} MB) -> uploading...")
+                                    push_diag()
                                     up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
                                     return up_ok, info["dur"], sz, final_fn
                         for t in (v_tmp, a_tmp):
@@ -148,11 +166,13 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
                 if info and info["dur"] > 0:
                     sz = os.path.getsize(fp)
                     log(f"  [{cid}] Downloaded {info['w']}x{info['h']} {dl[0]} ({sz/1e6:.1f} MB) -> uploading...")
+                    push_diag()
                     up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
                     return up_ok, info["dur"], sz, dl[0]
             else:
-                err_snip = (r_yt.stderr or "").strip().splitlines()[-1:]
+                err_snip = (r_yt.stderr or "").strip().splitlines()[-2:]
                 log(f"  [{cid}] yt-dlp attempt {attempt+1} err: {err_snip}")
+                push_diag()
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
     return False, 0.0, 0, ""
@@ -164,6 +184,7 @@ def process_case(case):
     existing = [x.strip() for x in r_ls.stdout.splitlines() if x.strip().endswith(".mp4")]
     if existing:
         log(f"*** SKIPPING {cid} (Already on Drive: {existing}) ***")
+        push_diag()
         return
     for vid in case.get("videos", []):
         ok, dur, sz, fn = download_and_upload_one_vid(vid, cid, cfolder_name)
@@ -171,11 +192,13 @@ def process_case(case):
             log(f"*** COMPLETED {cid}: {fn} ({sz/1e6:.1f} MB) ***")
         else:
             log(f"!!! FAILED {cid} ({vid}) !!!")
+        push_diag()
 
 def main():
     cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
     my_cases = [c for idx, c in enumerate(cases) if idx % SHARD_TOTAL == SHARD_INDEX]
     log(f"Starting BW 2026 Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)} assigned cases)...")
+    push_diag()
     for c in my_cases:
         process_case(c)
 
