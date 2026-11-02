@@ -108,7 +108,8 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
                     clients = ["ios,web", "android,web", "tv,web", "mweb,web"]
-                    cmd[1:1] = ["--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]}"]
+                    p = 40020 + ((idx + attempt) % 2)
+                    cmd[1:1] = ["--proxy", f"socks5://127.0.0.1:{p}", "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]}"]
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
                 dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                 if dl:
