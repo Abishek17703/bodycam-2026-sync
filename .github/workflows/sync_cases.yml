@@ -1,0 +1,40 @@
+name: Sync 2026 Bodycam Cases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload_shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install rclone, ffmpeg, and yt-dlp
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone
+          pip install --upgrade yt-dlp
+
+      - name: Run Shard Worker with Live Drive Token Refresh
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_TOTAL: "5"
+        run: |
+          mkdir -p ~/.config/rclone
+          # Start background loop that pulls fresh rclone.conf from Drive staging every 10 minutes
+          (
+            while true; do
+              sleep 600
+              rclone copyto gdrive2026_staging:rclone_fresh.conf ~/.config/rclone/rclone.conf 2>/dev/null || true
+            done
+          ) &
+          # Initial bootstrap of rclone.conf from secret
+          echo "${{ secrets.RCLONE_CONF_B64 }}" | base64 -d > ~/.config/rclone/rclone.conf
+          rclone copyto gdrive2026_staging:rclone_fresh.conf ~/.config/rclone/rclone.conf 2>/dev/null || true
+          python3 -u worker_gh.py
