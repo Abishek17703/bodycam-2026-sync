@@ -355,15 +355,30 @@ def process_case(case):
 
 def main():
     cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
-    # Filter only cases that have a clip in LOW_RES_VIDS and distribute evenly across shards!
-    upgrade_cases = []
+    # Flatten at the individual clip level across LOW_RES_VIDS so multi-clip cases (NEW_2026_161, NEW_2026_63) split across separate shards!
+    tasks = []
     for c in cases:
-        if any(re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u) and re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u).group(1) in LOW_RES_VIDS for u in c["video_urls"]):
-            upgrade_cases.append(c)
-    my_cases = [c for idx, c in enumerate(upgrade_cases) if idx % SHARD_TOTAL == SHARD_INDEX]
-    log(f"Starting 2026 HD Upgrade Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)}/{len(upgrade_cases)} upgrade cases assigned)...")
-    for c in my_cases:
-        process_case(c)
+        for j, u in enumerate(c["video_urls"]):
+            m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
+            if m_yt and m_yt.group(1) in LOW_RES_VIDS:
+                tasks.append((c, j, u, m_yt.group(1)))
+    my_tasks = [t for idx, t in enumerate(tasks) if idx % SHARD_TOTAL == SHARD_INDEX]
+    log(f"Starting 2026 HD Upgrade Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_tasks)}/{len(tasks)} individual clips assigned)...")
+    for c, j, u, vid in my_tasks:
+        cid = c["case_id"]
+        rel_case_path = f"{c['category']}/{c['folder']}"
+        vfolder_id = get_case_videos_folder_id(rel_case_path)
+        if not vfolder_id:
+            continue
+        drive_files = list_drive_videos(vfolder_id)
+        old_files = [x for x in drive_files if f"[{vid}]" in x["name"]]
+        if not old_files:
+            continue
+        ok, dur, sz, uploaded_fn = download_and_upload_one_url(u, j, vfolder_id, cid)
+        if ok:
+            for of in old_files:
+                delete_drive_file_id(of["id"])
+            log(f"  [HD UPGRADE COMPLETE] {cid} [{vid}] -> {uploaded_fn} ({sz/1e6:.1f} MB)")
     log(f"Shard {SHARD_INDEX} finished all assigned 2026 HD upgrades.")
 
 if __name__ == "__main__":
