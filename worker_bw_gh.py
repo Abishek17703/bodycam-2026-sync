@@ -173,7 +173,7 @@ def rclone_upload_dir(local_dir, vfolder_id):
                     resp = urllib.request.urlopen(req_patch, timeout=30)
                     upload_url = resp.headers.get("Location")
                     if upload_url:
-                        r_up = subprocess.run(["curl", "-s", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--upload-file", fp, upload_url], capture_output=True, text=True)
+                        r_up = subprocess.run(["curl", "-s", "-g", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "--data-binary", f"@{fp}", upload_url], capture_output=True, text=True)
                         if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
                             return True
                         else:
