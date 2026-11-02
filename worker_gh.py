@@ -42,7 +42,7 @@ def rclone_upload_dir(local_dir, remote_subpath):
     for attempt in range(3):
         r = subprocess.run([
             "rclone", "copy", local_dir, dest,
-            "--transfers", "8", "--checkers", "8", "--drive-chunk-size", "128M", "--fast-list"
+            "--ignore-times", "--transfers", "8", "--checkers", "8", "--drive-chunk-size", "128M", "--fast-list"
         ], capture_output=True, text=True)
         if r.returncode == 0:
             return True
@@ -83,11 +83,11 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                     up_ok = rclone_upload_dir(vids_dir, f"{rel_case_path}/Videos")
                     try: os.remove(dst_fp)
                     except Exception: pass
-                    return up_ok, dur, sz
+                    return up_ok, dur, sz, fn
             finally:
                 shutil.rmtree(tmp_dir, ignore_errors=True)
         log(f"  [{cid}] FAILED Direct URL: {safe_u[:90]}")
-        return False, 0.0, 0
+        return False, 0.0, 0, ""
 
     vid = m_yt.group(1) if m_yt else f"vimeo_{idx}"
     with disk_sem:
@@ -96,36 +96,91 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
         os.makedirs(tmp_dir, exist_ok=True)
         out_tmpl = os.path.join(tmp_dir, f"%(title).90B [{vid}].%(ext)s")
         try:
-            for attempt in range(6):
+            # 1. Primary: Direct InnerTube iOS/Android_VR HD (1080p/720p) + Audio extraction via aria2c + ffmpeg
+            if m_yt:
+                for use_proxy in (True, False):
+                    try:
+                        api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
+                        ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
+                        for cname, cver, ua, dev_extra in [
+                            ("IOS", "20.03.02", ios_ua, {"deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"}),
+                            ("ANDROID_VR", "1.60.19", "Mozilla/5.0", {})
+                        ]:
+                            client_obj = {"clientName": cname, "clientVersion": cver, "hl": "en", "gl": "US"}
+                            client_obj.update(dev_extra)
+                            payload = json.dumps({"videoId": vid, "context": {"client": client_obj}, "racyCheckOk": True, "contentCheckOk": True})
+                            curl_cmd = ["curl", "-sL", "--max-time", "15", "-H", "Content-Type: application/json", "-A", ua, "-d", payload, api]
+                            if use_proxy:
+                                curl_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
+                            r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
+                            if r_p.returncode != 0 or not r_p.stdout.strip():
+                                continue
+                            d = json.loads(r_p.stdout)
+                            fmts = d.get("streamingData", {}).get("adaptiveFormats", [])
+                            v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)) >= 1024 and int(f.get("height", 0) or 0) <= 1080]
+                            if not v_fmts:
+                                v_fmts = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "") and (int(f.get("height", 0) or 0) >= 720 or int(f.get("width", 0) or 0) >= 720)]
+                            a_fmts = [f for f in fmts if "url" in f and "audio/mp4" in f.get("mimeType", "")]
+                            if not a_fmts:
+                                a_fmts = [f for f in fmts if "url" in f and "audio" in f.get("mimeType", "")]
+                            if v_fmts and a_fmts:
+                                # Pick highest resolution <=1080p (preferring avc1/mp4 for zero-transcode merge)
+                                v_fmts.sort(key=lambda f: (1 if "video/mp4" in f.get("mimeType", "") else 0, int(f.get("height", 0) or 0), int(f.get("bitrate", 0) or 0)), reverse=True)
+                                a_fmts.sort(key=lambda f: int(f.get("bitrate", 0) or 0), reverse=True)
+                                best_v = v_fmts[0]
+                                best_a = a_fmts[0]
+                                raw_title = d.get("videoDetails", {}).get("title") or f"{cid}_clip_{idx+1}"
+                                safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
+                                final_fn = f"{safe_title} [{vid}].mp4"
+                                v_ext = "mp4" if "mp4" in best_v.get("mimeType", "") else "webm"
+                                a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
+                                v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
+                                a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
+                                aria_v = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"v.{v_ext}", best_v["url"]]
+                                aria_a = ["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"a.{a_ext}", best_a["url"]]
+                                subprocess.run(aria_v, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
+                                subprocess.run(aria_a, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=900)
+                                if os.path.exists(v_tmp) and os.path.exists(a_tmp) and os.path.getsize(v_tmp) > 50000:
+                                    merged_fp = os.path.join(tmp_dir, final_fn)
+                                    acodec = "copy" if a_ext == "m4a" else "aac"
+                                    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", v_tmp, "-i", a_tmp, "-c:v", "copy", "-c:a", acodec, merged_fp], timeout=900)
+                                    try:
+                                        os.remove(v_tmp)
+                                        os.remove(a_tmp)
+                                    except Exception:
+                                        pass
+                                    if os.path.exists(merged_fp):
+                                        info = probe_video(merged_fp)
+                                        if info and info["dur"] > 0 and (max(info["w"], info["h"]) >= 1024 or min(info["w"], info["h"]) >= 720):
+                                            sz = os.path.getsize(merged_fp)
+                                            dst_fp = os.path.join(vids_dir, final_fn)
+                                            shutil.move(merged_fp, dst_fp)
+                                            shutil.rmtree(tmp_dir, ignore_errors=True)
+                                            log(f"  [{cid}] Downloaded Direct-InnerTube HD {info['w']}x{info['h']} {final_fn} ({sz/1e6:.1f} MB, {info['dur']/60:.1f}m)")
+                                            up_ok = rclone_upload_dir(vids_dir, f"{rel_case_path}/Videos")
+                                            try: os.remove(dst_fp)
+                                            except Exception: pass
+                                            return up_ok, info["dur"], sz, final_fn
+                    except Exception as e_in:
+                        log(f"  [{cid}] InnerTube HD attempt err: {e_in}")
+
+            # 2. Fallback: yt-dlp with bgutil PO-Token server
+            for attempt in range(4):
                 cmd = [
                     "yt-dlp",
                     "-f", "bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]/137+140/299+140/136+140/298+140",
                     "--merge-output-format", "mp4", "--concurrent-fragments", "16",
-                    "--retries", "10", "--fragment-retries", "10", "--no-part", "--no-playlist",
+                    "--retries", "10", "--fragment-retries", "10", "--no-part", "--no-playlist", "--no-mtime",
                     "-o", out_tmpl, u
                 ]
                 if "vimeo.com" in u:
                     cmd[1:1] = ["--referer", "https://www.chicagocopa.org/"]
                 if m_yt:
-                    clients = [
-                        "android_vr,tv,web",
-                        "mweb,web",
-                        "tv,web",
-                        "web,default",
-                        "ios,web",
-                        "android,web"
+                    clients = ["ios,web", "mweb,web", "tv,web", "web,default"]
+                    cmd[1:1] = [
+                        "--proxy", "socks5://127.0.0.1:40020",
+                        "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
                     ]
-                    if attempt in (0, 3):
-                        # Direct runner IP with ANDROID_VR / WEB + bgutil PO-Token server
-                        cmd[1:1] = [
-                            "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
-                        ]
-                    else:
-                        # Via WARP SOCKS5 proxy + bgutil PO-Token server
-                        cmd[1:1] = [
-                            "--proxy", "socks5://127.0.0.1:40020",
-                            "--extractor-args", f"youtube:player_client={clients[attempt % len(clients)]};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416"
-                        ]
                 r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
                 dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                 if dl:
@@ -140,7 +195,7 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
                         up_ok = rclone_upload_dir(vids_dir, f"{rel_case_path}/Videos")
                         try: os.remove(dst_fp)
                         except Exception: pass
-                        return up_ok, info["dur"], sz
+                        return up_ok, info["dur"], sz, dl[0]
                     elif info:
                         log(f"  [{cid}] Rejected low-res {info['w']}x{info['h']} on attempt {attempt+1}, retrying for >=720p...")
                         try: os.remove(fp)
@@ -152,7 +207,7 @@ def download_and_upload_one_url(u, idx, vids_dir, rel_case_path, cid):
             shutil.rmtree(tmp_dir, ignore_errors=True)
 
     log(f"  [{cid}] FAILED URL: {u[:80]}")
-    return False, 0.0, 0
+    return False, 0.0, 0, ""
 
 LOW_RES_VIDS = set()
 if os.path.exists("low_res_clips.json"):
@@ -220,8 +275,12 @@ def process_case(case):
             raw_fn = re.sub(r'[<>:"/\\|?*]', '_', raw_fn)
             if any(raw_fn in ef for ef in existing_drive_files):
                 continue
-        ok, dur, sz = download_and_upload_one_url(u, j, vids_dir, rel_case_path, cid)
+        old_ef_to_delete = [ef for ef in existing_drive_files if m_yt and f"[{m_yt.group(1)}]" in ef and m_yt.group(1) in LOW_RES_VIDS]
+        ok, dur, sz, uploaded_fn = download_and_upload_one_url(u, j, vids_dir, rel_case_path, cid)
         if ok:
+            for ef in old_ef_to_delete:
+                if ef != uploaded_fn:
+                    subprocess.run(["rclone", "deletefile", f"gdrive2026_cases:{rel_case_path}/Videos/{ef}"], capture_output=True)
             v_cnt += 1
             log(f"  [DRIVE UPLOADED] {cid} clip {v_cnt}/{len(case['video_urls'])} ({sz/1e9:.2f} GB)")
 
