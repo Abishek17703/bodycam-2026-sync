@@ -1,60 +1,56 @@
 #!/usr/bin/env python3
-import os, sys, json, time, shutil, subprocess, urllib.request, urllib.parse, re, threading
+import os, sys, json, time, shutil, subprocess, re, socket
 from datetime import datetime
 
 SHARD_INDEX = int(os.environ.get("SHARD_INDEX", "0"))
 SHARD_TOTAL = int(os.environ.get("SHARD_TOTAL", "1"))
-
-STAGING_ROOT = f"/tmp/staging_bw_s{SHARD_INDEX}"
-os.makedirs(STAGING_ROOT, exist_ok=True)
 PAYLOAD_FILE = "bw_2026_payload.json"
-LOG_LINES = []
-
-log_lock = threading.Lock()
+DIAG_FILE = f"/tmp/_diag_s{SHARD_INDEX}.txt"
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    line = f"[{ts}][BW-S{SHARD_INDEX}] {msg}"
-    with log_lock:
-        LOG_LINES.append(line)
-        sys.stdout.write(line + "\n")
-        sys.stdout.flush()
+    line = f"[{ts}][BW-S{SHARD_INDEX}] {msg}\n"
+    sys.stdout.write(line)
+    sys.stdout.flush()
+    if SHARD_INDEX in (0, 18):
+        with open(DIAG_FILE, "a", encoding="utf-8") as f:
+            f.write(line)
 
 def push_diag():
-    if SHARD_INDEX in (0, 18):
-        try:
-            with open(f"/tmp/diag_s{SHARD_INDEX}.txt", "w", encoding="utf-8") as f:
-                f.write("\n".join(LOG_LINES) + "\n")
-            subprocess.run(["rclone", "copyto", f"/tmp/diag_s{SHARD_INDEX}.txt", f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"], capture_output=True, timeout=30)
-        except Exception:
-            pass
+    if SHARD_INDEX in (0, 18) and os.path.exists(DIAG_FILE):
+        subprocess.run(["rclone", "copyto", DIAG_FILE, f"gdrive_bw2026:_diag_s{SHARD_INDEX}.txt"], capture_output=True)
 
-def start_fresh_warp(attempt=1):
-    subprocess.run("pkill -9 wireproxy 2>/dev/null || true", shell=True)
-    wdir = f"/tmp/w_rot_{attempt}"
-    shutil.rmtree(wdir, ignore_errors=True)
-    os.makedirs(wdir, exist_ok=True)
-    wconf = os.path.join(wdir, "wgcf-profile.conf")
-    subprocess.run(["/tmp/wgcf", "register", "--accept-tos"], cwd=wdir, capture_output=True)
-    subprocess.run(["/tmp/wgcf", "generate"], cwd=wdir, capture_output=True)
-    if os.path.exists(wconf):
-        with open(wconf, "a") as f:
-            f.write("\n[Socks5]\nBindAddress = 127.0.0.1:40020\n")
-        subprocess.Popen(["/tmp/wireproxy", "-c", wconf], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(4)
-        r2 = subprocess.run(["curl", "-sI", "--max-time", "8", "-x", "socks5h://127.0.0.1:40020", "https://www.youtube.com"], capture_output=True)
-        if r2.returncode == 0:
+def is_warp_open():
+    try:
+        with socket.create_connection(("127.0.0.1", 40020), timeout=1.5):
             return True
+    except Exception:
+        return False
+
+def start_fresh_warp(seed=0):
+    subprocess.run(["pkill", "-9", "wireproxy"], capture_output=True)
+    time.sleep(0.5)
+    wdir = f"/tmp/warp_{SHARD_INDEX}_{seed}_{int(time.time())}"
+    os.makedirs(wdir, exist_ok=True)
+    subprocess.run(["wgcf", "register", "--accept-tos"], cwd=wdir, capture_output=True, timeout=25)
+    subprocess.run(["wgcf", "generate"], cwd=wdir, capture_output=True, timeout=20)
+    prof = os.path.join(wdir, "wgcf-profile.conf")
+    if os.path.exists(prof):
+        with open(prof, "a", encoding="utf-8") as f:
+            f.write("\n[Socks5]\nBindAddress = 127.0.0.1:40020\n")
+        subprocess.Popen(["wireproxy", "-c", prof], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+        for _ in range(16):
+            time.sleep(0.5)
+            if is_warp_open():
+                return True
     return False
 
 def ensure_warp_alive():
-    r = subprocess.run(["curl", "-sI", "--max-time", "6", "-x", "socks5h://127.0.0.1:40020", "https://www.youtube.com"], capture_output=True)
-    if r.returncode == 0:
+    if is_warp_open():
         return True
-    for a in range(1, 6):
-        if start_fresh_warp(a):
+    for i in range(4):
+        if start_fresh_warp(i):
             return True
-        time.sleep(2 * a)
     return False
 
 def probe_video(fp):
@@ -100,124 +96,138 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
         ensure_warp_alive()
         api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
         ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
-        client_obj = {
-            "clientName": "IOS", "clientVersion": "20.03.02", "hl": "en", "gl": "US",
-            "deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"
-        }
-        payload = json.dumps({"videoId": vid, "context": {"client": client_obj}, "racyCheckOk": True, "contentCheckOk": True})
 
-        # Rotate WARP exit IP up to 8 times until YouTube InnerTube IOS returns status=OK
         for rot in range(1, 9):
             ensure_warp_alive()
-            curl_cmd = ["curl", "-sL", "--max-time", "15", "-x", "socks5h://127.0.0.1:40020", "-H", "Content-Type: application/json", "-A", ios_ua, "-d", payload, api]
-            r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
-            d = {}
-            if r_p.returncode == 0 and r_p.stdout.strip():
-                try:
-                    d = json.loads(r_p.stdout)
-                except Exception:
+            for use_proxy in (True, False):
+                for cname, cver, ua, dev_extra in [
+                    ("ANDROID_VR", "1.60.19", "Mozilla/5.0", {}),
+                    ("IOS", "20.03.02", ios_ua, {"deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"})
+                ]:
+                    client_obj = {"clientName": cname, "clientVersion": cver, "hl": "en", "gl": "US"}
+                    client_obj.update(dev_extra)
+                    payload = json.dumps({"videoId": vid, "context": {"client": client_obj}, "racyCheckOk": True, "contentCheckOk": True})
+                    curl_cmd = ["curl", "-sL", "--max-time", "15", "-H", "Content-Type: application/json", "-A", ua, "-d", payload, api]
+                    if use_proxy:
+                        curl_cmd[1:1] = ["-x", "socks5h://127.0.0.1:40020"]
+                    r_p = subprocess.run(curl_cmd, capture_output=True, text=True)
                     d = {}
-            play_status = d.get("playabilityStatus", {}).get("status")
-            sdata = d.get("streamingData", {})
-            fmts = sdata.get("adaptiveFormats", [])
-            muxed = sdata.get("formats", [])
-            hls_url = sdata.get("hlsManifestUrl")
-            v_with_url = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "")]
-            a_with_url = [f for f in fmts if "url" in f and "audio" in f.get("mimeType", "")]
-            log(f"  [{cid}] WARP rot={rot} IOS status={play_status} fmts={len(fmts)}(v_url={len(v_with_url)},a_url={len(a_with_url)},mux={len(muxed)}) hls={bool(hls_url)}")
-            push_diag()
-
-            if play_status == "OK":
-                raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
-                safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
-                final_fn = f"{safe_title} [{vid}].mp4"
-                merged_fp = os.path.join(tmp_dir, final_fn)
-
-                # 1a. Adaptive video + audio URLs via curl over same WARP proxy
-                if v_with_url and a_with_url:
-                    v_with_url.sort(key=lambda f: (1 if "video/mp4" in f.get("mimeType", "") else 0, max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)), int(f.get("bitrate", 0) or 0)), reverse=True)
-                    a_with_url.sort(key=lambda f: (1 if "audio/mp4" in f.get("mimeType", "") else 0, int(f.get("bitrate", 0) or 0)), reverse=True)
-                    best_v = v_with_url[0]
-                    best_a = a_with_url[0]
-                    v_ext = "mp4" if "mp4" in best_v.get("mimeType", "") else "webm"
-                    a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
-                    v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
-                    a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
-                    subprocess.run(["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ios_ua, "-o", v_tmp, best_v["url"]], timeout=1800)
-                    subprocess.run(["curl", "-sL", "--retry", "5", "-x", "socks5h://127.0.0.1:40020", "-A", ios_ua, "-o", a_tmp, best_a["url"]], timeout=900)
-                    v_sz = os.path.getsize(v_tmp) if os.path.exists(v_tmp) else 0
-                    a_sz = os.path.getsize(a_tmp) if os.path.exists(a_tmp) else 0
-                    log(f"  [{cid}] Adaptive curl dl v_sz={v_sz} a_sz={a_sz}")
+                    if r_p.returncode == 0 and r_p.stdout.strip():
+                        try: d = json.loads(r_p.stdout)
+                        except Exception: d = {}
+                    play_status = d.get("playabilityStatus", {}).get("status")
+                    sdata = d.get("streamingData", {})
+                    fmts = sdata.get("adaptiveFormats", [])
+                    hls_url = sdata.get("hlsManifestUrl")
+                    v_with_url = [f for f in fmts if "url" in f and "video" in f.get("mimeType", "")]
+                    a_with_url = [f for f in fmts if "url" in f and "audio" in f.get("mimeType", "")]
+                    log(f"  [{cid}] rot={rot} {cname}(proxy={use_proxy}) status={play_status} v={len(v_with_url)} a={len(a_with_url)} hls={bool(hls_url)}")
                     push_diag()
-                    if v_sz > 50000 and a_sz > 10000:
-                        acodec = "copy" if a_ext == "m4a" else "aac"
-                        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", v_tmp, "-i", a_tmp, "-c:v", "copy", "-c:a", acodec, merged_fp], timeout=900)
-                        for t in (v_tmp, a_tmp):
-                            try: os.remove(t)
-                            except Exception: pass
-                        if os.path.exists(merged_fp):
-                            info = probe_video(merged_fp)
-                            if info and info["dur"] > 0:
-                                sz = os.path.getsize(merged_fp)
-                                log(f"  [{cid}] Downloaded Adaptive {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+
+                    if play_status == "OK":
+                        raw_title = d.get("videoDetails", {}).get("title") or f"{cid}"
+                        safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
+                        final_fn = f"{safe_title} [{vid}].mp4"
+                        merged_fp = os.path.join(tmp_dir, final_fn)
+
+                        if v_with_url and a_with_url:
+                            v_with_url.sort(key=lambda f: (1 if "video/mp4" in f.get("mimeType", "") else 0, max(int(f.get("width", 0) or 0), int(f.get("height", 0) or 0)), int(f.get("bitrate", 0) or 0)), reverse=True)
+                            a_with_url.sort(key=lambda f: (1 if "audio/mp4" in f.get("mimeType", "") else 0, int(f.get("bitrate", 0) or 0)), reverse=True)
+                            best_v = v_with_url[0]
+                            best_a = a_with_url[0]
+                            v_ext = "mp4" if "mp4" in best_v.get("mimeType", "") else "webm"
+                            a_ext = "m4a" if "mp4" in best_a.get("mimeType", "") else "webm"
+                            v_tmp = os.path.join(tmp_dir, f"v.{v_ext}")
+                            a_tmp = os.path.join(tmp_dir, f"a.{a_ext}")
+
+                            # Try aria2c direct first (fast), then curl via proxy if needed
+                            for dl_mode in (["proxy", "direct"] if use_proxy else ["direct"]):
+                                for t in (v_tmp, a_tmp):
+                                    try: os.remove(t)
+                                    except Exception: pass
+                                if dl_mode == "direct":
+                                    subprocess.run(["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"v.{v_ext}", best_v["url"]], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=180)
+                                    subprocess.run(["aria2c", "-x", "16", "-s", "16", "-k", "1M", "--file-allocation=none", "--user-agent", ua, "-d", tmp_dir, "-o", f"a.{a_ext}", best_a["url"]], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=120)
+                                else:
+                                    subprocess.run(["curl", "-sL", "--max-time", "180", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", v_tmp, best_v["url"]], timeout=200)
+                                    subprocess.run(["curl", "-sL", "--max-time", "120", "-x", "socks5h://127.0.0.1:40020", "-A", ua, "-o", a_tmp, best_a["url"]], timeout=140)
+                                v_sz = os.path.getsize(v_tmp) if os.path.exists(v_tmp) else 0
+                                a_sz = os.path.getsize(a_tmp) if os.path.exists(a_tmp) else 0
+                                log(f"  [{cid}] {cname} {dl_mode} dl v_sz={v_sz} a_sz={a_sz}")
                                 push_diag()
-                                up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
-                                return up_ok, info["dur"], sz, final_fn
+                                if v_sz > 50000 and a_sz > 10000:
+                                    acodec = "copy" if a_ext == "m4a" else "aac"
+                                    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", v_tmp, "-i", a_tmp, "-c:v", "copy", "-c:a", acodec, merged_fp], timeout=600)
+                                    for t in (v_tmp, a_tmp):
+                                        try: os.remove(t)
+                                        except Exception: pass
+                                    if os.path.exists(merged_fp):
+                                        info = probe_video(merged_fp)
+                                        if info and info["dur"] > 0:
+                                            sz = os.path.getsize(merged_fp)
+                                            log(f"  [{cid}] SUCCESS {cname} {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                                            push_diag()
+                                            up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                                            return up_ok, info["dur"], sz, final_fn
 
-                # 1b. HLS manifest URL via yt-dlp or ffmpeg over same WARP proxy
-                if hls_url:
-                    ensure_warp_alive()
-                    hls_cmd = [
-                        "yt-dlp", "--proxy", "socks5://127.0.0.1:40020",
-                        "-f", "bestvideo+bestaudio/best",
-                        "--merge-output-format", "mp4", "--concurrent-fragments", "16",
-                        "--user-agent", ios_ua, "--no-part", "-o", merged_fp, hls_url
-                    ]
-                    r_hls = subprocess.run(hls_cmd, capture_output=True, text=True, timeout=2400)
-                    if os.path.exists(merged_fp) and os.path.getsize(merged_fp) > 50000:
-                        info = probe_video(merged_fp)
-                        if info and info["dur"] > 0:
-                            sz = os.path.getsize(merged_fp)
-                            log(f"  [{cid}] Downloaded HLS {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
-                            push_diag()
-                            up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
-                            return up_ok, info["dur"], sz, final_fn
-                    else:
-                        log(f"  [{cid}] HLS err: {(r_hls.stderr or '').strip().splitlines()[-2:]}")
-                        push_diag()
+                        if hls_url:
+                            ensure_warp_alive()
+                            hls_cmd = [
+                                "yt-dlp",
+                                "-f", "bestvideo+bestaudio/best",
+                                "--merge-output-format", "mp4", "--concurrent-fragments", "16",
+                                "--user-agent", ua, "--no-part", "-o", merged_fp, hls_url
+                            ]
+                            if use_proxy:
+                                hls_cmd[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
+                            r_hls = subprocess.run(hls_cmd, capture_output=True, text=True, timeout=600)
+                            if os.path.exists(merged_fp) and os.path.getsize(merged_fp) > 50000:
+                                info = probe_video(merged_fp)
+                                if info and info["dur"] > 0:
+                                    sz = os.path.getsize(merged_fp)
+                                    log(f"  [{cid}] SUCCESS HLS {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                                    push_diag()
+                                    up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
+                                    return up_ok, info["dur"], sz, final_fn
 
-                # 1c. Since this WARP IP has play_status == OK, run yt-dlp immediately on this clean WARP IP!
-                for cl in ["ios", "mweb,web", "tv,web"]:
+            # Try yt-dlp with bounded timeout (240s) + bgutil PO token over clean WARP proxy and direct
+            for use_p in (True, False):
+                for cl in ["mweb,web", "ios,web", "tv,web", "android_vr"]:
                     ensure_warp_alive()
                     cmd = [
                         "yt-dlp",
-                        "--proxy", "socks5://127.0.0.1:40020",
                         "--extractor-args", f"youtube:player_client={cl};youtubepot-bgutilhttp:base_url=http://127.0.0.1:4416",
                         "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best",
                         "--merge-output-format", "mp4", "--concurrent-fragments", "16",
-                        "--socket-timeout", "20", "--retries", "6", "--fragment-retries", "6", "--no-part", "--no-playlist", "--no-mtime",
+                        "--socket-timeout", "15", "--retries", "3", "--fragment-retries", "3", "--no-part", "--no-playlist", "--no-mtime",
                         "-o", out_tmpl, u
                     ]
-                    r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+                    if use_p:
+                        cmd[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
+                    try:
+                        r_yt = subprocess.run(cmd, capture_output=True, text=True, timeout=240)
+                    except subprocess.TimeoutExpired:
+                        log(f"  [{cid}] yt-dlp({cl},proxy={use_p}) timed out after 240s")
+                        push_diag()
+                        continue
                     dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
                     if dl:
                         fp = os.path.join(tmp_dir, dl[0])
                         info = probe_video(fp)
                         if info and info["dur"] > 0:
                             sz = os.path.getsize(fp)
-                            log(f"  [{cid}] Downloaded yt-dlp({cl}) {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
+                            log(f"  [{cid}] SUCCESS yt-dlp({cl},proxy={use_p}) {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> uploading...")
                             push_diag()
                             up_ok = rclone_upload_dir(tmp_dir, case_folder_name)
                             return up_ok, info["dur"], sz, dl[0]
                     else:
-                        log(f"  [{cid}] yt-dlp({cl}) err: {(r_yt.stderr or '').strip().splitlines()[-2:]}")
+                        log(f"  [{cid}] yt-dlp({cl},proxy={use_p}) err: {(r_yt.stderr or '').strip().splitlines()[-1:]}")
                         push_diag()
 
-            # Rotate WARP IP because this exit IP got LOGIN_REQUIRED
             log(f"  [{cid}] Rotating WARP IP (attempt {rot+1})...")
             push_diag()
             start_fresh_warp(rot + 10)
-            time.sleep(2)
+            time.sleep(1)
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
     return False, 0.0, 0, ""
