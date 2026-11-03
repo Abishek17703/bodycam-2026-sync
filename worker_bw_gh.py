@@ -493,6 +493,86 @@ def download_and_upload_one_vid(vid, cid, case_folder_name):
         shutil.rmtree(tmp_dir, ignore_errors=True)
     return False, 0.0, 0, ""
 
+def find_existing_drive_video(vid):
+    try:
+        import urllib.request, urllib.parse
+        tok = get_drive_token()
+        if not tok:
+            return None
+        q = urllib.parse.quote(f"name contains '{vid}' and mimeType != 'application/vnd.google-apps.shortcut' and trashed = false")
+        req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name,size,mimeType)", headers={"Authorization": f"Bearer {tok}"})
+        files = json.loads(urllib.request.urlopen(req, timeout=20).read().decode("utf-8")).get("files", [])
+        valid = [f for f in files if f["name"].endswith(".mp4") and int(f.get("size", 0)) > 1000000]
+        valid.sort(key=lambda x: int(x.get("size", 0)), reverse=True)
+        return valid[0] if valid else None
+    except Exception as e:
+        log(f"  [DRIVE SEARCH ERR] {e}")
+        return None
+
+def stream_drive_to_drive(src_file, vfolder_id):
+    tok = get_drive_token()
+    if not tok:
+        return False
+    src_id = src_file["id"]
+    fn = src_file["name"]
+    fsize = int(src_file["size"])
+    tmp_fp = f"/tmp/drv_copy_{SHARD_INDEX}_{src_id}.mp4"
+    try:
+        # 1. Fast stream download from Drive using curl (100+ MB/s on GitHub runner)
+        r_dl = subprocess.run([
+            "curl", "-sL", "--max-time", "600",
+            "-H", f"Authorization: Bearer {tok}",
+            "-o", tmp_fp,
+            f"https://www.googleapis.com/drive/v3/files/{src_id}?alt=media"
+        ], capture_output=True)
+        if not os.path.exists(tmp_fp) or os.path.getsize(tmp_fp) < fsize * 0.98:
+            log(f"  [DRIVE DL FAIL] got {os.path.getsize(tmp_fp) if os.path.exists(tmp_fp) else 0} / {fsize}")
+            return False
+        actual_sz = os.path.getsize(tmp_fp)
+        # 2. Upload via Service Account PATCH resumable upload
+        for attempt in range(5):
+            try:
+                import urllib.request
+                sa_tok = get_sa_token(attempt)
+                if sa_tok:
+                    meta = json.dumps({"name": fn, "parents": [vfolder_id], "mimeType": "video/mp4"}).encode("utf-8")
+                    req_create = urllib.request.Request(
+                        "https://www.googleapis.com/drive/v3/files?fields=id",
+                        data=meta, method="POST",
+                        headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json; charset=UTF-8"}
+                    )
+                    file_id = json.loads(urllib.request.urlopen(req_create, timeout=30).read().decode("utf-8"))["id"]
+                    req_patch = urllib.request.Request(
+                        f"https://www.googleapis.com/upload/drive/v3/files/{file_id}?uploadType=resumable",
+                        data=b"{}", method="PATCH",
+                        headers={
+                            "Authorization": f"Bearer {sa_tok}",
+                            "Content-Type": "application/json; charset=UTF-8",
+                            "X-Upload-Content-Type": "video/mp4",
+                            "X-Upload-Content-Length": str(actual_sz)
+                        }
+                    )
+                    resp = urllib.request.urlopen(req_patch, timeout=30)
+                    upload_url = resp.headers.get("Location")
+                    if upload_url:
+                        r_up = subprocess.run([
+                            "curl", "-s", "-g", "--max-time", "900", "-X", "PUT",
+                            "-H", "Content-Type: video/mp4", "-T", tmp_fp, upload_url
+                        ], capture_output=True, text=True)
+                        if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
+                            return True
+                    try:
+                        urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/drive/v3/files/{file_id}", headers={"Authorization": f"Bearer {tok}"}, method="DELETE"), timeout=15)
+                    except Exception:
+                        pass
+            except Exception as e:
+                log(f"  [DRIVE COPY UP RETRY {attempt+1}] {e}")
+                time.sleep(2)
+    finally:
+        try: os.remove(tmp_fp)
+        except Exception: pass
+    return False
+
 def process_case(case):
     cid = case["case_id"]
     vfolder_id = case["drive_videos_folder_id"]
@@ -519,6 +599,14 @@ def process_case(case):
         push_diag()
         return
     for vid in case.get("videos", []):
+        src_drv = find_existing_drive_video(vid)
+        if src_drv:
+            log(f"  [{cid}] Found existing HD MP4 on Drive: {src_drv['name']} ({int(src_drv['size'])/1e6:.1f} MB) -> streaming standalone copy...")
+            push_diag()
+            if stream_drive_to_drive(src_drv, vfolder_id):
+                log(f"*** COMPLETED {cid} via Drive-to-Drive standalone copy: {src_drv['name']} ***")
+                push_diag()
+                continue
         ok, dur, sz, fn = download_and_upload_one_vid(vid, cid, vfolder_id)
         if ok:
             log(f"*** COMPLETED {cid}: {fn} ({sz/1e6:.1f} MB) ***")
@@ -528,9 +616,9 @@ def process_case(case):
 
 def main():
     cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
-    fix_ids = {"BW_2026_03", "BW_2026_04", "BW_2026_05", "BW_2026_07", "BW_2026_08", "BW_2026_09", "BW_2026_10", "BW_2026_11", "BW_2026_12", "BW_2026_13", "BW_2026_14", "BW_2026_23", "BW_2026_43"}
+    fix_ids = {"BW_2026_04", "BW_2026_10"}
     fix_cases = [c for c in cases if c["case_id"] in fix_ids]
-    my_cases = [c for idx, c in enumerate(fix_cases) if idx % 13 == SHARD_INDEX % 13]
+    my_cases = [c for idx, c in enumerate(fix_cases) if idx == SHARD_INDEX]
     log(f"Starting BW 2026 Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)} assigned cases)...")
     push_diag()
     for c in my_cases:
