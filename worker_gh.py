@@ -5,33 +5,35 @@ from datetime import datetime
 SHARD_INDEX = int(os.environ.get("SHARD_INDEX", "0"))
 SHARD_TOTAL = int(os.environ.get("SHARD_TOTAL", "1"))
 
-STAGING_ROOT = f"/tmp/staging_171_s{SHARD_INDEX}"
+STAGING_ROOT = f"/tmp/staging_portal_a_s{SHARD_INDEX}"
 os.makedirs(STAGING_ROOT, exist_ok=True)
-PAYLOAD_FILE = "pure_171_cases_payload.json"
+PAYLOAD_FILE = "portal_both_payload.json"
 ROOT_2026_FOLDER_ID = "11REjO5KBB5vWD8C6Xfid7HV1fkpWSBIB"
+
+# Strictly use bodycamfoia948@gmail.com (owner of 2026 Cases 11REjO5KBB5vWD8C6Xfid7HV1fkpWSBIB)
+# so ZERO bytes ever touch abishek17703@gmail.com!
+CLIENT_ID = os.environ.get("OWNER_CLIENT_ID", "")
+CLIENT_SECRET = os.environ.get("OWNER_CLIENT_SECRET", "")
+REFRESH_TOKEN_2026_OWNER = os.environ.get("OWNER_REFRESH_TOKEN", "")
 
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    sys.stdout.write(f"[{ts}][S{SHARD_INDEX}] {msg}\n")
+    sys.stdout.write(f"[{ts}][PORTAL-A-S{SHARD_INDEX}] {msg}\n")
     sys.stdout.flush()
 
 def get_drive_token():
-    try:
-        rc = open(os.path.expanduser("~/.config/rclone/rclone.conf"), encoding="utf-8").read()
-        m_cid = re.search(r'client_id\s*=\s*(\S+)', rc)
-        m_sec = re.search(r'client_secret\s*=\s*(\S+)', rc)
-        m_tok = re.search(r'"refresh_token"\s*:\s*"([^"]+)"', rc)
-        if m_cid and m_sec and m_tok:
+    for _ in range(3):
+        try:
             data = urllib.parse.urlencode({
-                "client_id": m_cid.group(1),
-                "client_secret": m_sec.group(1),
-                "refresh_token": m_tok.group(1),
+                "client_id": CLIENT_ID,
+                "client_secret": CLIENT_SECRET,
+                "refresh_token": REFRESH_TOKEN_2026_OWNER,
                 "grant_type": "refresh_token"
             }).encode("utf-8")
             req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data)
             return json.loads(urllib.request.urlopen(req, timeout=15).read().decode("utf-8"))["access_token"]
-    except Exception:
-        pass
+        except Exception as e:
+            time.sleep(2)
     return None
 
 def get_sa_token(idx=0):
@@ -51,43 +53,6 @@ def get_sa_token(idx=0):
     except Exception as e:
         log(f"  [SA TOKEN ERR] {e}")
     return None
-
-def is_warp_open():
-    try:
-        with socket.create_connection(("127.0.0.1", 40020), timeout=1.5):
-            return True
-    except Exception:
-        return False
-
-def start_fresh_warp(seed=0):
-    subprocess.run(["pkill", "-9", "wireproxy"], capture_output=True)
-    time.sleep(0.5)
-    wdir = f"/tmp/warp_{SHARD_INDEX}_{seed}_{int(time.time())}"
-    os.makedirs(wdir, exist_ok=True)
-    try:
-        subprocess.run(["/tmp/wgcf", "register", "--accept-tos"], cwd=wdir, capture_output=True, timeout=35)
-        subprocess.run(["/tmp/wgcf", "generate"], cwd=wdir, capture_output=True, timeout=25)
-    except Exception:
-        return False
-    prof = os.path.join(wdir, "wgcf-profile.conf")
-    if os.path.exists(prof):
-        with open(prof, "a", encoding="utf-8") as f:
-            f.write("\n[Socks5]\nBindAddress = 127.0.0.1:40020\n")
-        subprocess.Popen(["/tmp/wireproxy", "-c", prof], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
-        for _ in range(16):
-            time.sleep(0.5)
-            if is_warp_open():
-                return True
-    return False
-
-def ensure_warp_alive():
-    if is_warp_open():
-        return True
-    for i in range(5):
-        if start_fresh_warp(i):
-            return True
-        time.sleep(2)
-    return False
 
 def probe_video(fp):
     try:
@@ -116,7 +81,7 @@ def resolve_or_create_folder(parent_id, name):
     tok = get_drive_token()
     if not tok:
         return None
-    safe_name = name.replace("'", "\\'")
+    safe_name = name.replace("\\", "\\\\").replace("'", "\\'")
     q = urllib.parse.quote(f"'{parent_id}' in parents and name = '{safe_name}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false")
     req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name)", headers={"Authorization": f"Bearer {tok}"})
     files = json.loads(urllib.request.urlopen(req, timeout=20).read().decode("utf-8")).get("files", [])
@@ -129,21 +94,23 @@ def resolve_or_create_folder(parent_id, name):
     FOLDER_CACHE[key] = fid
     return fid
 
-def get_case_videos_folder_id(rel_case_path):
-    parts = [p for p in rel_case_path.split("/") if p]
-    curr_id = ROOT_2026_FOLDER_ID
-    for p in parts:
-        curr_id = resolve_or_create_folder(curr_id, p)
-        if not curr_id:
-            return None
-    return resolve_or_create_folder(curr_id, "Videos")
+def get_case_subfolders(case):
+    cat_id = resolve_or_create_folder(ROOT_2026_FOLDER_ID, case["category"])
+    if not cat_id:
+        return None, None
+    case_id = resolve_or_create_folder(cat_id, case["folder"])
+    if not case_id:
+        return None, None
+    v_id = resolve_or_create_folder(case_id, "Videos")
+    d_id = resolve_or_create_folder(case_id, "Documents")
+    return v_id, d_id
 
-def list_drive_videos(vfolder_id):
+def list_drive_folder(folder_id):
     tok = get_drive_token()
-    if not tok or not vfolder_id:
+    if not tok or not folder_id:
         return []
-    q = urllib.parse.quote(f"'{vfolder_id}' in parents and trashed = false")
-    req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name,size)&pageSize=200", headers={"Authorization": f"Bearer {tok}"})
+    q = urllib.parse.quote(f"'{folder_id}' in parents and trashed = false")
+    req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name,size)&pageSize=300", headers={"Authorization": f"Bearer {tok}"})
     return json.loads(urllib.request.urlopen(req, timeout=20).read().decode("utf-8")).get("files", [])
 
 def delete_drive_file_id(fid):
@@ -156,41 +123,52 @@ def delete_drive_file_id(fid):
     except Exception:
         pass
 
-def sa_upload_file_to_folder(fp, fn, vfolder_id):
+def sa_upload_file_to_folder(fp, fn, folder_id, mime_type="video/mp4"):
     tok = get_drive_token()
     fsize = os.path.getsize(fp)
-    if not tok or not vfolder_id:
+    if not tok or not folder_id or fsize <= 0:
         return False
+    # Check if already uploaded with non-zero size
+    existing = list_drive_folder(folder_id)
+    for ef in existing:
+        if ef["name"] == fn and int(ef.get("size", 0)) >= fsize * 0.95:
+            log(f"  [SKIP EXISTING] {fn} ({fsize/1e6:.1f} MB)")
+            return True
     for attempt in range(5):
         try:
             sa_tok = get_sa_token(attempt)
             if sa_tok:
-                meta = json.dumps({"name": fn, "parents": [vfolder_id], "mimeType": "video/mp4"}).encode("utf-8")
+                # 1. Create 0-byte placeholder owned by bodycamfoia948@gmail.com
+                meta = json.dumps({"name": fn, "parents": [folder_id], "mimeType": mime_type}).encode("utf-8")
                 req_create = urllib.request.Request(
                     "https://www.googleapis.com/drive/v3/files?fields=id",
                     data=meta, method="POST",
                     headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json; charset=UTF-8"}
                 )
                 file_id = json.loads(urllib.request.urlopen(req_create, timeout=30).read().decode("utf-8"))["id"]
+                # 2. Stream media via Service Account Pool PATCH uploadType=resumable
                 req_patch = urllib.request.Request(
                     f"https://www.googleapis.com/upload/drive/v3/files/{file_id}?uploadType=resumable",
                     data=b"{}", method="PATCH",
                     headers={
                         "Authorization": f"Bearer {sa_tok}",
                         "Content-Type": "application/json; charset=UTF-8",
-                        "X-Upload-Content-Type": "video/mp4",
+                        "X-Upload-Content-Type": mime_type,
                         "X-Upload-Content-Length": str(fsize)
                     }
                 )
                 resp = urllib.request.urlopen(req_patch, timeout=30)
                 upload_url = resp.headers.get("Location")
                 if upload_url:
-                    up_tmp = f"/tmp/up_payload_{SHARD_INDEX}.mp4"
+                    up_tmp = f"/tmp/up_pa_{SHARD_INDEX}_{attempt}.bin"
                     try:
                         os.link(fp, up_tmp)
                     except Exception:
                         shutil.copyfile(fp, up_tmp)
-                    r_up = subprocess.run(["curl", "-s", "-g", "--max-time", "900", "-X", "PUT", "-H", "Content-Type: video/mp4", "-T", up_tmp, upload_url], capture_output=True, text=True)
+                    r_up = subprocess.run([
+                        "curl", "-s", "-g", "--max-time", "1800", "-X", "PUT",
+                        "-H", f"Content-Type: {mime_type}", "-T", up_tmp, upload_url
+                    ], capture_output=True, text=True)
                     try: os.remove(up_tmp)
                     except Exception: pass
                     if r_up.returncode == 0 and '"id"' in (r_up.stdout or ""):
@@ -201,185 +179,130 @@ def sa_upload_file_to_folder(fp, fn, vfolder_id):
             time.sleep(3)
     return False
 
-def download_and_upload_one_url(u, idx, vfolder_id, cid):
-    m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
-    vid = m_yt.group(1) if m_yt else f"vimeo_{idx}"
-    tmp_dir = f"/tmp/dl_{cid}_{idx}"
+def download_and_upload_pdf(p_obj, dfolder_id, cid):
+    fn = p_obj["filename"]
+    url = p_obj["url"].replace(" ", "%20")
+    existing = list_drive_folder(dfolder_id)
+    for ef in existing:
+        if ef["name"] == fn and int(ef.get("size", 0)) > 1000:
+            return True
+    tmp_fp = os.path.join(STAGING_ROOT, f"pdf_{SHARD_INDEX}_{re.sub(r'[^A-Za-z0-9_.-]', '_', fn)}")
+    try:
+        r = subprocess.run(["curl", "-sL", "--max-time", "180", "-A", "Mozilla/5.0", "-o", tmp_fp, url], capture_output=True)
+        if os.path.exists(tmp_fp) and os.path.getsize(tmp_fp) > 500:
+            ok = sa_upload_file_to_folder(tmp_fp, fn, dfolder_id, mime_type="application/pdf")
+            if ok:
+                log(f"  [{cid}] Uploaded PDF: {fn} ({os.path.getsize(tmp_fp)/1e3:.1f} KB)")
+            return ok
+    finally:
+        try: os.remove(tmp_fp)
+        except Exception: pass
+    return False
+
+def download_and_upload_portal_video(v_obj, idx, vfolder_id, cid):
+    fn = v_obj["filename"]
+    url = v_obj["url"]
+    stype = v_obj.get("source_type", "direct_mp4")
+    existing = list_drive_folder(vfolder_id)
+    for ef in existing:
+        if ef["name"] == fn and int(ef.get("size", 0)) > 1000000:
+            log(f"  [{cid}] Video already on Drive: {fn} ({int(ef['size'])/1e6:.1f} MB)")
+            return True
+
+    tmp_dir = os.path.join(STAGING_ROOT, f"v_{cid}_{idx}")
     shutil.rmtree(tmp_dir, ignore_errors=True)
     os.makedirs(tmp_dir, exist_ok=True)
-    out_tmpl = os.path.join(tmp_dir, f"%(title).90B [{vid}].%(ext)s")
+    out_fp = os.path.join(tmp_dir, fn)
     try:
-        subprocess.run(["pip", "uninstall", "-y", "bgutil-ytdlp-pot-provider"], capture_output=True)
-        ensure_warp_alive()
-        # 1. Fast yt-dlp via WARP SOCKS5 (rotating fresh WARP IP on every retry) requiring >=720p HD
-        for att, use_p in [(1, True), (2, True), (3, True), (4, True), (5, True), (6, True), (7, True), (8, True)]:
-            if use_p:
-                ensure_warp_alive()
-            cmd_fast = [
+        if stype == "vimeo_copa" or "vimeo.com" in url:
+            cmd = [
                 "yt-dlp",
-                "-f", "136+140/298+140/137+140/299+140/bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]",
+                "--referer", v_obj.get("referer", "https://www.chicagocopa.org/"),
+                "-f", "bestvideo[height>=720][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720]+bestaudio/best[height>=720]/best",
                 "--merge-output-format", "mp4",
                 "--concurrent-fragments", "16",
-                "--socket-timeout", "15",
-                "--retries", "3",
-                "--fragment-retries", "3",
+                "--socket-timeout", "20",
+                "--retries", "5",
+                "--fragment-retries", "5",
                 "--no-part",
-                "--no-playlist",
-                "-o", out_tmpl,
-                u
+                "-o", out_fp,
+                url
             ]
-            if "vimeo.com" in u:
-                cmd_fast[1:1] = ["--referer", "https://www.chicagocopa.org/"]
-            if use_p:
-                cmd_fast[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
-            log(f"  [{cid}] Starting yt-dlp HD att={att} proxy={use_p} for {vid}...")
-            try:
-                r_fast = subprocess.run(cmd_fast, capture_output=True, text=True, timeout=900)
-            except subprocess.TimeoutExpired:
-                log(f"  [{cid}] yt-dlp att={att} timed out (900s)")
-                if use_p:
-                    start_fresh_warp(att + 1)
-                continue
-            dl = [x for x in os.listdir(tmp_dir) if x.endswith(".mp4") and not re.search(r'\.f\d+\.', x)]
-            if dl:
-                fp = os.path.join(tmp_dir, dl[0])
-                info = probe_video(fp)
-                if info and info["dur"] > 0 and (max(info["w"], info["h"]) >= 1024 or min(info["w"], info["h"]) >= 720):
-                    sz = os.path.getsize(fp)
-                    log(f"  [{cid}] Downloaded HD {info['w']}x{info['h']} {dl[0]} ({sz/1e6:.1f} MB) -> SA uploading...")
-                    up_ok = sa_upload_file_to_folder(fp, dl[0], vfolder_id)
-                    return up_ok, info["dur"], sz, dl[0]
-                else:
-                    try: os.remove(fp)
-                    except Exception: pass
-            else:
-                err_lines = [ln for ln in (r_fast.stderr or "").splitlines() if "ERROR:" in ln]
-                log(f"  [{cid}] yt-dlp att={att} err: {err_lines[-1:]}")
-                if use_p:
-                    start_fresh_warp(att + 1)
+            log(f"  [{cid}] Downloading COPA Vimeo HD: {fn} ({url})...")
+            subprocess.run(cmd, capture_output=True, text=True, timeout=1200)
+        elif stype == "njoag_box" or "box.com" in url:
+            box_u = v_obj.get("box_file_url") or url
+            cmd = [
+                "yt-dlp",
+                "-f", "bestvideo[height>=720]+bestaudio/best",
+                "--merge-output-format", "mp4",
+                "--concurrent-fragments", "10",
+                "-o", out_fp,
+                box_u
+            ]
+            log(f"  [{cid}] Downloading NJOAG Box HD: {fn} ({box_u})...")
+            subprocess.run(cmd, capture_output=True, text=True, timeout=1200)
+            if not os.path.exists(out_fp) or os.path.getsize(out_fp) < 100000:
+                subprocess.run(["curl", "-sL", "--max-time", "1200", "-A", "Mozilla/5.0", "-o", out_fp, url], capture_output=True)
+        else:
+            clean_u = url.replace(" ", "%20")
+            log(f"  [{cid}] Downloading Direct Portal MP4: {fn} ({clean_u[:80]})...")
+            r_aria = subprocess.run([
+                "aria2c", "-x", "8", "-s", "8", "-k", "1M",
+                "--max-connection-per-server=8", "--allow-overwrite=true",
+                "--auto-file-renaming=false", "-d", tmp_dir, "-o", fn, clean_u
+            ], capture_output=True, text=True, timeout=1800)
+            if not os.path.exists(out_fp) or os.path.getsize(out_fp) < 100000:
+                subprocess.run(["curl", "-sL", "--max-time", "1800", "-A", "Mozilla/5.0", "-o", out_fp, clean_u], capture_output=True)
 
-        # 2. Fallback: IOS hlsManifestUrl via WARP
-        if m_yt:
-            api = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false"
-            ios_ua = "com.google.ios.youtube/20.03.02 (iPhone16,2; U; CPU iOS 18_2_1 like Mac OS X;)"
-            for rot in range(1, 5):
-                ensure_warp_alive()
-                r_p = subprocess.run([
-                    "curl", "-sL", "--max-time", "15", "-x", "socks5h://127.0.0.1:40020",
-                    "-H", "Content-Type: application/json", "-A", ios_ua,
-                    "-d", json.dumps({
-                        "videoId": vid,
-                        "context": {"client": {
-                            "clientName": "IOS", "clientVersion": "20.03.02", "hl": "en", "gl": "US",
-                            "deviceMake": "Apple", "deviceModel": "iPhone16,2", "osName": "iPhone", "osVersion": "18.2.1.22C161"
-                        }},
-                        "racyCheckOk": True, "contentCheckOk": True
-                    }),
-                    api
-                ], capture_output=True, text=True)
-                if r_p.returncode == 0 and r_p.stdout.strip():
-                    try:
-                        d = json.loads(r_p.stdout)
-                        hls_url = d.get("streamingData", {}).get("hlsManifestUrl")
-                        if hls_url:
-                            raw_title = d.get("videoDetails", {}).get("title") or f"{cid}_clip_{idx+1}"
-                            safe_title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', '_', raw_title)[:85].strip()
-                            final_fn = f"{safe_title} [{vid}].mp4"
-                            merged_fp = os.path.join(tmp_dir, final_fn)
-                            subprocess.run([
-                                "yt-dlp", "--proxy", "socks5://127.0.0.1:40020",
-                                "--user-agent", ios_ua,
-                                "-f", "bestvideo[height>=720][height<=1920]+bestaudio/best[height>=720][height<=1920]",
-                                "--merge-output-format", "mp4", "--concurrent-fragments", "4",
-                                "--socket-timeout", "20", "--retries", "5", "--fragment-retries", "5", "--no-part",
-                                "-o", merged_fp, hls_url
-                            ], capture_output=True, text=True, timeout=600)
-                            if os.path.exists(merged_fp):
-                                info = probe_video(merged_fp)
-                                if info and info["dur"] > 0 and (max(info["w"], info["h"]) >= 1024 or min(info["w"], info["h"]) >= 720):
-                                    sz = os.path.getsize(merged_fp)
-                                    log(f"  [{cid}] Downloaded IOS-HLS HD {info['w']}x{info['h']} ({sz/1e6:.1f} MB) -> SA uploading...")
-                                    up_ok = sa_upload_file_to_folder(merged_fp, final_fn, vfolder_id)
-                                    return up_ok, info["dur"], sz, final_fn
-                    except Exception:
-                        pass
-                start_fresh_warp(rot + 10)
+        if os.path.exists(out_fp) and os.path.getsize(out_fp) > 100000:
+            info = probe_video(out_fp)
+            sz = os.path.getsize(out_fp)
+            if info and (max(info["w"], info["h"]) >= 1200 or min(info["w"], info["h"]) >= 720):
+                log(f"  [{cid}] Probed HD {info['w']}x{info['h']} ({info['dur']:.1f}s, {sz/1e6:.1f} MB) -> SA uploading {fn}...")
+                up_ok = sa_upload_file_to_folder(out_fp, fn, vfolder_id, mime_type="video/mp4")
+                if up_ok:
+                    log(f"  [PORTAL-A UPLOAD COMPLETE] {cid} -> {fn} ({sz/1e6:.1f} MB)")
+                return up_ok
+            else:
+                log(f"  [{cid}] Rejecting non-HD or corrupt file {fn}: {info}")
+    except Exception as e:
+        log(f"  [{cid}] Error downloading {fn}: {e}")
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
-    log(f"  [{cid}] FAILED URL: {u[:80]}")
-    return False, 0.0, 0, ""
-
-LOW_RES_VIDS = set()
-if os.path.exists("low_res_clips.json"):
-    try:
-        for item in json.load(open("low_res_clips.json", encoding="utf-8")):
-            m = re.search(r'\[([A-Za-z0-9_-]{11})\]\.mp4$', item.get("file_name", ""))
-            if m:
-                LOW_RES_VIDS.add(m.group(1))
-    except Exception:
-        pass
-
-def process_case(case):
-    cid = case["case_id"]
-    # Fast check: does this case have any LOW_RES_VIDS before making Drive API calls?
-    needs_upgrade = []
-    for u in case["video_urls"]:
-        m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
-        if m_yt and m_yt.group(1) in LOW_RES_VIDS:
-            needs_upgrade.append(m_yt.group(1))
-
-    if not needs_upgrade:
-        return
-
-    rel_case_path = f"{case['category']}/{case['folder']}"
-    vfolder_id = get_case_videos_folder_id(rel_case_path)
-    if not vfolder_id:
-        log(f"  [{cid}] Could not resolve Videos folder for {rel_case_path}")
-        return
-
-    drive_files = list_drive_videos(vfolder_id)
-    existing_drive_files = [x["name"] for x in drive_files if x["name"].endswith(".mp4")]
-    log(f"=== Upgrading {cid}: {case['folder']} (Upgrading {len(needs_upgrade)} clips: {needs_upgrade}) ===")
-
-    for j, u in enumerate(case["video_urls"]):
-        m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
-        if not m_yt or m_yt.group(1) not in LOW_RES_VIDS:
-            continue
-        vid = m_yt.group(1)
-        old_files = [x for x in drive_files if f"[{vid}]" in x["name"]]
-        ok, dur, sz, uploaded_fn = download_and_upload_one_url(u, j, vfolder_id, cid)
-        if ok:
-            for of in old_files:
-                delete_drive_file_id(of["id"])
-            log(f"  [HD UPGRADE COMPLETE] {cid} [{vid}] -> {uploaded_fn} ({sz/1e6:.1f} MB)")
+    return False
 
 def main():
-    cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
-    # Flatten at the individual clip level across LOW_RES_VIDS so multi-clip cases (NEW_2026_161, NEW_2026_63) split across separate shards!
-    tasks = []
+    payload = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
+    cases = payload.get("target_a_2026_cases", [])
+    log(f"Loaded {len(cases)} Target A (2026 Cases) pure portal cases.")
+
+    # Step 1: Pre-create case folders & upload PDFs assigned to this shard
+    pdf_tasks = []
     for c in cases:
-        for j, u in enumerate(c["video_urls"]):
-            m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
-            if m_yt and m_yt.group(1) in LOW_RES_VIDS:
-                tasks.append((c, j, u, m_yt.group(1)))
-    my_tasks = [t for idx, t in enumerate(tasks) if idx % SHARD_TOTAL == SHARD_INDEX or (len(tasks) <= 3 and SHARD_INDEX < 6)]
-    log(f"Starting 2026 HD Upgrade Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_tasks)}/{len(tasks)} individual clips assigned)...")
-    for c, j, u, vid in my_tasks:
-        cid = c["case_id"]
-        rel_case_path = f"{c['category']}/{c['folder']}"
-        vfolder_id = get_case_videos_folder_id(rel_case_path)
-        if not vfolder_id:
-            continue
-        drive_files = list_drive_videos(vfolder_id)
-        old_files = [x for x in drive_files if f"[{vid}]" in x["name"]]
-        if not old_files:
-            continue
-        ok, dur, sz, uploaded_fn = download_and_upload_one_url(u, j, vfolder_id, cid)
-        if ok:
-            for of in old_files:
-                delete_drive_file_id(of["id"])
-            log(f"  [HD UPGRADE COMPLETE] {cid} [{vid}] -> {uploaded_fn} ({sz/1e6:.1f} MB)")
-    log(f"Shard {SHARD_INDEX} finished all assigned 2026 HD upgrades.")
+        for p in c.get("pdfs", []):
+            pdf_tasks.append((c, p))
+    my_pdfs = [t for i, t in enumerate(pdf_tasks) if i % SHARD_TOTAL == SHARD_INDEX]
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_pdfs)}/{len(pdf_tasks)} PDFs...")
+    for c, p in my_pdfs:
+        _, dfolder_id = get_case_subfolders(c)
+        if dfolder_id:
+            download_and_upload_pdf(p, dfolder_id, c["case_id"])
+
+    # Step 2: Flatten all 217 portal videos across all 20 shards so multi-camera cases download in parallel!
+    vid_tasks = []
+    for c in cases:
+        for idx, v in enumerate(c.get("videos", []), 1):
+            vid_tasks.append((c, idx, v))
+    my_vids = [t for i, t in enumerate(vid_tasks) if i % SHARD_TOTAL == SHARD_INDEX]
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_vids)}/{len(vid_tasks)} portal >=720p BWC clips...")
+
+    for c, idx, v in my_vids:
+        vfolder_id, _ = get_case_subfolders(c)
+        if vfolder_id:
+            download_and_upload_portal_video(v, idx, vfolder_id, c["case_id"])
+
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} completed all Target A (2026 Cases) pure portal uploads.")
 
 if __name__ == "__main__":
     main()
