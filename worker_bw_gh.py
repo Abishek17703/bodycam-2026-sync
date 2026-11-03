@@ -502,9 +502,16 @@ def process_case(case):
         tok = get_drive_token()
         if tok:
             q = urllib.parse.quote(f"'{vfolder_id}' in parents and trashed = false")
-            req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name)", headers={"Authorization": f"Bearer {tok}"})
+            req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,name,mimeType,size)", headers={"Authorization": f"Bearer {tok}"})
             files = json.loads(urllib.request.urlopen(req, timeout=15).read().decode("utf-8")).get("files", [])
-            existing = [f["name"] for f in files if f["name"].endswith(".mp4")]
+            for f in files:
+                if f.get("mimeType") == "application/vnd.google-apps.shortcut" or int(f.get("size", 0)) < 100000:
+                    try:
+                        urllib.request.urlopen(urllib.request.Request(f"https://www.googleapis.com/drive/v3/files/{f['id']}", headers={"Authorization": f"Bearer {tok}"}, method="DELETE"), timeout=15)
+                    except Exception:
+                        pass
+                elif f["name"].endswith(".mp4"):
+                    existing.append(f["name"])
     except Exception:
         existing = []
     if existing:
@@ -521,8 +528,9 @@ def process_case(case):
 
 def main():
     cases = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
-    # Prioritize BW_2026_33 across shards 0..3 as backup while also running normal shard assignment
-    my_cases = [c for idx, c in enumerate(cases) if idx % SHARD_TOTAL == SHARD_INDEX or (SHARD_INDEX < 4 and c["case_id"] == "BW_2026_33")]
+    fix_ids = {"BW_2026_03", "BW_2026_04", "BW_2026_05", "BW_2026_07", "BW_2026_08", "BW_2026_09", "BW_2026_10", "BW_2026_11", "BW_2026_12", "BW_2026_13", "BW_2026_14", "BW_2026_23", "BW_2026_43"}
+    fix_cases = [c for c in cases if c["case_id"] in fix_ids]
+    my_cases = [c for idx, c in enumerate(fix_cases) if idx % 13 == SHARD_INDEX % 13]
     log(f"Starting BW 2026 Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_cases)} assigned cases)...")
     push_diag()
     for c in my_cases:
