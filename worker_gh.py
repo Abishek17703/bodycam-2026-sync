@@ -217,9 +217,9 @@ def download_and_upload_one_url(u, idx, vfolder_id, cid):
                 ensure_warp_alive()
             cmd_fast = [
                 "yt-dlp",
-                "-f", "137+140/299+140/136+140/298+140/bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]",
+                "-f", "136+140/298+140/137+140/299+140/bestvideo[height>=720][height<=2160][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height>=720][height<=2160]+bestaudio/best[height>=720]",
                 "--merge-output-format", "mp4",
-                "--concurrent-fragments", "8",
+                "--concurrent-fragments", "16",
                 "--socket-timeout", "15",
                 "--retries", "3",
                 "--fragment-retries", "3",
@@ -234,9 +234,9 @@ def download_and_upload_one_url(u, idx, vfolder_id, cid):
                 cmd_fast[1:1] = ["--proxy", "socks5://127.0.0.1:40020"]
             log(f"  [{cid}] Starting yt-dlp HD att={att} proxy={use_p} for {vid}...")
             try:
-                r_fast = subprocess.run(cmd_fast, capture_output=True, text=True, timeout=240)
+                r_fast = subprocess.run(cmd_fast, capture_output=True, text=True, timeout=900)
             except subprocess.TimeoutExpired:
-                log(f"  [{cid}] yt-dlp att={att} timed out (240s)")
+                log(f"  [{cid}] yt-dlp att={att} timed out (900s)")
                 if use_p:
                     start_fresh_warp(att + 1)
                 continue
@@ -362,7 +362,7 @@ def main():
             m_yt = re.search(r'(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})', u)
             if m_yt and m_yt.group(1) in LOW_RES_VIDS:
                 tasks.append((c, j, u, m_yt.group(1)))
-    my_tasks = [t for idx, t in enumerate(tasks) if idx % SHARD_TOTAL == SHARD_INDEX]
+    my_tasks = [t for idx, t in enumerate(tasks) if idx % SHARD_TOTAL == SHARD_INDEX or (len(tasks) <= 3 and SHARD_INDEX < 6)]
     log(f"Starting 2026 HD Upgrade Shard {SHARD_INDEX}/{SHARD_TOTAL} ({len(my_tasks)}/{len(tasks)} individual clips assigned)...")
     for c, j, u, vid in my_tasks:
         cid = c["case_id"]
