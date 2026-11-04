@@ -1,26 +1,16 @@
 import os
+import re
 import json
 import time
+import base64
 import subprocess
 import urllib.request
 import urllib.parse
+import http.cookiejar
 
 TARGET_FOLDER_ID = "1dcQ6Mpo0DDmgafnMn_ZxXJJSZKDOYD-L"
-
-FILES = [
-    {"name": "UNIT-02_Front_15179_04252024233441.mp4", "bytes": 1883472113, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AI1p2odPRC2xVg6v4K-wkn4/UNIT-02_Front_15179_04252024233441.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Backseat_15185_04252024233203.mp4", "bytes": 561160098, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/ANfYAtDXDdaYWgCdPDW0X0E/UNIT-10_Backseat_15185_04252024233203.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Backseat_15185_04262024003205.mp4", "bytes": 558913630, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AHHAUdE9Rm352SHGOElQRp4/UNIT-10_Backseat_15185_04262024003205.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Backseat_15185_04262024013206.mp4", "bytes": 565722233, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AP9y6_52EAWj4MTj5BIhCvg/UNIT-10_Backseat_15185_04262024013206.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Backseat_15185_04262024023207.mp4", "bytes": 528451084, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AJrDcOZ_jR6ppYJL_qoSOsA/UNIT-10_Backseat_15185_04262024023207.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Backseat_15185_04262024034633.mp4", "bytes": 321279948, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AI0Wmp4AB0xPeQQXJpJ1GBc/UNIT-10_Backseat_15185_04262024034633.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Front_15185_04252024233203.mp4", "bytes": 1885225479, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AH2pjEaSkoVVC7qHlhrnk2A/UNIT-10_Front_15185_04252024233203.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Front_15185_04262024003204.mp4", "bytes": 1870024086, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/ABrmPRbD2taAI_xoSGoPE_A/UNIT-10_Front_15185_04262024003204.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Front_15185_04262024013205.mp4", "bytes": 1869825620, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AGqOSmG2Q-_m4JN0KvgEpB4/UNIT-10_Front_15185_04262024013205.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Front_15185_04262024023206.mp4", "bytes": 1745149249, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/ANT2TsK0Qf1uTEFnJyjitI0/UNIT-10_Front_15185_04262024023206.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-10_Front_15185_04262024034633.mp4", "bytes": 1067152409, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AHK_zrx8c6enDELdPnMn174/UNIT-10_Front_15185_04262024034633.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-    {"name": "UNIT-K9-01_Front_15187_04252024233424.mp4", "bytes": 234319640, "url": "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AA5Sx4OlWerGwGxkfEVBsKs/UNIT-K9-01_Front_15187_04252024233424.mp4?rlkey=j2fc123749n8bfxgryi8g1mr7&dl=1"},
-]
+DBX_URL = "https://www.dropbox.com/scl/fo/eliti6950htuavbhboca7/AO8yE5cWgJcHk8OlnmuUTQk?rlkey=j2fc123749n8bfxgryi8g1mr7&st=3d7eyr5b&e=1&dl=0"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 def get_owner_token():
     data = urllib.parse.urlencode({
@@ -66,27 +56,74 @@ def upload_resumable(token, local_path, name):
         upload_url
     ], check=True)
 
+def get_page2_entries():
+    cj = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+    h = opener.open(urllib.request.Request(DBX_URL, headers={"User-Agent": UA}), timeout=20).read().decode("utf-8", "ignore")
+    b64s = re.findall(r'registerStreamedPrefetch\s*\(\s*"[^"]+"\s*,\s*"([^"]+)"', h)
+    raw = base64.b64decode(b64s[-1]).decode("latin1")
+    voucher = re.search(r'(\{"prog":\s*".*?"sig":\s*"[^"]+"\})', raw).group(1)
+    t_cookie = next((c.value for c in cj if c.name in ('t', '__Host-js_csrf')), "")
+    data = urllib.parse.urlencode({
+        "is_xhr": "true",
+        "t": t_cookie,
+        "link_key": "eliti6950htuavbhboca7",
+        "link_type": "s",
+        "rlkey": "j2fc123749n8bfxgryi8g1mr7",
+        "secure_hash": "AO8yE5cWgJcHk8OlnmuUTQk",
+        "sub_path": "",
+        "voucher": voucher
+    }).encode("utf-8")
+    req2 = urllib.request.Request(
+        "https://www.dropbox.com/list_shared_link_folder_entries",
+        data=data,
+        headers={
+            "User-Agent": UA,
+            "Referer": DBX_URL,
+            "Origin": "https://www.dropbox.com",
+            "X-Requested-With": "XMLHttpRequest",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+    )
+    res2 = json.loads(opener.open(req2, timeout=20).read().decode("utf-8"))
+    return res2.get("entries", [])
+
 def main():
     idx = int(os.environ.get("SHARD_INDEX", "0"))
-    item = FILES[idx]
-    name = item["name"]
-    url = item["url"]
-    token = get_owner_token()
+    entries = get_page2_entries()
+    if idx >= len(entries):
+        print(f"Index {idx} out of range ({len(entries)} entries)")
+        return
+    entry = entries[idx]
+    name = entry["filename"]
+    m3u8_url = entry["preview"]["content"]["transcode_url"]
 
+    token = get_owner_token()
     existing = check_exists(token, name)
-    if existing and int(existing.get("size", 0)) > 1000000:
+    if existing and int(existing.get("size", 0)) > 5000000:
         print(f"Already exists: {name} ({existing.get('size')} bytes)")
         return
 
     local_path = f"/tmp/{name}"
-    print(f"Downloading {name} ({item['bytes'] / (1024**3):.2f} GB)...")
+    print(f"Downloading HLS stream for {name}...")
     t0 = time.time()
-    subprocess.run(["curl", "-sSL", "-o", local_path, url], check=True)
+    subprocess.run([
+        "yt-dlp",
+        "-f", "bestvideo+bestaudio/best",
+        "--merge-output-format", "mp4",
+        "--concurrent-fragments", "16",
+        "--no-part",
+        "-o", local_path,
+        m3u8_url
+    ], check=True)
     dt = time.time() - t0
     actual_size = os.path.getsize(local_path)
-    print(f"Downloaded {actual_size} bytes in {dt:.1f}s")
+    print(f"Downloaded {name}: {actual_size / (1024**2):.2f} MB in {dt:.1f}s")
 
-    print(f"Uploading {name} to {TARGET_FOLDER_ID} as owner bodyacamfootages@gmail.com...")
+    if actual_size < 1000000:
+        raise RuntimeError(f"File too small: {actual_size} bytes")
+
+    print(f"Uploading {name} ({actual_size / (1024**2):.2f} MB) to {TARGET_FOLDER_ID} as bodyacamfootages@gmail.com...")
     t1 = time.time()
     token = get_owner_token()
     upload_resumable(token, local_path, name)
