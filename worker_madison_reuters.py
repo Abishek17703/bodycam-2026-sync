@@ -21,14 +21,14 @@ VIDEOS = [
         "url": "https://www.youtube.com/watch?v=mURB-nAXfE8"
     },
     {
-        "name": "ABC_LIVE_Madison_Police_Response_Update_Abundant_Life_Christian_School_52m.mp4",
-        "vid": "7NPE3dzJn68",
-        "url": "https://www.youtube.com/watch?v=7NPE3dzJn68"
+        "name": "Madison_PD_Full_Response_Briefing_Abundant_Life_Christian_School_Clean_Pool_35m.mp4",
+        "vid": "_bPRHwY1r4I",
+        "url": "https://www.youtube.com/watch?v=_bPRHwY1r4I"
     },
     {
-        "name": "WISN12_Jeffrey_Rupnow_Father_of_Madison_School_Shooter_Arrest_and_Briefing_27m.mp4",
-        "vid": "FMjbEyYq1Oo",
-        "url": "https://www.youtube.com/watch?v=FMjbEyYq1Oo"
+        "name": "Madison_PD_Jeffrey_Rupnow_Arrest_and_Investigation_Briefing_Clean_Pool_25m.mp4",
+        "vid": "AqsAjW8TJog",
+        "url": "https://www.youtube.com/watch?v=AqsAjW8TJog"
     }
 ]
 
