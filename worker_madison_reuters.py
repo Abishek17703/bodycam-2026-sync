@@ -11,24 +11,24 @@ TARGET_FOLDER_ID = "1TOgFL4pbKisYdJb7_Y1oyV0lWDQiQQoo"
 
 VIDEOS = [
     {
-        "name": "Reuters_LIVE_Scene_Abundant_Life_Christian_School_Shooting_Madison_WI_2h20m.mp4",
-        "vid": "D_XqUk-zUvQ",
-        "url": "https://www.youtube.com/watch?v=D_XqUk-zUvQ"
+        "name": "AP_LIVE_Day1_Initial_Scene_Briefing_Abundant_Life_Christian_School_33m.mp4",
+        "vid": "GxiX0-yR8RE",
+        "url": "https://www.youtube.com/watch?v=GxiX0-yR8RE"
     },
     {
-        "name": "AP_LIVE_Madison_Police_Scene_Briefing_Abundant_Life_Christian_School_1h16m.mp4",
-        "vid": "mURB-nAXfE8",
-        "url": "https://www.youtube.com/watch?v=mURB-nAXfE8"
+        "name": "AP_LIVE_Day2_Afternoon_Police_Update_Abundant_Life_Christian_School_47m.mp4",
+        "vid": "U-PCwwukPrw",
+        "url": "https://www.youtube.com/watch?v=U-PCwwukPrw"
     },
     {
-        "name": "Madison_PD_Full_Response_Briefing_Abundant_Life_Christian_School_Clean_Pool_35m.mp4",
-        "vid": "_bPRHwY1r4I",
-        "url": "https://www.youtube.com/watch?v=_bPRHwY1r4I"
+        "name": "AP_LIVE_Day2_Evening_Police_Briefing_Abundant_Life_Christian_School_43m.mp4",
+        "vid": "ZFOo06H_cxo",
+        "url": "https://www.youtube.com/watch?v=ZFOo06H_cxo"
     },
     {
-        "name": "Madison_PD_Jeffrey_Rupnow_Arrest_and_Investigation_Briefing_Clean_Pool_25m.mp4",
-        "vid": "AqsAjW8TJog",
-        "url": "https://www.youtube.com/watch?v=AqsAjW8TJog"
+        "name": "AP_LIVE_Madison_Community_Vigil_Abundant_Life_Christian_School_1h30m.mp4",
+        "vid": "K1SmRGVICi0",
+        "url": "https://www.youtube.com/watch?v=K1SmRGVICi0"
     }
 ]
 
