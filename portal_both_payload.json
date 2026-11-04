@@ -4279,6 +4279,3301 @@
         "https://www.chicagocopa.org/wp-content/uploads/2024/12/013-trr_-Redacted.pdf",
         "https://www.chicagocopa.org/wp-content/uploads/2024/12/COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-OFFICER-INVOLVED-SHOOTING-NEAR-300-W.-DIVISION-STREET.pdf"
       ]
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2022-0001369/)",
+      "bwc_hrs": 12.63,
+      "videos": [
+        {
+          "filename": "01_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_1_704170106.mp4",
+          "url": "https://player.vimeo.com/video/704170106",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7647
+        },
+        {
+          "filename": "02_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_2_704192579.mp4",
+          "url": "https://player.vimeo.com/video/704192579",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7589
+        },
+        {
+          "filename": "03_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_3_704201634.mp4",
+          "url": "https://player.vimeo.com/video/704201634",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7586
+        },
+        {
+          "filename": "04_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_4_704211509.mp4",
+          "url": "https://player.vimeo.com/video/704211509",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7586
+        },
+        {
+          "filename": "05_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_5_704221611.mp4",
+          "url": "https://player.vimeo.com/video/704221611",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7558
+        },
+        {
+          "filename": "06_COPA_2022-0001369_Log___2022-0001369_Body_Worn_Camera_6_704226113.mp4",
+          "url": "https://player.vimeo.com/video/704226113",
+          "referer": "https://www.chicagocopa.org/case/2022-0001369/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 7497
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2022-0001369_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/05/2022-0001369_FSR.pdf"
+        },
+        {
+          "filename": "02_2022-0001369-20220403-Original-Case-Incident-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2022-0001369-20220403-Original-Case-Incident-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "03_2022-000136920200403TRRKirkel_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2022-000136920200403TRRKirkel_REDACTED.pdf"
+        },
+        {
+          "filename": "04_2022-000136920200403TRRSanchez_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2022-000136920200403TRRSanchez_REDACTED.pdf"
+        },
+        {
+          "filename": "05_2022-000136920220403TRRLopez_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2022-000136920220403TRRLopez_REDACTED.pdf"
+        },
+        {
+          "filename": "06_2022-000136920220403TRRShanahan_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2022-000136920220403TRRShanahan_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-4200-W-FORD-CITY-DR-Final-1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/05/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-4200-W-FORD-CITY-DR-Final-1.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_11",
+      "folder": "BW_PORTAL_11 - Chicago COPA Log #2022-0001369 \u2014 4200 W. Ford City Dr Black Female Subject #2 Critical Incident (6 BWC Clips, 12.63h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0002665/)",
+      "bwc_hrs": 3.21,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_1_581203088.mp4",
+          "url": "https://player.vimeo.com/video/581203088",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 660
+        },
+        {
+          "filename": "02_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_2_581203475.mp4",
+          "url": "https://player.vimeo.com/video/581203475",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 660
+        },
+        {
+          "filename": "03_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_3_581204079.mp4",
+          "url": "https://player.vimeo.com/video/581204079",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 548
+        },
+        {
+          "filename": "04_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_4_581206989.mp4",
+          "url": "https://player.vimeo.com/video/581206989",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 511
+        },
+        {
+          "filename": "05_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_5_581207331.mp4",
+          "url": "https://player.vimeo.com/video/581207331",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 668
+        },
+        {
+          "filename": "06_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_6_581207732.mp4",
+          "url": "https://player.vimeo.com/video/581207732",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 659
+        },
+        {
+          "filename": "07_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_7_581209507.mp4",
+          "url": "https://player.vimeo.com/video/581209507",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 669
+        },
+        {
+          "filename": "08_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_8_581210040.mp4",
+          "url": "https://player.vimeo.com/video/581210040",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 654
+        },
+        {
+          "filename": "09_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_9_581210505.mp4",
+          "url": "https://player.vimeo.com/video/581210505",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 612
+        },
+        {
+          "filename": "10_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_10_581212619.mp4",
+          "url": "https://player.vimeo.com/video/581212619",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 558
+        },
+        {
+          "filename": "11_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_11_581213024.mp4",
+          "url": "https://player.vimeo.com/video/581213024",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 635
+        },
+        {
+          "filename": "12_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_12_581213297.mp4",
+          "url": "https://player.vimeo.com/video/581213297",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 634
+        },
+        {
+          "filename": "13_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_13_581215622.mp4",
+          "url": "https://player.vimeo.com/video/581215622",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 635
+        },
+        {
+          "filename": "14_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_14_581215946.mp4",
+          "url": "https://player.vimeo.com/video/581215946",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 514
+        },
+        {
+          "filename": "15_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_15_581216509.mp4",
+          "url": "https://player.vimeo.com/video/581216509",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 605
+        },
+        {
+          "filename": "16_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_16_581219382.mp4",
+          "url": "https://player.vimeo.com/video/581219382",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 439
+        },
+        {
+          "filename": "17_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_17_581219783.mp4",
+          "url": "https://player.vimeo.com/video/581219783",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 522
+        },
+        {
+          "filename": "18_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_18_581220280.mp4",
+          "url": "https://player.vimeo.com/video/581220280",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 413
+        },
+        {
+          "filename": "19_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_19_581221131.mp4",
+          "url": "https://player.vimeo.com/video/581221131",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 647
+        },
+        {
+          "filename": "20_COPA_2021-0002665_Log__2021-2665_Body_Worn_Camera_20_581221374.mp4",
+          "url": "https://player.vimeo.com/video/581221374",
+          "referer": "https://www.chicagocopa.org/case/2021-0002665/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 305
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0002665_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/2021-0002665_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-0002665_Concurrence.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/2021-0002665_Concurrence.pdf"
+        },
+        {
+          "filename": "03_Case-Report-JE295553_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/Case-Report-JE295553_REDACTED.pdf"
+        },
+        {
+          "filename": "04_Esquivel_Tactical-Response-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/Esquivel_Tactical-Response-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "05_Mays_Tactical-Response-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/Mays_Tactical-Response-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "06_Napoleon_Tactical-Response-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/Napoleon_Tactical-Response-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-AN-OFFICER-INVOLVED-SHOOTING-NEAR-100-S.-KILPATRICK-Final-1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-AN-OFFICER-INVOLVED-SHOOTING-NEAR-100-S.-KILPATRICK-Final-1.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_12",
+      "folder": "BW_PORTAL_12 - Chicago COPA Log #2021-0002665 \u2014 3510 S. Michigan Ave Black Female Subject Police Response (20 BWC Clips, 3.21h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2025-0001636/)",
+      "bwc_hrs": 3.13,
+      "videos": [
+        {
+          "filename": "01_COPA_2025-0001636_Log__2025-0001636_BWC_1_1231780850.mp4",
+          "url": "https://player.vimeo.com/video/1231780850",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 672
+        },
+        {
+          "filename": "02_COPA_2025-0001636_Log__2025-0001636_BWC_2_1231781017.mp4",
+          "url": "https://player.vimeo.com/video/1231781017",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 435
+        },
+        {
+          "filename": "03_COPA_2025-0001636_Log__2025-0001636_BWC_3_1231780720.mp4",
+          "url": "https://player.vimeo.com/video/1231780720",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 738
+        },
+        {
+          "filename": "04_COPA_2025-0001636_Log__2025-0001636_BWC_4_1231781008.mp4",
+          "url": "https://player.vimeo.com/video/1231781008",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 465
+        },
+        {
+          "filename": "05_COPA_2025-0001636_Log__2025-0001636_BWC_5_1231780846.mp4",
+          "url": "https://player.vimeo.com/video/1231780846",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 818
+        },
+        {
+          "filename": "06_COPA_2025-0001636_Log__2025-0001636_BWC_6_1231780835.mp4",
+          "url": "https://player.vimeo.com/video/1231780835",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 612
+        },
+        {
+          "filename": "07_COPA_2025-0001636_Log__2025-0001636_BWC_7_1231780947.mp4",
+          "url": "https://player.vimeo.com/video/1231780947",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 408
+        },
+        {
+          "filename": "08_COPA_2025-0001636_Log__2025-0001636_BWC_8_1231780718.mp4",
+          "url": "https://player.vimeo.com/video/1231780718",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 728
+        },
+        {
+          "filename": "09_COPA_2025-0001636_Log__2025-0001636_BWC_9_1231780612.mp4",
+          "url": "https://player.vimeo.com/video/1231780612",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 495
+        },
+        {
+          "filename": "10_COPA_2025-0001636_Log__2025-0001636_BWC_10_1231780948.mp4",
+          "url": "https://player.vimeo.com/video/1231780948",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 499
+        },
+        {
+          "filename": "11_COPA_2025-0001636_Log__2025-0001636_BWC_11_1231780742.mp4",
+          "url": "https://player.vimeo.com/video/1231780742",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 742
+        },
+        {
+          "filename": "12_COPA_2025-0001636_Log__2025-0001636_BWC_12_1231780529.mp4",
+          "url": "https://player.vimeo.com/video/1231780529",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 900
+        },
+        {
+          "filename": "13_COPA_2025-0001636_Log__2025-0001636_BWC_13_1231780820.mp4",
+          "url": "https://player.vimeo.com/video/1231780820",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 899
+        },
+        {
+          "filename": "14_COPA_2025-0001636_Log__2025-0001636_BWC_14_1231780527.mp4",
+          "url": "https://player.vimeo.com/video/1231780527",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 816
+        },
+        {
+          "filename": "15_COPA_2025-0001636_Log__2025-0001636_BWC_15_1231780526.mp4",
+          "url": "https://player.vimeo.com/video/1231780526",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 413
+        },
+        {
+          "filename": "16_COPA_2025-0001636_Log__2025-0001636_BWC_16_1231780528.mp4",
+          "url": "https://player.vimeo.com/video/1231780528",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 417
+        },
+        {
+          "filename": "17_COPA_2025-0001636_Log__2025-0001636_BWC_17_1231780741.mp4",
+          "url": "https://player.vimeo.com/video/1231780741",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 429
+        },
+        {
+          "filename": "18_COPA_2025-0001636_Log__2025-0001636_BWC_18_1231780622.mp4",
+          "url": "https://player.vimeo.com/video/1231780622",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 399
+        },
+        {
+          "filename": "19_COPA_2025-0001636_Log__2025-0001636_BWC_19_1231781007.mp4",
+          "url": "https://player.vimeo.com/video/1231781007",
+          "referer": "https://www.chicagocopa.org/case/2025-0001636/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 400
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_jj209442_-_ocir.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/jj209442_-_ocir.Redacted.pdf"
+        },
+        {
+          "filename": "02_williams_arrest_report.Redacted-2.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/williams_arrest_report.Redacted-2.pdf"
+        },
+        {
+          "filename": "03_Westerfield-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Westerfield-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "04_Spriggins-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Spriggins-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "05_Dinanno-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Dinanno-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "06_Stiti-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Stiti-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "07_espinosa_trr.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/espinosa_trr.Redacted.pdf"
+        },
+        {
+          "filename": "08_Gierut-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Gierut-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "09_Watson-TRR.Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/Watson-TRR.Redacted.pdf"
+        },
+        {
+          "filename": "10_westerfield_foot_pursuit_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/westerfield_foot_pursuit_report-ok.pdf"
+        },
+        {
+          "filename": "11_spriggins_foot_pursuit_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/spriggins_foot_pursuit_report-ok.pdf"
+        },
+        {
+          "filename": "12_po_dinano_foot_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/po_dinano_foot_report-ok.pdf"
+        },
+        {
+          "filename": "13_stiti_foot_pursuit_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/stiti_foot_pursuit_report-ok.pdf"
+        },
+        {
+          "filename": "14_espinosa_foot_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/espinosa_foot_report-ok.pdf"
+        },
+        {
+          "filename": "15_gierut_foot_pursuit_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/gierut_foot_pursuit_report-ok.pdf"
+        },
+        {
+          "filename": "16_watson_foot_pursuit_report-ok.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/watson_foot_pursuit_report-ok.pdf"
+        },
+        {
+          "filename": "17_COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-OFFICER-INVOLVED-SHOOTING-NEAR-30-E.-HUBBARD-ST-FINAL-1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2026/10/COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-OFFICER-INVOLVED-SHOOTING-NEAR-30-E.-HUBBARD-ST-FINAL-1.pdf"
+        },
+        {
+          "filename": "18_2025-1636-court-order-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/2025-1636-court-order-redacted.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_13",
+      "folder": "BW_PORTAL_13 - Chicago COPA Log #2025-0001636 \u2014 30 E. Hubbard St Black Female Arrest & Use of Force (19 BWC Clips, 3.13h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2025-0002115/)",
+      "bwc_hrs": 2.13,
+      "videos": [
+        {
+          "filename": "01_COPA_2025-0002115_Log__2025-0002115_BWC_1_1089099350.mp4",
+          "url": "https://player.vimeo.com/video/1089099350",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 967
+        },
+        {
+          "filename": "02_COPA_2025-0002115_Log__2025-0002115_BWC_2_1089099473.mp4",
+          "url": "https://player.vimeo.com/video/1089099473",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 816
+        },
+        {
+          "filename": "03_COPA_2025-0002115_Log__2025-0002115_BWC_3_1089099606.mp4",
+          "url": "https://player.vimeo.com/video/1089099606",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 651
+        },
+        {
+          "filename": "04_COPA_2025-0002115_Log__2025-0002115_BWC_4_1089098595.mp4",
+          "url": "https://player.vimeo.com/video/1089098595",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 974
+        },
+        {
+          "filename": "05_COPA_2025-0002115_Log__2025-0002115_BWC_5_1089098751.mp4",
+          "url": "https://player.vimeo.com/video/1089098751",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1717
+        },
+        {
+          "filename": "06_COPA_2025-0002115_Log__2025-0002115_BWC_6_1089098962.mp4",
+          "url": "https://player.vimeo.com/video/1089098962",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1719
+        },
+        {
+          "filename": "07_COPA_2025-0002115_Log__2025-0002115_BWC_7_1089099216.mp4",
+          "url": "https://player.vimeo.com/video/1089099216",
+          "referer": "https://www.chicagocopa.org/case/2025-0002115/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 817
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_017-Original-Report-ID-13826161-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/017-Original-Report-ID-13826161-Redacted.pdf"
+        },
+        {
+          "filename": "02_067-trr_po_case-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/067-trr_po_case-Redacted.pdf"
+        },
+        {
+          "filename": "03_069-trr_po_reynolds-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/069-trr_po_reynolds-Redacted.pdf"
+        },
+        {
+          "filename": "04_068-trr_sgt._velez-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/068-trr_sgt._velez-Redacted.pdf"
+        },
+        {
+          "filename": "05_066-trr_po_saucedo-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/05/066-trr_po_saucedo-Redacted.pdf"
+        },
+        {
+          "filename": "06_COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-1400-E.-75th-ST.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/06/COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-1400-E.-75th-ST.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_14",
+      "folder": "BW_PORTAL_14 - Chicago COPA Log #2025-0002115 \u2014 1400 E. 75th St Black Female Subject Arrest & BWC (7 BWC Clips, 2.13h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0005001/)",
+      "bwc_hrs": 1.93,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0005001_Log___2021-5001__BWC_1_678260988.mp4",
+          "url": "https://player.vimeo.com/video/678260988",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 667
+        },
+        {
+          "filename": "02_COPA_2021-0005001_Log___2021-5001__BWC_2_678264750.mp4",
+          "url": "https://player.vimeo.com/video/678264750",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 670
+        },
+        {
+          "filename": "03_COPA_2021-0005001_Log___2021-5001__BWC_3_678267039.mp4",
+          "url": "https://player.vimeo.com/video/678267039",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1034
+        },
+        {
+          "filename": "04_COPA_2021-0005001_Log___2021-5001__BWC_4_678270896.mp4",
+          "url": "https://player.vimeo.com/video/678270896",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 863
+        },
+        {
+          "filename": "05_COPA_2021-0005001_Log___2021-5001__BWC_5_678283612.mp4",
+          "url": "https://player.vimeo.com/video/678283612",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 335
+        },
+        {
+          "filename": "06_COPA_2021-0005001_Log___2021-5001__BWC_6_678285417.mp4",
+          "url": "https://player.vimeo.com/video/678285417",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 333
+        },
+        {
+          "filename": "07_COPA_2021-0005001_Log___2021-5001__BWC_7_678287924.mp4",
+          "url": "https://player.vimeo.com/video/678287924",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 670
+        },
+        {
+          "filename": "08_COPA_2021-0005001_Log___2021-5001__BWC_8_678288690.mp4",
+          "url": "https://player.vimeo.com/video/678288690",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 686
+        },
+        {
+          "filename": "09_COPA_2021-0005001_Log___2021-5001__BWC_9_678291682.mp4",
+          "url": "https://player.vimeo.com/video/678291682",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 681
+        },
+        {
+          "filename": "10_COPA_2021-0005001_Log___2021-5001__BWC_10_678293655.mp4",
+          "url": "https://player.vimeo.com/video/678293655",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 605
+        },
+        {
+          "filename": "11_COPA_2021-0005001_Log___2021-5001__BWC_11_678294093.mp4",
+          "url": "https://player.vimeo.com/video/678294093",
+          "referer": "https://www.chicagocopa.org/case/2021-0005001/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 414
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0005001_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/2021-0005001_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-0005001_Nonconcurrence.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/2021-0005001_Nonconcurrence.pdf"
+        },
+        {
+          "filename": "03_2021-0005001_Supplemental-FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/2021-0005001_Supplemental-FSR.pdf"
+        },
+        {
+          "filename": "04_battery_case_JE481240_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/battery_case_JE481240_REDACTED.pdf"
+        },
+        {
+          "filename": "05_Case_Report_JE481298_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/Case_Report_JE481298_REDACTED.pdf"
+        },
+        {
+          "filename": "06_022-Updated_Arrest_Report_Chavez_IL01656ABR20220101110825_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/022-Updated_Arrest_Report_Chavez_IL01656ABR20220101110825_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-PROVIDE-UPDATE-ON-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-CPD-CUSTODY.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/COPA-PROVIDE-UPDATE-ON-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-CPD-CUSTODY.pdf"
+        },
+        {
+          "filename": "08_COPA-PROVIDES-UPDATE-ON-VIDEO-AND-OTHER-MATERIALS-RELATED-TO-THE-DEATH-OF-MS-IRENE-CHAVEZ-WHILE-IN-3RD-POLICE-DISTRICT-CUSTODY.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/COPA-PROVIDES-UPDATE-ON-VIDEO-AND-OTHER-MATERIALS-RELATED-TO-THE-DEATH-OF-MS-IRENE-CHAVEZ-WHILE-IN-3RD-POLICE-DISTRICT-CUSTODY.pdf"
+        },
+        {
+          "filename": "09_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-THE-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-POLICE-DEPARTMENT-3RD-DISTRICT-CUSTODY-FINAL.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-THE-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-POLICE-DEPARTMENT-3RD-DISTRICT-CUSTODY-FINAL.pdf"
+        },
+        {
+          "filename": "10_COPA-CONCLUDES-INVESTIGATION-INTO-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-CHICAGO-POLICE-DEPARTMENT-3rd-DISTRICT-CUSTODY-FINAL.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/02/COPA-CONCLUDES-INVESTIGATION-INTO-DEATH-OF-MS.-IRENE-CHAVEZ-WHILE-IN-CHICAGO-POLICE-DEPARTMENT-3rd-DISTRICT-CUSTODY-FINAL.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_15",
+      "folder": "BW_PORTAL_15 - Chicago COPA Log #2021-0005001 \u2014 7040 S. Cottage Grove Ave Black Female Subject Incident (11 BWC Clips, 1.93h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2019-0004852/)",
+      "bwc_hrs": 1.25,
+      "videos": [
+        {
+          "filename": "01_COPA_2019-0004852_Log___2019-4852_BWC_Video_1_387538309.mp4",
+          "url": "https://player.vimeo.com/video/387538309",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 247
+        },
+        {
+          "filename": "02_COPA_2019-0004852_Log___2019-4852_BWC_Video_2_387538591.mp4",
+          "url": "https://player.vimeo.com/video/387538591",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 316
+        },
+        {
+          "filename": "03_COPA_2019-0004852_Log___2019-4852_BWC_Video_3_387538953.mp4",
+          "url": "https://player.vimeo.com/video/387538953",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 369
+        },
+        {
+          "filename": "04_COPA_2019-0004852_Log___2019-4852_BWC_Video_4_387539551.mp4",
+          "url": "https://player.vimeo.com/video/387539551",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 660
+        },
+        {
+          "filename": "05_COPA_2019-0004852_Log___2019-4852_BWC_Video_5_387567474.mp4",
+          "url": "https://player.vimeo.com/video/387567474",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 396
+        },
+        {
+          "filename": "06_COPA_2019-0004852_Log___2019-4852_BWC_Video_6_387567627.mp4",
+          "url": "https://player.vimeo.com/video/387567627",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 595
+        },
+        {
+          "filename": "07_COPA_2019-0004852_Log___2019-4852_BWC_Video_7_387567742.mp4",
+          "url": "https://player.vimeo.com/video/387567742",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 660
+        },
+        {
+          "filename": "08_COPA_2019-0004852_Log___2019-4852_BWC_Video_8_387567848.mp4",
+          "url": "https://player.vimeo.com/video/387567848",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 551
+        },
+        {
+          "filename": "09_COPA_2019-0004852_Log___2019-4852_BWC_Video_9_387567972.mp4",
+          "url": "https://player.vimeo.com/video/387567972",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 245
+        },
+        {
+          "filename": "10_COPA_2019-0004852_Log___2019-4852_BWC_Video_10_387568091.mp4",
+          "url": "https://player.vimeo.com/video/387568091",
+          "referer": "https://www.chicagocopa.org/case/2019-0004852/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 461
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2019-4852-Blackbox.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/03/2019-4852-Blackbox.pdf"
+        },
+        {
+          "filename": "02_2019-0004852_Nonconcurrence-Letter.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Nonconcurrence-Letter.pdf"
+        },
+        {
+          "filename": "03_2019-0004852_Request-for-Review.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Request-for-Review.pdf"
+        },
+        {
+          "filename": "04_2019-0004852_Police-Board-Decision.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Police-Board-Decision.pdf"
+        },
+        {
+          "filename": "05_2019-0004852_Superintendent-Increas-of-Proposed-Penalty.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Superintendent-Increas-of-Proposed-Penalty.pdf"
+        },
+        {
+          "filename": "06_Arrest-Rpt-Kersh-Bernard-Final_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Arrest-Rpt-Kersh-Bernard-Final_REDACTED.pdf"
+        },
+        {
+          "filename": "07_Case-Report-JC527821_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Case-Report-JC527821_REDACTED.pdf"
+        },
+        {
+          "filename": "08_TRR-Williams-2019-4852_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-Williams-2019-4852_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_16",
+      "folder": "BW_PORTAL_16 - Chicago COPA Log #2019-0004852 \u2014 802 E. 79th St Black Female Subject Arrest & BWC (10 BWC Clips, 1.25h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0003709/)",
+      "bwc_hrs": 1.2,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_1_635488337.mp4",
+          "url": "https://player.vimeo.com/video/635488337",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 581
+        },
+        {
+          "filename": "02_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_2_635489213.mp4",
+          "url": "https://player.vimeo.com/video/635489213",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 965
+        },
+        {
+          "filename": "03_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_3_635490434.mp4",
+          "url": "https://player.vimeo.com/video/635490434",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 551
+        },
+        {
+          "filename": "04_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_4_635490897.mp4",
+          "url": "https://player.vimeo.com/video/635490897",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 257
+        },
+        {
+          "filename": "05_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_5_635495395.mp4",
+          "url": "https://player.vimeo.com/video/635495395",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 294
+        },
+        {
+          "filename": "06_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_6_635497259.mp4",
+          "url": "https://player.vimeo.com/video/635497259",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 458
+        },
+        {
+          "filename": "07_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_7_635501711.mp4",
+          "url": "https://player.vimeo.com/video/635501711",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 290
+        },
+        {
+          "filename": "08_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_8_635502535.mp4",
+          "url": "https://player.vimeo.com/video/635502535",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 366
+        },
+        {
+          "filename": "09_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_9_635502777.mp4",
+          "url": "https://player.vimeo.com/video/635502777",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 355
+        },
+        {
+          "filename": "10_COPA_2021-0003709_Log___2021-3709_Body_Worn_Camera_10_635503424.mp4",
+          "url": "https://player.vimeo.com/video/635503424",
+          "referer": "https://www.chicagocopa.org/case/2021-0003709/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 216
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0003709_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/2021-0003709_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-0003709_Nonconcur.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/2021-0003709_Nonconcur.pdf"
+        },
+        {
+          "filename": "03_2021-0003709_Supplemental-FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/2021-0003709_Supplemental-FSR.pdf"
+        },
+        {
+          "filename": "04_Original_Case_Incident_Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/Original_Case_Incident_Report_REDACTED.pdf"
+        },
+        {
+          "filename": "05_TRR_PO_B._Rambert_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/TRR_PO_B._Rambert_REDACTED.pdf"
+        },
+        {
+          "filename": "06_TRR_PO_J._Roman_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/TRR_PO_J._Roman_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-6500-SOUTH-HARVARD-AVENUE-FINAL.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/10/COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-6500-SOUTH-HARVARD-AVENUE-FINAL.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_17",
+      "folder": "BW_PORTAL_17 - Chicago COPA Log #2021-0003709 \u2014 3510 S. Michigan Ave Black Female Detention & BWC (10 BWC Clips, 1.2h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-002350/)",
+      "bwc_hrs": 0.77,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_1_574922000.mp4",
+          "url": "https://player.vimeo.com/video/574922000",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 410
+        },
+        {
+          "filename": "02_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_2_574937204.mp4",
+          "url": "https://player.vimeo.com/video/574937204",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 523
+        },
+        {
+          "filename": "03_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_3_574938663.mp4",
+          "url": "https://player.vimeo.com/video/574938663",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 555
+        },
+        {
+          "filename": "04_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_4_574948192.mp4",
+          "url": "https://player.vimeo.com/video/574948192",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 557
+        },
+        {
+          "filename": "05_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_5_574971855.mp4",
+          "url": "https://player.vimeo.com/video/574971855",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 174
+        },
+        {
+          "filename": "06_COPA_2021-002350_Log___2021-2350_Body_Worn_Camera_6_574975918.mp4",
+          "url": "https://player.vimeo.com/video/574975918",
+          "referer": "https://www.chicagocopa.org/case/2021-002350/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 549
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0002350_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/2021-0002350_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-0002350_Nonconcur.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/2021-0002350_Nonconcur.pdf"
+        },
+        {
+          "filename": "03_2021-0002350_Request-for-Review-Letter.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/2021-0002350_Request-for-Review-Letter.pdf"
+        },
+        {
+          "filename": "04_2021-0002350_RR-Opinion.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/2021-0002350_RR-Opinion.pdf"
+        },
+        {
+          "filename": "05_OCIR-JE268704_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/OCIR-JE268704_REDACTED.pdf"
+        },
+        {
+          "filename": "06_PO-Ball-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/PO-Ball-TRR_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_18",
+      "folder": "BW_PORTAL_18 - Chicago COPA Log #2021-002350 \u2014 4501 W. Jackson Blvd Black Female Arrest & Use of Force (6 BWC Clips, 0.77h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2020-0003466/)",
+      "bwc_hrs": 0.76,
+      "videos": [
+        {
+          "filename": "01_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_1_708655329.mp4",
+          "url": "https://player.vimeo.com/video/708655329",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 271
+        },
+        {
+          "filename": "02_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_2_708655887.mp4",
+          "url": "https://player.vimeo.com/video/708655887",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 185
+        },
+        {
+          "filename": "03_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_3_708656843.mp4",
+          "url": "https://player.vimeo.com/video/708656843",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 414
+        },
+        {
+          "filename": "04_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_4_708657445.mp4",
+          "url": "https://player.vimeo.com/video/708657445",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 293
+        },
+        {
+          "filename": "05_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_5_708658847.mp4",
+          "url": "https://player.vimeo.com/video/708658847",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 380
+        },
+        {
+          "filename": "06_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_6_708659860.mp4",
+          "url": "https://player.vimeo.com/video/708659860",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 253
+        },
+        {
+          "filename": "07_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_7_708660361.mp4",
+          "url": "https://player.vimeo.com/video/708660361",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 402
+        },
+        {
+          "filename": "08_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_8_708660873.mp4",
+          "url": "https://player.vimeo.com/video/708660873",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 215
+        },
+        {
+          "filename": "09_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_9_708662745.mp4",
+          "url": "https://player.vimeo.com/video/708662745",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 107
+        },
+        {
+          "filename": "10_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_10_708663123.mp4",
+          "url": "https://player.vimeo.com/video/708663123",
+          "referer": "https://www.chicagocopa.org/case/2020-0003466/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 219
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2020-0003466_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003466_FSR.pdf"
+        },
+        {
+          "filename": "02_2020-0003466_Concurrence.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003466_Concurrence.pdf"
+        },
+        {
+          "filename": "03_Arrest-and-Processing-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Arrest-and-Processing-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "04_Case-Report-JD311144_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Case-Report-JD311144_REDACTED.pdf"
+        },
+        {
+          "filename": "05_Case-Report-JD314891_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Case-Report-JD314891_REDACTED.pdf"
+        },
+        {
+          "filename": "06_Cloherty-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Cloherty-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "07_Dorsch-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Dorsch-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "08_Kurth-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Kurth-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "09_Negron-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Negron-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "10_OGrady-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/OGrady-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "11_Rowe-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Rowe-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "12_TRR-Caramusa_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Caramusa_REDACTED.pdf"
+        },
+        {
+          "filename": "13_TRR-Wiszowaty_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Wiszowaty_REDACTED.pdf"
+        },
+        {
+          "filename": "14_Vasiliadis-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Vasiliadis-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "15_Lovelle-Jordan-court-order-REDACTED-1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Lovelle-Jordan-court-order-REDACTED-1.pdf"
+        },
+        {
+          "filename": "16_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-OFFICER-INVOLVED-SHOOTING-AT-25th-DISTRICT.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-OFFICER-INVOLVED-SHOOTING-AT-25th-DISTRICT.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_19",
+      "folder": "BW_PORTAL_19 - Chicago COPA Log #2020-0003466 \u2014 4847 W. North Ave 18yo Black Female Arrest & Processing (10 BWC Clips, 0.76h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0001600/)",
+      "bwc_hrs": 0.73,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0001600_Log___2021-1600_Body_Worn_Camera_1_566645152.mp4",
+          "url": "https://player.vimeo.com/video/566645152",
+          "referer": "https://www.chicagocopa.org/case/2021-0001600/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 608
+        },
+        {
+          "filename": "02_COPA_2021-0001600_Log___2021-1600_Body_Worn_Camera_2_566646818.mp4",
+          "url": "https://player.vimeo.com/video/566646818",
+          "referer": "https://www.chicagocopa.org/case/2021-0001600/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 475
+        },
+        {
+          "filename": "03_COPA_2021-0001600_Log___2021-1600_Body_Worn_Camera_3_566662999.mp4",
+          "url": "https://player.vimeo.com/video/566662999",
+          "referer": "https://www.chicagocopa.org/case/2021-0001600/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 568
+        },
+        {
+          "filename": "04_COPA_2021-0001600_Log___2021-1600_Body_Worn_Camera_4_566693012.mp4",
+          "url": "https://player.vimeo.com/video/566693012",
+          "referer": "https://www.chicagocopa.org/case/2021-0001600/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 559
+        },
+        {
+          "filename": "05_COPA_2021-0001600_Log___2021-1600_Body_Worn_Camera_5_566693814.mp4",
+          "url": "https://player.vimeo.com/video/566693814",
+          "referer": "https://www.chicagocopa.org/case/2021-0001600/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 422
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0001600_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/06/2021-0001600_FSR.pdf"
+        },
+        {
+          "filename": "02_Original-Case-Incident-Report-JE213347_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/06/Original-Case-Incident-Report-JE213347_REDACTED.pdf"
+        },
+        {
+          "filename": "03_Arrest-Report-Boozier-Pierre-30047716_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/06/Arrest-Report-Boozier-Pierre-30047716_REDACTED.pdf"
+        },
+        {
+          "filename": "04_TRR-Paschal-Christopher_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/06/TRR-Paschal-Christopher_REDACTED.pdf"
+        },
+        {
+          "filename": "05_TRR-Shockley-Curran_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/06/TRR-Shockley-Curran_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_20",
+      "folder": "BW_PORTAL_20 - Chicago COPA Log #2021-0001600 \u2014 2621 E. 92nd St Black Female Arrest & Tactical Response (5 BWC Clips, 0.73h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0000117/)",
+      "bwc_hrs": 0.73,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_1_521589634.mp4",
+          "url": "https://player.vimeo.com/video/521589634",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 479
+        },
+        {
+          "filename": "02_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_2_521593301.mp4",
+          "url": "https://player.vimeo.com/video/521593301",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 451
+        },
+        {
+          "filename": "03_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_3_521595490.mp4",
+          "url": "https://player.vimeo.com/video/521595490",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 409
+        },
+        {
+          "filename": "04_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_4_521603236.mp4",
+          "url": "https://player.vimeo.com/video/521603236",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 196
+        },
+        {
+          "filename": "05_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_5_521603876.mp4",
+          "url": "https://player.vimeo.com/video/521603876",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 276
+        },
+        {
+          "filename": "06_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_6_521606998.mp4",
+          "url": "https://player.vimeo.com/video/521606998",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 328
+        },
+        {
+          "filename": "07_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_7_521605324.mp4",
+          "url": "https://player.vimeo.com/video/521605324",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 261
+        },
+        {
+          "filename": "08_COPA_2021-0000117_Log___2021-0117_Body_Worn_Camera_8_521606233.mp4",
+          "url": "https://player.vimeo.com/video/521606233",
+          "referer": "https://www.chicagocopa.org/case/2021-0000117/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 219
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0000117_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/2021-0000117_FSR.pdf"
+        },
+        {
+          "filename": "02_OCIR-RDJE108-060_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/OCIR-RDJE108-060_REDACTED.pdf"
+        },
+        {
+          "filename": "03_Arrest-Report-Keshawna-Davidson-Final_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/Arrest-Report-Keshawna-Davidson-Final_REDACTED.pdf"
+        },
+        {
+          "filename": "04_TRR-PO-Valencia_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/TRR-PO-Valencia_REDACTED.pdf"
+        },
+        {
+          "filename": "05_TRR-PO-Sandoval_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/TRR-PO-Sandoval_REDACTED.pdf"
+        },
+        {
+          "filename": "06_TRR-PO-Pedroza_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/TRR-PO-Pedroza_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-OFFICER-INVOLVED-SHOOTING-NEAR-1500-S.-KARLOV-Final.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/03/COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-OFFICER-INVOLVED-SHOOTING-NEAR-1500-S.-KARLOV-Final.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_21",
+      "folder": "BW_PORTAL_21 - Chicago COPA Log #2021-0000117 \u2014 1458 S. Karlov Ave Keshawna Davidson Black Female Arrest (8 BWC Clips, 0.73h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0002232/)",
+      "bwc_hrs": 0.66,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__1_572563915.mp4",
+          "url": "https://player.vimeo.com/video/572563915",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 468
+        },
+        {
+          "filename": "02_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__2_572566273.mp4",
+          "url": "https://player.vimeo.com/video/572566273",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 463
+        },
+        {
+          "filename": "03_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__3_572567722.mp4",
+          "url": "https://player.vimeo.com/video/572567722",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 464
+        },
+        {
+          "filename": "04_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__4_572569403.mp4",
+          "url": "https://player.vimeo.com/video/572569403",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 420
+        },
+        {
+          "filename": "05_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__5_572573699.mp4",
+          "url": "https://player.vimeo.com/video/572573699",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 315
+        },
+        {
+          "filename": "06_COPA_2021-0002232_Log__2021-2232_Body_Worn_Camera__6_572571532.mp4",
+          "url": "https://player.vimeo.com/video/572571532",
+          "referer": "https://www.chicagocopa.org/case/2021-0002232/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 230
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_COPA-Ordinance.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2016/07/COPA-Ordinance.pdf"
+        },
+        {
+          "filename": "02_2021-0002232_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/2021-0002232_FSR.pdf"
+        },
+        {
+          "filename": "03_Case-Report-JE259080_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/Case-Report-JE259080_REDACTED.pdf"
+        },
+        {
+          "filename": "04_PO-Ponce-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/PO-Ponce-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "05_PO-Marin-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/PO-Marin-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "06_COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-AN-OFFICER-INVOLVED-SHOOTING-NEAR-8300-S.-KERFOOT-AVENUE.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/07/COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-AN-OFFICER-INVOLVED-SHOOTING-NEAR-8300-S.-KERFOOT-AVENUE.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_22",
+      "folder": "BW_PORTAL_22 - Chicago COPA Log #2021-0002232 \u2014 Black Female Subject Detention & Use of Force (6 BWC Clips, 0.66h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2020-0000988/)",
+      "bwc_hrs": 0.53,
+      "videos": [
+        {
+          "filename": "01_COPA_2020-0000988_Log___2020-0988_Body_Worn_Camera_1_411085658.mp4",
+          "url": "https://player.vimeo.com/video/411085658",
+          "referer": "https://www.chicagocopa.org/case/2020-0000988/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 361
+        },
+        {
+          "filename": "02_COPA_2020-0000988_Log___2020-0988_Body_Worn_Camera_2_411088861.mp4",
+          "url": "https://player.vimeo.com/video/411088861",
+          "referer": "https://www.chicagocopa.org/case/2020-0000988/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 371
+        },
+        {
+          "filename": "03_COPA_2020-0000988_Log___2020-0988_Body_Worn_Camera_3_411090214.mp4",
+          "url": "https://player.vimeo.com/video/411090214",
+          "referer": "https://www.chicagocopa.org/case/2020-0000988/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 486
+        },
+        {
+          "filename": "04_COPA_2020-0000988_Log___2020-0988_Body_Worn_Camera_4_411092716.mp4",
+          "url": "https://player.vimeo.com/video/411092716",
+          "referer": "https://www.chicagocopa.org/case/2020-0000988/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 496
+        },
+        {
+          "filename": "05_COPA_2020-0000988_Log___2020-0988_Body_Worn_Camera_5_411094570.mp4",
+          "url": "https://player.vimeo.com/video/411094570",
+          "referer": "https://www.chicagocopa.org/case/2020-0000988/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 196
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2020-988-FINAL-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2020-988-FINAL-REDACTED.pdf"
+        },
+        {
+          "filename": "02_Att.-5-OCIR_Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/04/Att.-5-OCIR_Redacted.pdf"
+        },
+        {
+          "filename": "03_NEW_Att.-2-TRR-Bd-final_REDACTED_Rev-4-23-20.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/04/NEW_Att.-2-TRR-Bd-final_REDACTED_Rev-4-23-20.pdf"
+        },
+        {
+          "filename": "04_NEW_Att.-3-TRR-Br-final_REDACTED_Rev-4-23-20.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/04/NEW_Att.-3-TRR-Br-final_REDACTED_Rev-4-23-20.pdf"
+        },
+        {
+          "filename": "05_NEW_Att.-6-Final-Arrest-Report-CB-19944287-Ariel-Roman_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/04/NEW_Att.-6-Final-Arrest-Report-CB-19944287-Ariel-Roman_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_23",
+      "folder": "BW_PORTAL_23 - Chicago COPA Log #2020-0000988 \u2014 521 N. State St Black Female Subject Arrest & BWC (5 BWC Clips, 0.53h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0003940/)",
+      "bwc_hrs": 0.49,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0003940_Log___2021-3940_Body_Worn_Camera_1_641142029.mp4",
+          "url": "https://player.vimeo.com/video/641142029",
+          "referer": "https://www.chicagocopa.org/case/2021-0003940/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 703
+        },
+        {
+          "filename": "02_COPA_2021-0003940_Log___2021-3940_Body_Worn_Camera_2_641143415.mp4",
+          "url": "https://player.vimeo.com/video/641143415",
+          "referer": "https://www.chicagocopa.org/case/2021-0003940/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 357
+        },
+        {
+          "filename": "03_COPA_2021-0003940_Log___2021-3940_Body_Worn_Camera_3_641144495.mp4",
+          "url": "https://player.vimeo.com/video/641144495",
+          "referer": "https://www.chicagocopa.org/case/2021-0003940/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 358
+        },
+        {
+          "filename": "04_COPA_2021-0003940_Log___2021-3940_Body_Worn_Camera_4_641145721.mp4",
+          "url": "https://player.vimeo.com/video/641145721",
+          "referer": "https://www.chicagocopa.org/case/2021-0003940/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 359
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0003940_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/2021-0003940_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-003940_Nonconcur.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/2021-003940_Nonconcur.pdf"
+        },
+        {
+          "filename": "03_2021-0003940_Request_for_Review.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/2021-0003940_Request_for_Review.pdf"
+        },
+        {
+          "filename": "04_2021-0003940_RR-Opinion-2.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/2021-0003940_RR-Opinion-2.pdf"
+        },
+        {
+          "filename": "05_Case-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/Case-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "06_Covarrubias-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/Covarrubias-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-7700-SOUTH-CARPENTER-STREET-Final.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/11/COPA-RELEASES-VIDEO-OTHER-MATERIALS-OF-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-7700-SOUTH-CARPENTER-STREET-Final.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_24",
+      "folder": "BW_PORTAL_24 - Chicago COPA Log #2021-0003940 \u2014 Black Female Involved Individual #2 Tactical Response (4 BWC Clips, 0.49h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2020-0003020/)",
+      "bwc_hrs": 0.45,
+      "videos": [
+        {
+          "filename": "01_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_1_450246104.mp4",
+          "url": "https://player.vimeo.com/video/450246104",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 296
+        },
+        {
+          "filename": "02_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_2_450246316.mp4",
+          "url": "https://player.vimeo.com/video/450246316",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 138
+        },
+        {
+          "filename": "03_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_3_450246700.mp4",
+          "url": "https://player.vimeo.com/video/450246700",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 169
+        },
+        {
+          "filename": "04_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_4_450247194.mp4",
+          "url": "https://player.vimeo.com/video/450247194",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 126
+        },
+        {
+          "filename": "05_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_5_450247950.mp4",
+          "url": "https://player.vimeo.com/video/450247950",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 251
+        },
+        {
+          "filename": "06_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_6_450248259.mp4",
+          "url": "https://player.vimeo.com/video/450248259",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 125
+        },
+        {
+          "filename": "07_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_7_450249139.mp4",
+          "url": "https://player.vimeo.com/video/450249139",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 141
+        },
+        {
+          "filename": "08_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_8_450250207.mp4",
+          "url": "https://player.vimeo.com/video/450250207",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 127
+        },
+        {
+          "filename": "09_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_9_450250467.mp4",
+          "url": "https://player.vimeo.com/video/450250467",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 93
+        },
+        {
+          "filename": "10_COPA_2020-0003020_Log___2020-3020_Body_Worn_Camera_10_450250800.mp4",
+          "url": "https://player.vimeo.com/video/450250800",
+          "referer": "https://www.chicagocopa.org/case/2020-0003020/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 146
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2020-0003020_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003020_FSR.pdf"
+        },
+        {
+          "filename": "02_Log2020-3020-Approved-CaseRpt_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Log2020-3020-Approved-CaseRpt_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_25",
+      "folder": "BW_PORTAL_25 - Chicago COPA Log #2020-0003020 \u2014 3138 W. Lake St Two Black Female Subjects Incident (10 BWC Clips, 0.45h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0001162/)",
+      "bwc_hrs": 0.26,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0001162_Log___2021-1162_Body_Worn_Camera_1_647337649.mp4",
+          "url": "https://player.vimeo.com/video/647337649",
+          "referer": "https://www.chicagocopa.org/case/2021-0001162/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 228
+        },
+        {
+          "filename": "02_COPA_2021-0001162_Log___2021-1162_Body_Worn_Camera_2_647338153.mp4",
+          "url": "https://player.vimeo.com/video/647338153",
+          "referer": "https://www.chicagocopa.org/case/2021-0001162/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 228
+        },
+        {
+          "filename": "03_COPA_2021-0001162_Log___2021-1162_Body_Worn_Camera_3_647344080.mp4",
+          "url": "https://player.vimeo.com/video/647344080",
+          "referer": "https://www.chicagocopa.org/case/2021-0001162/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 234
+        },
+        {
+          "filename": "04_COPA_2021-0001162_Log___2021-1162_Body_Worn_Camera_4_647344595.mp4",
+          "url": "https://player.vimeo.com/video/647344595",
+          "referer": "https://www.chicagocopa.org/case/2021-0001162/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 231
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0001162_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/2021-0001162_FSR.pdf"
+        },
+        {
+          "filename": "02_OCIR_JE184-877_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/OCIR_JE184-877_REDACTED.pdf"
+        },
+        {
+          "filename": "03_TRR_PO_Iwan_Smith_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/TRR_PO_Iwan_Smith_REDACTED.pdf"
+        },
+        {
+          "filename": "04_Arrest_Report_Final_Jose_Mendoza_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/Arrest_Report_Final_Jose_Mendoza_REDACTED.pdf"
+        },
+        {
+          "filename": "05_2021-1162-Mendoza-court-order-lifted-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/2021-1162-Mendoza-court-order-lifted-REDACTED.pdf"
+        },
+        {
+          "filename": "06_signed-copa-order-Jose-Mendoza-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/signed-copa-order-Jose-Mendoza-REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-MATERIALS-FROM-OFF-DUTY-OFFICER-INVOLVED-SHOOTING-NEAR-3100-W.-BELLE-PLAINE-Final.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/05/COPA-RELEASES-MATERIALS-FROM-OFF-DUTY-OFFICER-INVOLVED-SHOOTING-NEAR-3100-W.-BELLE-PLAINE-Final.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_26",
+      "folder": "BW_PORTAL_26 - Chicago COPA Log #2021-0001162 \u2014 4054 N. Kedzie Ave Black Female Suspect Detention (4 BWC Clips, 0.26h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2023-0004040/)",
+      "bwc_hrs": 0.17,
+      "videos": [
+        {
+          "filename": "01_COPA_2023-0004040_Log__2023-0004040_BWC_1_871078801.mp4",
+          "url": "https://player.vimeo.com/video/871078801",
+          "referer": "https://www.chicagocopa.org/case/2023-0004040/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 311
+        },
+        {
+          "filename": "02_COPA_2023-0004040_Log__2023-0004040_BWC_2_871078843.mp4",
+          "url": "https://player.vimeo.com/video/871078843",
+          "referer": "https://www.chicagocopa.org/case/2023-0004040/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 312
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "02_2023-0004040_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/2023-0004040_FSR.pdf"
+        },
+        {
+          "filename": "03_Original_Case_Incident_Report-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/Original_Case_Incident_Report-REDACTED.pdf"
+        },
+        {
+          "filename": "04_TRRPOHuerta-2023-0004040-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/TRRPOHuerta-2023-0004040-REDACTED.pdf"
+        },
+        {
+          "filename": "05_TRRPOHarris-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/TRRPOHarris-REDACTED.pdf"
+        },
+        {
+          "filename": "06_Arrest-Report-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/Arrest-Report-REDACTED.pdf"
+        },
+        {
+          "filename": "07_COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-OFFICER-INVOLVED-SHOOTING-NEAR-9900-SOUTH-EWING-AVENUE.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-OFFICER-INVOLVED-SHOOTING-NEAR-9900-SOUTH-EWING-AVENUE.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_27",
+      "folder": "BW_PORTAL_27 - Chicago COPA Log #2023-0004040 \u2014 Black Female Subject Police Encounter & BWC (2 BWC Clips, 0.17h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2019-0004249/)",
+      "bwc_hrs": 0.17,
+      "videos": [
+        {
+          "filename": "01_COPA_2019-0004249_Log___2019-4249_Body_Worn_Camera_386984600.mp4",
+          "url": "https://player.vimeo.com/video/386984600",
+          "referer": "https://www.chicagocopa.org/case/2019-0004249/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 630
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_OriginalCaseIncidentReport_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/OriginalCaseIncidentReport_REDACTED.pdf"
+        },
+        {
+          "filename": "02_Arrest-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Arrest-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "03_TRR-C_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-C_REDACTED.pdf"
+        },
+        {
+          "filename": "04_TRR-D_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-D_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_28",
+      "folder": "BW_PORTAL_28 - Chicago COPA Log #2019-0004249 \u2014 Black Female Arrest Report & Tactical Response BWC (1 BWC Clips, 0.17h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2022-0005419/)",
+      "bwc_hrs": 0.15,
+      "videos": [
+        {
+          "filename": "01_COPA_2022-0005419_Log__2022-0005419_BWC_1_795285434.mp4",
+          "url": "https://player.vimeo.com/video/795285434",
+          "referer": "https://www.chicagocopa.org/case/2022-0005419/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 557
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_014-OCIR-JF521828-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/02/014-OCIR-JF521828-Redacted.pdf"
+        },
+        {
+          "filename": "02_016-OCIR-JF521980-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/02/016-OCIR-JF521980-Redacted.pdf"
+        },
+        {
+          "filename": "03_015-TRR-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/02/015-TRR-Redacted.pdf"
+        },
+        {
+          "filename": "04_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-NEAR-5900-S.-HALSTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/02/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-NEAR-5900-S.-HALSTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_29",
+      "folder": "BW_PORTAL_29 - Chicago COPA Log #2022-0005419 \u2014 Black Female Subject Complaint & BWC Release (1 BWC Clips, 0.15h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2017-1086127/)",
+      "bwc_hrs": 0.15,
+      "videos": [
+        {
+          "filename": "01_COPA_2017-1086127_Log_1086127_Body_Worn_Camera_309549096.mp4",
+          "url": "https://player.vimeo.com/video/309549096",
+          "referer": "https://www.chicagocopa.org/case/2017-1086127/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 540
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_1086127-AK_redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2018/11/1086127-AK_redacted.pdf"
+        },
+        {
+          "filename": "02_Arrest_1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2019/01/Arrest_1.pdf"
+        },
+        {
+          "filename": "03_Arrest_2.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2019/01/Arrest_2.pdf"
+        },
+        {
+          "filename": "04_OCIR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2019/01/OCIR.pdf"
+        },
+        {
+          "filename": "05_TRR_Vinakos.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2019/01/TRR_Vinakos.pdf"
+        },
+        {
+          "filename": "06_TRR_Warren.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2019/01/TRR_Warren.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_30",
+      "folder": "BW_PORTAL_30 - Chicago COPA Log #2017-1086127 \u2014 Black Female Civilian Use of Force Investigation (1 BWC Clips, 0.15h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2020-0000022/)",
+      "bwc_hrs": 3.49,
+      "videos": [
+        {
+          "filename": "01_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_1_394334403.mp4",
+          "url": "https://player.vimeo.com/video/394334403",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1471
+        },
+        {
+          "filename": "02_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_2_394334602.mp4",
+          "url": "https://player.vimeo.com/video/394334602",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 498
+        },
+        {
+          "filename": "03_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_3_394334697.mp4",
+          "url": "https://player.vimeo.com/video/394334697",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1634
+        },
+        {
+          "filename": "04_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_4_394335012.mp4",
+          "url": "https://player.vimeo.com/video/394335012",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1277
+        },
+        {
+          "filename": "05_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_5_394335115.mp4",
+          "url": "https://player.vimeo.com/video/394335115",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 467
+        },
+        {
+          "filename": "06_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_6_394335471.mp4",
+          "url": "https://player.vimeo.com/video/394335471",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 669
+        },
+        {
+          "filename": "07_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_7_394335542.mp4",
+          "url": "https://player.vimeo.com/video/394335542",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1245
+        },
+        {
+          "filename": "08_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_8_394335729.mp4",
+          "url": "https://player.vimeo.com/video/394335729",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 307
+        },
+        {
+          "filename": "09_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_9_394336177.mp4",
+          "url": "https://player.vimeo.com/video/394336177",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 854
+        },
+        {
+          "filename": "10_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_10_394336248.mp4",
+          "url": "https://player.vimeo.com/video/394336248",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 500
+        },
+        {
+          "filename": "11_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_11_394336459.mp4",
+          "url": "https://player.vimeo.com/video/394336459",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 440
+        },
+        {
+          "filename": "12_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_12_394337318.mp4",
+          "url": "https://player.vimeo.com/video/394337318",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 452
+        },
+        {
+          "filename": "13_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_13_394337464.mp4",
+          "url": "https://player.vimeo.com/video/394337464",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 457
+        },
+        {
+          "filename": "14_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_14_394337726.mp4",
+          "url": "https://player.vimeo.com/video/394337726",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 577
+        },
+        {
+          "filename": "15_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_15_394337884.mp4",
+          "url": "https://player.vimeo.com/video/394337884",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 257
+        },
+        {
+          "filename": "16_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_16_394337956.mp4",
+          "url": "https://player.vimeo.com/video/394337956",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 936
+        },
+        {
+          "filename": "17_COPA_2020-0000022_Log___2020-0022_Body_Worn_Camera_17_394338160.mp4",
+          "url": "https://player.vimeo.com/video/394338160",
+          "referer": "https://www.chicagocopa.org/case/2020-0000022/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 507
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_034-2020-0208_SRI_FINAL_SRI_-black-box.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/07/034-2020-0208_SRI_FINAL_SRI_-black-box.pdf"
+        },
+        {
+          "filename": "02_CaseReport_JD101830_REDACTED-1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/02/CaseReport_JD101830_REDACTED-1.pdf"
+        },
+        {
+          "filename": "03_TRR_PD_REDACTED-Revised-2-26-20.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/02/TRR_PD_REDACTED-Revised-2-26-20.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_31",
+      "folder": "BW_PORTAL_31 - Chicago COPA Log #2020-0000022 \u2014 6005 W. Belden Ave Female Subject #2 Tactical Response (17 BWC Clips, 3.49h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2025-0000032/)",
+      "bwc_hrs": 3.39,
+      "videos": [
+        {
+          "filename": "01_COPA_2025-0000032_Log__2025-0000032_BWC_1_1053080782.mp4",
+          "url": "https://player.vimeo.com/video/1053080782",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 524
+        },
+        {
+          "filename": "02_COPA_2025-0000032_Log__2025-0000032_BWC_2_1053080385.mp4",
+          "url": "https://player.vimeo.com/video/1053080385",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 540
+        },
+        {
+          "filename": "03_COPA_2025-0000032_Log__2025-0000032_BWC_3_1053081301.mp4",
+          "url": "https://player.vimeo.com/video/1053081301",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 846
+        },
+        {
+          "filename": "04_COPA_2025-0000032_Log__2025-0000032_BWC_4_1053080448.mp4",
+          "url": "https://player.vimeo.com/video/1053080448",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 906
+        },
+        {
+          "filename": "05_COPA_2025-0000032_Log__2025-0000032_BWC_5_1053081682.mp4",
+          "url": "https://player.vimeo.com/video/1053081682",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 776
+        },
+        {
+          "filename": "06_COPA_2025-0000032_Log__2025-0000032_BWC_6_1053081404.mp4",
+          "url": "https://player.vimeo.com/video/1053081404",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 776
+        },
+        {
+          "filename": "07_COPA_2025-0000032_Log__2025-0000032_BWC_7_1053080877.mp4",
+          "url": "https://player.vimeo.com/video/1053080877",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 770
+        },
+        {
+          "filename": "08_COPA_2025-0000032_Log__2025-0000032_BWC_8_1053080688.mp4",
+          "url": "https://player.vimeo.com/video/1053080688",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 712
+        },
+        {
+          "filename": "09_COPA_2025-0000032_Log__2025-0000032_BWC_9_1053081103.mp4",
+          "url": "https://player.vimeo.com/video/1053081103",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 706
+        },
+        {
+          "filename": "10_COPA_2025-0000032_Log__2025-0000032_BWC_10_1053080552.mp4",
+          "url": "https://player.vimeo.com/video/1053080552",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 740
+        },
+        {
+          "filename": "11_COPA_2025-0000032_Log__2025-0000032_BWC_11_1053081518.mp4",
+          "url": "https://player.vimeo.com/video/1053081518",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 645
+        },
+        {
+          "filename": "12_COPA_2025-0000032_Log__2025-0000032_BWC_12_1053081608.mp4",
+          "url": "https://player.vimeo.com/video/1053081608",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 685
+        },
+        {
+          "filename": "13_COPA_2025-0000032_Log__2025-0000032_BWC_13_1053080615.mp4",
+          "url": "https://player.vimeo.com/video/1053080615",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 768
+        },
+        {
+          "filename": "14_COPA_2025-0000032_Log__2025-0000032_BWC_14_1053080982.mp4",
+          "url": "https://player.vimeo.com/video/1053080982",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 708
+        },
+        {
+          "filename": "15_COPA_2025-0000032_Log__2025-0000032_BWC_15_1053081214.mp4",
+          "url": "https://player.vimeo.com/video/1053081214",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 673
+        },
+        {
+          "filename": "16_COPA_2025-0000032_Log__2025-0000032_BWC_16_1053081760.mp4",
+          "url": "https://player.vimeo.com/video/1053081760",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 707
+        },
+        {
+          "filename": "17_COPA_2025-0000032_Log__2025-0000032_CHA_1_1053080199.mp4",
+          "url": "https://player.vimeo.com/video/1053080199",
+          "referer": "https://www.chicagocopa.org/case/2025-0000032/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 720
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_112-police_report_jj102267_-_ocir-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/112-police_report_jj102267_-_ocir-Redacted.pdf"
+        },
+        {
+          "filename": "02_125-trr_po_saleh-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/125-trr_po_saleh-Redacted.pdf"
+        },
+        {
+          "filename": "03_126-trr_po_urbano_mateo-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/126-trr_po_urbano_mateo-Redacted.pdf"
+        },
+        {
+          "filename": "04_123-trr_po_castillo-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/123-trr_po_castillo-Redacted.pdf"
+        },
+        {
+          "filename": "05_124-trr_po_pagan-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/124-trr_po_pagan-Redacted.pdf"
+        },
+        {
+          "filename": "06_COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-3000-W.-21st-PL.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2025/02/COPA-RELEASES-VIDEO-OTHER-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-3000-W.-21st-PL.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_32",
+      "folder": "BW_PORTAL_32 - Chicago COPA Log #2025-0000032 \u2014 3000 W. 21st Pl Female Subject Incident & BWC (17 BWC Clips, 3.39h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0001112/)",
+      "bwc_hrs": 2.23,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0001112_Log____2021-1112_BWC_1_536331629.mp4",
+          "url": "https://player.vimeo.com/video/536331629",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 563
+        },
+        {
+          "filename": "02_COPA_2021-0001112_Log____2021-1112_BWC_2_536334324.mp4",
+          "url": "https://player.vimeo.com/video/536334324",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 549
+        },
+        {
+          "filename": "03_COPA_2021-0001112_Log____2021-1112_BWC_3_536335556.mp4",
+          "url": "https://player.vimeo.com/video/536335556",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 475
+        },
+        {
+          "filename": "04_COPA_2021-0001112_Log____2021-1112_BWC_4_536336043.mp4",
+          "url": "https://player.vimeo.com/video/536336043",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 506
+        },
+        {
+          "filename": "05_COPA_2021-0001112_Log____2021-1112_BWC_5_536340293.mp4",
+          "url": "https://player.vimeo.com/video/536340293",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 518
+        },
+        {
+          "filename": "06_COPA_2021-0001112_Log____2021-1112_BWC_6_536341857.mp4",
+          "url": "https://player.vimeo.com/video/536341857",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 493
+        },
+        {
+          "filename": "07_COPA_2021-0001112_Log____2021-1112_BWC_7_536343700.mp4",
+          "url": "https://player.vimeo.com/video/536343700",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 519
+        },
+        {
+          "filename": "08_COPA_2021-0001112_Log____2021-1112_BWC_8_536345511.mp4",
+          "url": "https://player.vimeo.com/video/536345511",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 511
+        },
+        {
+          "filename": "09_COPA_2021-0001112_Log____2021-1112_BWC_9_536347207.mp4",
+          "url": "https://player.vimeo.com/video/536347207",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 499
+        },
+        {
+          "filename": "10_COPA_2021-0001112_Log____2021-1112_BWC_10_536348795.mp4",
+          "url": "https://player.vimeo.com/video/536348795",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 513
+        },
+        {
+          "filename": "11_COPA_2021-0001112_Log____2021-1112_BWC_11_536351462.mp4",
+          "url": "https://player.vimeo.com/video/536351462",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 425
+        },
+        {
+          "filename": "12_COPA_2021-0001112_Log____2021-1112_BWC_12_536353787.mp4",
+          "url": "https://player.vimeo.com/video/536353787",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 418
+        },
+        {
+          "filename": "13_COPA_2021-0001112_Log____2021-1112_BWC_13_536354866.mp4",
+          "url": "https://player.vimeo.com/video/536354866",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 419
+        },
+        {
+          "filename": "14_COPA_2021-0001112_Log____2021-1112_BWC_14_536356093.mp4",
+          "url": "https://player.vimeo.com/video/536356093",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 431
+        },
+        {
+          "filename": "15_COPA_2021-0001112_Log____2021-1112_BWC_15_536357906.mp4",
+          "url": "https://player.vimeo.com/video/536357906",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 417
+        },
+        {
+          "filename": "16_COPA_2021-0001112_Log____2021-1112_BWC_16_536360743.mp4",
+          "url": "https://player.vimeo.com/video/536360743",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 352
+        },
+        {
+          "filename": "17_COPA_2021-0001112_Log____2021-1112_BWC_17_536363196.mp4",
+          "url": "https://player.vimeo.com/video/536363196",
+          "referer": "https://www.chicagocopa.org/case/2021-0001112/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 412
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0001112_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2021-0001112_FSR.pdf"
+        },
+        {
+          "filename": "02_2021-0001112_Nonconcur.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2021-0001112_Nonconcur.pdf"
+        },
+        {
+          "filename": "03_2021-0001112_Supplement-to-Nonconcur.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2021-0001112_Supplement-to-Nonconcur.pdf"
+        },
+        {
+          "filename": "04_2021-0001112_Request-for-Review.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2021-0001112_Request-for-Review.pdf"
+        },
+        {
+          "filename": "05_2021-0001112_RR-Opinion.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/2021-0001112_RR-Opinion.pdf"
+        },
+        {
+          "filename": "06_Original-Case-Report_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/Original-Case-Report_REDACTED.pdf"
+        },
+        {
+          "filename": "07_PO-Stillman-TRR_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/PO-Stillman-TRR_REDACTED.pdf"
+        },
+        {
+          "filename": "08_COPA-RELEASES-VIDEO-AND-OTHER-MATERIALS-OF-FATAL-OFFICER-SHOOTING-OF-13-YEAR-OLD-ADAM-TOLEDO.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/COPA-RELEASES-VIDEO-AND-OTHER-MATERIALS-OF-FATAL-OFFICER-SHOOTING-OF-13-YEAR-OLD-ADAM-TOLEDO.pdf"
+        },
+        {
+          "filename": "09_Final-COPA-CONCLUDES-INVESTIGATION-INTO-FATAL-OFFICER-INVOLVED-SHOOTING-OF-ADAM-TOLEDO.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/04/Final-COPA-CONCLUDES-INVESTIGATION-INTO-FATAL-OFFICER-INVOLVED-SHOOTING-OF-ADAM-TOLEDO.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_33",
+      "folder": "BW_PORTAL_33 - Chicago COPA Log #2021-0001112 \u2014 2356 S. Sawyer Ave Female Subject Incident & BWC (17 BWC Clips, 2.23h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2020-0003121/)",
+      "bwc_hrs": 1.5,
+      "videos": [
+        {
+          "filename": "01_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__1_454754938.mp4",
+          "url": "https://player.vimeo.com/video/454754938",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 821
+        },
+        {
+          "filename": "02_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__2_454764751.mp4",
+          "url": "https://player.vimeo.com/video/454764751",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 870
+        },
+        {
+          "filename": "03_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__3_454766961.mp4",
+          "url": "https://player.vimeo.com/video/454766961",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 711
+        },
+        {
+          "filename": "04_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__4_454768986.mp4",
+          "url": "https://player.vimeo.com/video/454768986",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 901
+        },
+        {
+          "filename": "05_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__5_454771445.mp4",
+          "url": "https://player.vimeo.com/video/454771445",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 921
+        },
+        {
+          "filename": "06_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__6_454773869.mp4",
+          "url": "https://player.vimeo.com/video/454773869",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 1103
+        },
+        {
+          "filename": "07_COPA_2020-0003121_Log___2020-3121_Body_Worn_Camera__7_455813310.mp4",
+          "url": "https://player.vimeo.com/video/455813310",
+          "referer": "https://www.chicagocopa.org/case/2020-0003121/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 78
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2020-0003121_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003121_FSR.pdf"
+        },
+        {
+          "filename": "02_2020-0003121_Concurrence-Schorsch.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003121_Concurrence-Schorsch.pdf"
+        },
+        {
+          "filename": "03_2020-0003121_Partial-Non-Conurrence.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003121_Partial-Non-Conurrence.pdf"
+        },
+        {
+          "filename": "04_CaseReport_JD292289-3_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/CaseReport_JD292289-3_REDACTED.pdf"
+        },
+        {
+          "filename": "05_TRR-Officer-Meeks_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Officer-Meeks_REDACTED.pdf"
+        },
+        {
+          "filename": "06_TRR-Officer-Pagan_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Officer-Pagan_REDACTED.pdf"
+        },
+        {
+          "filename": "07_TRR-Officer-Rodriguez_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Officer-Rodriguez_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_34",
+      "folder": "BW_PORTAL_34 - Chicago COPA Log #2020-0003121 \u2014 Female Subject Police Response & Tactical Report (7 BWC Clips, 1.5h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2021-0003097/)",
+      "bwc_hrs": 0.99,
+      "videos": [
+        {
+          "filename": "01_COPA_2021-0003097_Log__2021-0003097_BWC_1_1201940215.mp4",
+          "url": "https://player.vimeo.com/video/1201940215",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 309
+        },
+        {
+          "filename": "02_COPA_2021-0003097_Log__2021-0003097_BWC_2_1201940441.mp4",
+          "url": "https://player.vimeo.com/video/1201940441",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 252
+        },
+        {
+          "filename": "03_COPA_2021-0003097_Log__2021-0003097_BWC_3_1201940212.mp4",
+          "url": "https://player.vimeo.com/video/1201940212",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 243
+        },
+        {
+          "filename": "04_COPA_2021-0003097_Log__2021-0003097_BWC_4_1201940570.mp4",
+          "url": "https://player.vimeo.com/video/1201940570",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 514
+        },
+        {
+          "filename": "05_COPA_2021-0003097_Log__2021-0003097_BWC_5_1201940214.mp4",
+          "url": "https://player.vimeo.com/video/1201940214",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 445
+        },
+        {
+          "filename": "06_COPA_2021-0003097_Log__2021-0003097_BWC_6_1201940351.mp4",
+          "url": "https://player.vimeo.com/video/1201940351",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 443
+        },
+        {
+          "filename": "07_COPA_2021-0003097_Log__2021-0003097_BWC_7_1201940370.mp4",
+          "url": "https://player.vimeo.com/video/1201940370",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 230
+        },
+        {
+          "filename": "08_COPA_2021-0003097_Log__2021-0003097_BWC_8_1201940506.mp4",
+          "url": "https://player.vimeo.com/video/1201940506",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 425
+        },
+        {
+          "filename": "09_COPA_2021-0003097_Log__2021-0003097_BWC_9_1201940390.mp4",
+          "url": "https://player.vimeo.com/video/1201940390",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 401
+        },
+        {
+          "filename": "10_COPA_2021-0003097_Log__2021-0003097_BWC_10_1201940213.mp4",
+          "url": "https://player.vimeo.com/video/1201940213",
+          "referer": "https://www.chicagocopa.org/case/2021-0003097/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 291
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2021-0003097_FSR.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/2021-0003097_FSR.pdf"
+        },
+        {
+          "filename": "02_JE329873_Original_Incident_Case_Report-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/JE329873_Original_Incident_Case_Report-redacted.pdf"
+        },
+        {
+          "filename": "03_Final-Arrest-Report-Emonte-Morgan-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Final-Arrest-Report-Emonte-Morgan-redacted.pdf"
+        },
+        {
+          "filename": "04_Final-Arrest-Report-2-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Final-Arrest-Report-2-redacted.pdf"
+        },
+        {
+          "filename": "05_TRR-_Blas-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/TRR-_Blas-redacted.pdf"
+        },
+        {
+          "filename": "06_TRR-_Yanez-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/TRR-_Yanez-redacted.pdf"
+        },
+        {
+          "filename": "07_TRR-_French-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/TRR-_French-redacted.pdf"
+        },
+        {
+          "filename": "08_COPA-RELEASES-VIDEO-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-6300-SOUTH-BELL-AVENUE-FINAL.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2026/06/COPA-RELEASES-VIDEO-MATERIALS-FROM-FATAL-OFFICER-INVOLVED-SHOOTING-NEAR-6300-SOUTH-BELL-AVENUE-FINAL.pdf"
+        },
+        {
+          "filename": "09_Morgan-Court-Order-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Morgan-Court-Order-REDACTED.pdf"
+        },
+        {
+          "filename": "10_Morgan-Updated-Court-Order-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Morgan-Updated-Court-Order-REDACTED.pdf"
+        },
+        {
+          "filename": "11_Eric-Morgan-updated-court-order-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Eric-Morgan-updated-court-order-redacted.pdf"
+        },
+        {
+          "filename": "12_Emonte-Morgan-COPA-order-REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Emonte-Morgan-COPA-order-REDACTED.pdf"
+        },
+        {
+          "filename": "13_Emonte-Morgan-updated-court-order-redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2021/08/Emonte-Morgan-updated-court-order-redacted.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_35",
+      "folder": "BW_PORTAL_35 - Chicago COPA Log #2021-0003097 \u2014 6300 S. Bell Ave Female Subject Incident & BWC (10 BWC Clips, 0.99h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2022-0005227/)",
+      "bwc_hrs": 0.7,
+      "videos": [
+        {
+          "filename": "01_COPA_2022-0005227_Log__2022-0005227_BWC_1_870312072.mp4",
+          "url": "https://player.vimeo.com/video/870312072",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 248
+        },
+        {
+          "filename": "02_COPA_2022-0005227_Log__2022-0005227_BWC_2_870312242.mp4",
+          "url": "https://player.vimeo.com/video/870312242",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 261
+        },
+        {
+          "filename": "03_COPA_2022-0005227_Log__2022-0005227_BWC_3_870312149.mp4",
+          "url": "https://player.vimeo.com/video/870312149",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 267
+        },
+        {
+          "filename": "04_COPA_2022-0005227_Log__2022-0005227_BWC_4_870312216.mp4",
+          "url": "https://player.vimeo.com/video/870312216",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 275
+        },
+        {
+          "filename": "05_COPA_2022-0005227_Log__2022-0005227_BWC_5_870312047.mp4",
+          "url": "https://player.vimeo.com/video/870312047",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 266
+        },
+        {
+          "filename": "06_COPA_2022-0005227_Log__2022-0005227_BWC_6_870311977.mp4",
+          "url": "https://player.vimeo.com/video/870311977",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 239
+        },
+        {
+          "filename": "07_COPA_2022-0005227_Log__2022-0005227_BWC_7_870312098.mp4",
+          "url": "https://player.vimeo.com/video/870312098",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 116
+        },
+        {
+          "filename": "08_COPA_2022-0005227_Log__2022-0005227_BWC_8_870312118.mp4",
+          "url": "https://player.vimeo.com/video/870312118",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 194
+        },
+        {
+          "filename": "09_COPA_2022-0005227_Log__2022-0005227_BWC_9_870312025.mp4",
+          "url": "https://player.vimeo.com/video/870312025",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 187
+        },
+        {
+          "filename": "10_COPA_2022-0005227_Log__2022-0005227_BWC_10_870312181.mp4",
+          "url": "https://player.vimeo.com/video/870312181",
+          "referer": "https://www.chicagocopa.org/case/2022-0005227/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 477
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_009-Case-Report-Jordon-Novorita_Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/009-Case-Report-Jordon-Novorita_Redacted.pdf"
+        },
+        {
+          "filename": "02_002-Arrest-Report-for-Jordon-Novorita_Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/002-Arrest-Report-for-Jordon-Novorita_Redacted.pdf"
+        },
+        {
+          "filename": "03_038-TRR_Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2023/10/038-TRR_Redacted.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_36",
+      "folder": "BW_PORTAL_36 - Chicago COPA Log #2022-0005227 \u2014 Female Subject Detention & BWC Release (10 BWC Clips, 0.7h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2019-0005220/)",
+      "bwc_hrs": 0.48,
+      "videos": [
+        {
+          "filename": "01_COPA_2019-0005220_Log___2019-5220_Body_Worn_Camera_1_392774830.mp4",
+          "url": "https://player.vimeo.com/video/392774830",
+          "referer": "https://www.chicagocopa.org/case/2019-0005220/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 859
+        },
+        {
+          "filename": "02_COPA_2019-0005220_Log___2019-5220_Body_Worn_Camera_2_392775023.mp4",
+          "url": "https://player.vimeo.com/video/392775023",
+          "referer": "https://www.chicagocopa.org/case/2019-0005220/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 875
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_2019-5220_blackbox.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/04/2019-5220_blackbox.pdf"
+        },
+        {
+          "filename": "02_CaseReport_JC558453_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/02/CaseReport_JC558453_REDACTED.pdf"
+        },
+        {
+          "filename": "03_CaseReport_JC558502_REDACTED.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2020/02/CaseReport_JC558502_REDACTED.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_37",
+      "folder": "BW_PORTAL_37 - Chicago COPA Log #2019-0005220 \u2014 2327 E. 91st St Female Suspect #1 Arrest & BWC (2 BWC Clips, 0.48h Pure BWC)"
+    },
+    {
+      "portal": "Chicago COPA Official Portal (https://www.chicagocopa.org/case/2022-0004050/)",
+      "bwc_hrs": 0.27,
+      "videos": [
+        {
+          "filename": "01_COPA_2022-0004050_Log_2022-4050_Body-Worn_Camera_1_768289649.mp4",
+          "url": "https://player.vimeo.com/video/768289649",
+          "referer": "https://www.chicagocopa.org/case/2022-0004050/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 462
+        },
+        {
+          "filename": "02_COPA_2022-0004050_Log_2022-4050_Body-Worn_Camera_2_768289620.mp4",
+          "url": "https://player.vimeo.com/video/768289620",
+          "referer": "https://www.chicagocopa.org/case/2022-0004050/",
+          "source_type": "vimeo_copa",
+          "dur_sec": 500
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_Case-Report-JF403950-OIS-II-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/11/Case-Report-JF403950-OIS-II-Redacted.pdf"
+        },
+        {
+          "filename": "02_TRR-for-Officer-Kanski-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/11/TRR-for-Officer-Kanski-Redacted.pdf"
+        },
+        {
+          "filename": "03_TRR-for-Officer-Babilonia-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/11/TRR-for-Officer-Babilonia-Redacted.pdf"
+        },
+        {
+          "filename": "04_Traffic-Crash-Report-JF403982-II-OIS-Redacted.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/11/Traffic-Crash-Report-JF403982-II-OIS-Redacted.pdf"
+        },
+        {
+          "filename": "05_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-AN-OFFICER-INVOLVED-SHOOTING-NEAR-5000-W.-LAWRENCE-FINAL1.pdf",
+          "url": "https://www.chicagocopa.org/wp-content/uploads/2022/11/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-AN-OFFICER-INVOLVED-SHOOTING-NEAR-5000-W.-LAWRENCE-FINAL1.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_38",
+      "folder": "BW_PORTAL_38 - Chicago COPA Log #2022-0004050 \u2014 5151 N. Milwaukee Ave Female Suspect #1 Detention (2 BWC Clips, 0.27h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres)",
+      "bwc_hrs": 1.75,
+      "videos": [
+        {
+          "filename": "01_202600167776_-_Dep._Harris_BWC.mp4",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/202600167776%20-%20Dep.%20Harris%20BWC.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 6303.43
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_affidavit.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/affidavit.pdf"
+        },
+        {
+          "filename": "02_application_for_indigent_status.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/application_for_indigent_status.pdf"
+        },
+        {
+          "filename": "03_bounding_out_form.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/bounding_out_form.pdf"
+        },
+        {
+          "filename": "04_complaint.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/complaint.pdf"
+        },
+        {
+          "filename": "05_court_dates.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/court_dates.pdf"
+        },
+        {
+          "filename": "06_cover_sheet.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/cover_sheet.pdf"
+        },
+        {
+          "filename": "07_docket.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/docket.pdf"
+        },
+        {
+          "filename": "08_first_appearance_order.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/first_appearance_order.pdf"
+        },
+        {
+          "filename": "09_notice_of_appearance.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/notice_of_appearance.pdf"
+        },
+        {
+          "filename": "10_police_report.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/police_report.pdf"
+        },
+        {
+          "filename": "11_victim_notice.pdf",
+          "url": "https://archive.org/download/former-olive-garden-employee-charged-after-refusing-to-leave-and-resisting-arres/victim_notice.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_39",
+      "folder": "BW_PORTAL_39 - Hernando County Sheriff FL Case #202600167776 \u2014 Corinna Yiselle Dillon Resisting Arrest (1 Clip, 1.75h Pure BWC)"
+    },
+    {
+      "portal": "https://www.sandiego.gov/police/data-transparency/mandated-disclosures/case?id=02-28-2025+IA+2025-0276&cat=Sustained+Findings",
+      "bwc_hrs": 2.05,
+      "videos": [
+        {
+          "filename": "01_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Video_Officer_Gonzalez_Redacted.mp4",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Video/Sexual+Assault+-+February+28,+2025+IA+%232025-0276+Officer+Gonzalez_Video_Officer+Gonzalez_Redacted.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1474.9
+        },
+        {
+          "filename": "02_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Video_Video_1_Redacted.mp4",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Video/Sexual+Assault+-+February+28,+2025+IA+%232025-0276+Officer+Gonzalez_Video_Video+1_Redacted.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1474.9
+        },
+        {
+          "filename": "03_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Video_Video_2_Redacted.mp4",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Video/Sexual+Assault+-+February+28,+2025+IA+%232025-0276+Officer+Gonzalez_Video_Video+2_Redacted.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1474.9
+        },
+        {
+          "filename": "04_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Video_Video_3_Redacted.mp4",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Video/Sexual+Assault+-+February+28,+2025+IA+%232025-0276+Officer+Gonzalez_Video_Video+3_Redacted.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1474.9
+        },
+        {
+          "filename": "05_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Video_Witness_Officer_1_Redacted.mp4",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Video/Sexual+Assault+-+February+28,+2025+IA+%232025-0276+Officer+Gonzalez_Video_Witness+Officer+1_Redacted.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1474.9
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Documents_Redacted.pdf",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Documents/Sexual+Assault+-+February+28%2C+2025+IA+%232025-0276+Officer+Gonzalez_Documents_Redacted.pdf"
+        },
+        {
+          "filename": "02_Sexual_Assault_-_February_28__2025_IA__2025-0276_Officer_Gonzalez_Photos_Redacted.pdf",
+          "url": "https://sdpdsb1421.sandiego.gov/Sustained%20Findings/2025/02-28-2025%20IA%202025-0276/Photos/Sexual+Assault+-+February+28%2C+2025+IA+%232025-0276+Officer+Gonzalez_Photos_Redacted.pdf"
+        }
+      ],
+      "case_id": "BW_PORTAL_40",
+      "folder": "BW_PORTAL_40 - San Diego PD Case #IA-2025-0276 \u2014 Female Subject Investigation & Custody (5 BWC Clips, 2.05h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (07-31-2022-06-19-42-front)",
+      "bwc_hrs": 25.06,
+      "videos": [
+        {
+          "filename": "01_07_31_2022_06_19_42_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_19_42%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 12611.04
+        },
+        {
+          "filename": "02_07_31_2022_06_19_42_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_19_42%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 12610.99
+        },
+        {
+          "filename": "03_07_31_2022_06_19_47_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_19_47%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3467.08
+        },
+        {
+          "filename": "04_07_31_2022_06_19_47_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_19_47%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3467.02
+        },
+        {
+          "filename": "05_07_31_2022_06_19_57.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_19_57.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3454.02
+        },
+        {
+          "filename": "06_07_31_2022_06_20_09.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_09.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3443.01
+        },
+        {
+          "filename": "07_07_31_2022_06_20_10_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_10%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1640.01
+        },
+        {
+          "filename": "08_07_31_2022_06_20_10_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_10%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1640.07
+        },
+        {
+          "filename": "09_07_31_2022_06_20_13_BACK_1_.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_13%20BACK%281%29.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3878.02
+        },
+        {
+          "filename": "10_07_31_2022_06_20_13_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_13%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1584.36
+        },
+        {
+          "filename": "11_07_31_2022_06_20_13_FRONT_1_.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_13%20FRONT%281%29.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1584.25
+        },
+        {
+          "filename": "12_07_31_2022_06_20_13_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_13%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3878.59
+        },
+        {
+          "filename": "13_07_31_2022_06_20_25.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_25.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3428.02
+        },
+        {
+          "filename": "14_07_31_2022_06_20_51.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_20_51.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1597.0
+        },
+        {
+          "filename": "15_07_31_2022_06_21_16.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_21_16.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1514.03
+        },
+        {
+          "filename": "16_07_31_2022_06_23_47_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_23_47%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 430.53
+        },
+        {
+          "filename": "17_07_31_2022_06_23_47_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_23_47%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 430.34
+        },
+        {
+          "filename": "18_07_31_2022_06_24_17.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_24_17.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 593.01
+        },
+        {
+          "filename": "19_07_31_2022_06_30_28_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_30_28%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 218.08
+        },
+        {
+          "filename": "20_07_31_2022_06_30_28_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_30_28%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 219.06
+        },
+        {
+          "filename": "21_07_31_2022_06_46_05.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_46_05.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 69.0
+        },
+        {
+          "filename": "22_07_31_2022_06_46_10_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_46_10%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 61.02
+        },
+        {
+          "filename": "23_07_31_2022_06_46_10_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_06_46_10%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 61.12
+        },
+        {
+          "filename": "24_07_31_2022_07_15_26_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_15_26%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 5506.02
+        },
+        {
+          "filename": "25_07_31_2022_07_15_26_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_15_26%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 5506.03
+        },
+        {
+          "filename": "26_07_31_2022_07_15_32.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_15_32.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 167.02
+        },
+        {
+          "filename": "27_07_31_2022_07_19_54.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_19_54.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 188.01
+        },
+        {
+          "filename": "28_07_31_2022_07_30_59_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_30_59%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 149.01
+        },
+        {
+          "filename": "29_07_31_2022_07_30_59_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_30_59%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 149.03
+        },
+        {
+          "filename": "30_07_31_2022_07_46_39.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_46_39.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 479.02
+        },
+        {
+          "filename": "31_07_31_2022_07_49_19.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_49_19.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 192.01
+        },
+        {
+          "filename": "32_07_31_2022_07_49_20.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_49_20.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 530.01
+        },
+        {
+          "filename": "33_07_31_2022_07_49_21.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_49_21.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 320.01
+        },
+        {
+          "filename": "34_07_31_2022_07_50_30_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_50_30%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3910.08
+        },
+        {
+          "filename": "35_07_31_2022_07_50_30_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_07_50_30%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3910.05
+        },
+        {
+          "filename": "36_07_31_2022_08_05_15.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_05_15.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 416.01
+        },
+        {
+          "filename": "37_07_31_2022_08_05_16.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_05_16.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 450.02
+        },
+        {
+          "filename": "38_07_31_2022_08_16_24_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_16_24%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 46.04
+        },
+        {
+          "filename": "39_07_31_2022_08_16_24_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_16_24%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 46.11
+        },
+        {
+          "filename": "40_07_31_2022_08_25_17_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_25_17%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 59.02
+        },
+        {
+          "filename": "41_07_31_2022_08_25_17_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_25_17%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 60.02
+        },
+        {
+          "filename": "42_07_31_2022_08_35_16.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_35_16.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1233.0
+        },
+        {
+          "filename": "43_07_31_2022_08_48_50_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_48_50%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 352.03
+        },
+        {
+          "filename": "44_07_31_2022_08_48_50_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_48_50%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 352.01
+        },
+        {
+          "filename": "45_07_31_2022_08_57_49_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_08_57_49%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 203.13
+        },
+        {
+          "filename": "46_07_31_2022_09_04_56_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_04_56%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 767.06
+        },
+        {
+          "filename": "47_07_31_2022_09_32_43_BACK.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_32_43%20BACK.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 190.08
+        },
+        {
+          "filename": "48_07_31_2022_09_32_43_FRONT.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_32_43%20FRONT.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 190.09
+        },
+        {
+          "filename": "49_07_31_2022_09_32_47.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_32_47.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 389.01
+        },
+        {
+          "filename": "50_07_31_2022_09_33_44.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_33_44.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 198.03
+        },
+        {
+          "filename": "51_07_31_2022_09_34_15.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/07_31_2022_09_34_15.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 169.01
+        },
+        {
+          "filename": "52_08_01_2022_19_45_18.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_01_2022_19_45_18.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 115.01
+        },
+        {
+          "filename": "53_08_02_2022_17_04_35.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_02_2022_17_04_35.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 849.01
+        },
+        {
+          "filename": "54_08_02_2022_17_42_02.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_02_2022_17_42_02.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 557.03
+        },
+        {
+          "filename": "55_08_02_2022_19_47_20.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_02_2022_19_47_20.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 198.03
+        },
+        {
+          "filename": "56_08_02_2022_19_55_17.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_02_2022_19_55_17.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 290.03
+        },
+        {
+          "filename": "57_08_02_2022_20_04_02.mp4",
+          "url": "https://archive.org/download/07-31-2022-06-19-42-front/08_02_2022_20_04_02.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 183.01
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_41",
+      "folder": "BW_PORTAL_41 - Strongsville OH PD Case #22-086777 \u2014 Mackenzie Shirilla Arrest & Investigation (57 Clips, 25.06h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (Axon Body 3 Raw Release)",
+      "bwc_hrs": 1.17,
+      "videos": [
+        {
+          "filename": "01_Extraction_1.1__Axon_Body_3_Video_2023-05-31_2129_X60AB1483.mp4",
+          "url": "https://archive.org/download/extraction-1.1-axon-body-3-video-2023-05-31-2129-x-60-ab-1483/%28Extraction_1.1%29_Axon_Body_3_Video_2023-05-31_2129_X60AB1483.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 3138.23
+        },
+        {
+          "filename": "02_Axon_Body_3_Video_2023-05-31_2128_X60AB8783.mp4",
+          "url": "https://archive.org/download/axon-body-3-video-2023-05-31-2128-x-60-ab-8783/Axon_Body_3_Video_2023-05-31_2128_X60AB8783.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 1060.19
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_42",
+      "folder": "BW_PORTAL_42 - Phoenix PD AZ \u2014 Chelsea Elizabeth Medical Arrest Raw Axon Body 3 Release (2 BWC Clips, 1.17h Pure BWC)"
+    },
+    {
+      "portal": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/ACs2d4KOUmgOM5FE_R6MsbA?rlkey=w03rt4q9zdgbgykpy3abfhd7y&st=00a77z2o&dl=1",
+      "bwc_hrs": 0.49,
+      "videos": [
+        {
+          "filename": "01_0105_Public_Ent_Dbl_Door.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/ANRfie7mWdFoh297JdaKbpM/Media/0105%20Public%20Ent%20Dbl%20Door.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 122.8
+        },
+        {
+          "filename": "02_0196_Main_Entrance_Looking_West.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/AB176vfeotdFkDCu_2xEFvY/Media/0196%20Main%20Entrance%20Looking%20West.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 124.7
+        },
+        {
+          "filename": "03_0197_Main_Entrance_Looking_East.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/AHF6C7-x1DacvAgSRTp_XZ8/Media/0197%20Main%20Entrance%20Looking%20East.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 121.9
+        },
+        {
+          "filename": "04_BWC-1.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/AMrDZDC_un4fsWCBAhwuGkA/Media/BWC-1.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 517.1
+        },
+        {
+          "filename": "05_BWC-2.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/AIMIDEwTnAmlrhXFqjGca-E/Media/BWC-2.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 502.0
+        },
+        {
+          "filename": "06_BWC-3.mp4",
+          "url": "https://www.dropbox.com/scl/fo/o47c5ygy4aqafear9varg/AOxqaRcLFpu34A0VQr_PlAk/Media/BWC-3.mp4?rlkey=w03rt4q9zdgbgykpy3abfhd7y&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 373.8
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_43",
+      "folder": "BW_PORTAL_43 - Sacramento County Sheriff Case #2024PSB-568 \u2014 651 I St. Female Subject Use of Force (6 BWC Clips, 0.49h Pure BWC)"
+    },
+    {
+      "portal": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AL-9mHViXEsXInL1vruJ1v0?rlkey=319tcuf8vdi1fjop0inczq3ga&st=250b8a0b&dl=1",
+      "bwc_hrs": 0.18,
+      "videos": [
+        {
+          "filename": "01_BWC-1a.mp4",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AA1oXt61DrtPh0r85p-aYLw/Media/BWC-1a.mp4?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 521.8
+        },
+        {
+          "filename": "02_BWC-1b.mp4",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AN9CVaCfYktIuqkMbn9j05w/Media/BWC-1b.mp4?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1",
+          "source_type": "direct_mp4",
+          "dur_sec": 108.6
+        }
+      ],
+      "pdfs": [
+        {
+          "filename": "01_23-232034_CAD.pdf",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AJ4lfAdU4qwuX3Y1oTJ6pSs/Documents/23-232034%20CAD.pdf?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1"
+        },
+        {
+          "filename": "02_23-232034_Photos.pdf",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/ALZBsEGcUL70GwJQyaJ2Pr4/Documents/23-232034%20Photos.pdf?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1"
+        },
+        {
+          "filename": "03_23-232034_Report.pdf",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AEWEjZdbW0IMOcoc2x552aM/Documents/23-232034%20Report.pdf?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1"
+        },
+        {
+          "filename": "04_23-232034_Use_of_Force_Report.pdf",
+          "url": "https://www.dropbox.com/scl/fo/hru5lvr5ech3swl43q97o/AMviDARMaQTYUHCvOQK66qY/Documents/23-232034%20Use%20of%20Force%20Report.pdf?rlkey=319tcuf8vdi1fjop0inczq3ga&dl=1"
+        }
+      ],
+      "case_id": "BW_PORTAL_44",
+      "folder": "BW_PORTAL_44 - Sacramento County Sheriff Case #23-232034 \u2014 Vermont St. Female Subject Use of Force (2 BWC Clips, 0.18h Pure BWC)"
+    },
+    {
+      "portal": "https://njoag.box.com/s/xihweknlkeq7vrekx9693qbyyramgu86",
+      "bwc_hrs": 0.2,
+      "videos": [
+        {
+          "filename": "01_05_-_BWC_2__redacted_.mp4",
+          "url": "https://njoag.box.com/index.php?rm=box_download_shared_file&shared_name=xihweknlkeq7vrekx9693qbyyramgu86&file_id=f_1620834143285",
+          "source_type": "direct_mp4",
+          "dur_sec": 150.4
+        },
+        {
+          "filename": "02_07_-_BWC_4__redacted_.mp4",
+          "url": "https://njoag.box.com/index.php?rm=box_download_shared_file&shared_name=xihweknlkeq7vrekx9693qbyyramgu86&file_id=f_1620835691689",
+          "source_type": "direct_mp4",
+          "dur_sec": 121.4
+        },
+        {
+          "filename": "03_06_-BWC_3__redacted_.mp4",
+          "url": "https://njoag.box.com/index.php?rm=box_download_shared_file&shared_name=xihweknlkeq7vrekx9693qbyyramgu86&file_id=f_1620833704112",
+          "source_type": "direct_mp4",
+          "dur_sec": 217.6
+        },
+        {
+          "filename": "04_03_-_BWC_1__redacted_.mp4",
+          "url": "https://njoag.box.com/index.php?rm=box_download_shared_file&shared_name=xihweknlkeq7vrekx9693qbyyramgu86&file_id=f_1620831704424",
+          "source_type": "direct_mp4",
+          "dur_sec": 210.7
+        },
+        {
+          "filename": "05_04_-_Taser_Video__redacted_.mp4",
+          "url": "https://njoag.box.com/index.php?rm=box_download_shared_file&shared_name=xihweknlkeq7vrekx9693qbyyramgu86&file_id=f_1620820401440",
+          "source_type": "direct_mp4",
+          "dur_sec": 29.3
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_45",
+      "folder": "BW_PORTAL_45 - NJOAG Fort Lee PD \u2014 Victoria Nina Lee Critical Incident Release (5 BWC Clips, 0.2h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (thewizardlizarrest)",
+      "bwc_hrs": 0.6,
+      "videos": [
+        {
+          "filename": "01_hihihah.mp4",
+          "url": "https://archive.org/download/thewizardlizarrest/hihihah.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 2152.05
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_46",
+      "folder": "BW_PORTAL_46 - Lize Dzhabrailova Arrest Full Raw 1080p Bodycam Release (1 Clip, 0.6h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (police-body-cam-video-of-morgan-geyser-and-chad-meccas-arrest-on-november-24-2)",
+      "bwc_hrs": 0.26,
+      "videos": [
+        {
+          "filename": "01_9051dd9cb3a9f71dde1feef612187ab5303f22da_fl9-720p.mp4",
+          "url": "https://archive.org/download/police-body-cam-video-of-morgan-geyser-and-chad-meccas-arrest-on-november-24-2/9051dd9cb3a9f71dde1feef612187ab5303f22da_fl9-720p.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 931.96
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_47",
+      "folder": "BW_PORTAL_47 - Posen IL PD \u2014 Morgan Geyser Arrest Full Raw Bodycam (Nov 24, 2025) (1 Clip, 0.26h Pure BWC)"
+    },
+    {
+      "portal": "Internet Archive Gov/FOIA (20-year-old-shoplifter-gets-banned-from-all-walmarts-for-life)",
+      "bwc_hrs": 0.24,
+      "videos": [
+        {
+          "filename": "01_20-Year-Old_Shoplifter_Gets_Banned_from_All_Walmarts_for_Life.mp4",
+          "url": "https://archive.org/download/20-year-old-shoplifter-gets-banned-from-all-walmarts-for-life/20-Year-Old%20Shoplifter%20Gets%20Banned%20from%20All%20Walmarts%20for%20Life.mp4",
+          "source_type": "direct_mp4",
+          "dur_sec": 857.98
+        }
+      ],
+      "pdfs": [],
+      "case_id": "BW_PORTAL_48",
+      "folder": "BW_PORTAL_48 - Pullman WA PD \u2014 Female Walmart Shoplifter Detention & Arrest 1080p BWC (1 Clip, 0.24h Pure BWC)"
     }
   ]
 }
