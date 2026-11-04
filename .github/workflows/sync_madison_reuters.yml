@@ -6,7 +6,7 @@ on:
 jobs:
   upload_madison:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
@@ -15,11 +15,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install yt-dlp and ffmpeg
+      - name: Install yt-dlp, ffmpeg, and WARP SOCKS5 proxy
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg
           pip install -q --upgrade yt-dlp
+          curl -sL https://github.com/ViRb3/wgcf/releases/download/v2.2.22/wgcf_2.2.22_linux_amd64 -o /tmp/wgcf && chmod +x /tmp/wgcf
+          curl -sL https://github.com/pufferffish/wireproxy/releases/download/v1.0.9/wireproxy_linux_amd64.tar.gz | tar -xz -C /tmp && chmod +x /tmp/wireproxy
+          sleep $(( (SHARD_INDEX * 2) + (RANDOM % 4) ))
+          for attempt in 1 2 3 4 5; do
+            pkill -9 wireproxy 2>/dev/null || true
+            rm -rf /tmp/w0 && mkdir -p /tmp/w0 && cd /tmp/w0
+            if /tmp/wgcf register --accept-tos && /tmp/wgcf generate; then
+              printf "\n[Socks5]\nBindAddress = 127.0.0.1:40020\n" >> wgcf-profile.conf
+              nohup /tmp/wireproxy -c wgcf-profile.conf >/dev/null 2>&1 &
+              sleep 4
+              if curl -sI --max-time 8 -x socks5h://127.0.0.1:40020 https://www.youtube.com >/dev/null 2>&1; then
+                echo "WARP SOCKS5 proxy verified working on attempt $attempt"
+                break
+              fi
+            fi
+            sleep 4
+          done
 
       - name: Upload Madison School Shooting Videos
         env:
