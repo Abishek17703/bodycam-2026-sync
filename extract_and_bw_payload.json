@@ -1,0 +1,2057 @@
+{
+  "generated_at": "2026-11-10T22:58:00+05:30",
+  "wc_tasks_count": 179,
+  "bw_tasks_count": 21,
+  "bw_pdf_tasks_count": 28,
+  "wc_tasks": [
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1v-oIPdx_yrYn_BMRo5faUd_LWb22aRO6",
+      "filename": "7.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 409735870
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1CBqSkFJ9Bj6wrxpBv9CzZ3QJKV3DR_Ue",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 114441013
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1BASqdNddabgt6rm-lCuoLy6E2whhvuJF",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 20544462
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "15XPoiBXb0GfJ4q1CcRck_x39Tes9unca",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 122812524
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1LZCodAEDd_j3_kAJcnL6LyjFAp9nyZhR",
+      "filename": "11.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 994536898
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1dOb5n_sQNcsuv5auDZ_FDGpy5cbHSnKz",
+      "filename": "5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 217815334
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "15H0Io6iQdE_fzReQicXXBKfifbi4Ztng",
+      "filename": "9.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 136579964
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1tT4kSx5S2M6hw1qy2PjBL7UZyMo_4dVB",
+      "filename": "10.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 994536898
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1NRCvoBcUl2iPsSp5SjYLqP8XuPx5yCvb",
+      "filename": "8.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 318893977
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1nSK-TkqnQSMM8z7oc6JfUESjYaR66dzk",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 214553535
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 3,
+      "folder_name": "EXTRACT_WC_03 - Lorena Gonzalez-Mesa",
+      "target_folder_id": "1Uu0PasXQo09W9bjlYhqmFstEq9KlUJgZ",
+      "source_file_id": "1L8uMcws2RbCYFLktAjGbheKeNVudK1uK",
+      "filename": "6.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 401272169
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 5,
+      "folder_name": "EXTRACT_WC_05 - Natalie Nicole Martin",
+      "target_folder_id": "18opWZskitIomtmXXzaAIJ44e-ahDutbQ",
+      "source_file_id": "178FlCTHBbzZbpgYt9gpRe6tcRcdd8shc",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 22362950
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 5,
+      "folder_name": "EXTRACT_WC_05 - Natalie Nicole Martin",
+      "target_folder_id": "18opWZskitIomtmXXzaAIJ44e-ahDutbQ",
+      "source_file_id": "1KxAVS9Iu9CvmGfeMs34SA4MALOEs0VBu",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 134581972
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 5,
+      "folder_name": "EXTRACT_WC_05 - Natalie Nicole Martin",
+      "target_folder_id": "18opWZskitIomtmXXzaAIJ44e-ahDutbQ",
+      "source_file_id": "1tkNDJ-Svj-LZS9SmwbKvUdR-EIkrTczR",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 764069375
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 5,
+      "folder_name": "EXTRACT_WC_05 - Natalie Nicole Martin",
+      "target_folder_id": "18opWZskitIomtmXXzaAIJ44e-ahDutbQ",
+      "source_file_id": "1XSmdmLz6FzbFb1HB4KRtLZo0o5NgurTZ",
+      "filename": "5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1677971391
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 8,
+      "folder_name": "EXTRACT_WC_08 - Kelly O'Keefe-Fitzgibbon",
+      "target_folder_id": "1aff-Ng4EoetgnvMb6FqB20QOWAA2r7S4",
+      "source_file_id": "1dabAJ91frVREb5EbJKIwblUAbm-fd4PJ",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 298817070
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 8,
+      "folder_name": "EXTRACT_WC_08 - Kelly O'Keefe-Fitzgibbon",
+      "target_folder_id": "1aff-Ng4EoetgnvMb6FqB20QOWAA2r7S4",
+      "source_file_id": "1aCjpym8U4fOlOJo__qiJR9lQvM4Ns0Ia",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 2833519338
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 8,
+      "folder_name": "EXTRACT_WC_08 - Kelly O'Keefe-Fitzgibbon",
+      "target_folder_id": "1aff-Ng4EoetgnvMb6FqB20QOWAA2r7S4",
+      "source_file_id": "1ktF5Gy8gm9WKzjxcqHuPGwlOpA90LuYk",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1390128089
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 9,
+      "folder_name": "EXTRACT_WC_09 - Darla Rachel Vidal",
+      "target_folder_id": "1OKhGBkXgehIr483Nqhk-Ljzz7di9Cep6",
+      "source_file_id": "1cekYSnFHOYwQ-fAwROFwWnqxjsRP7Zqd",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 438375058
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 9,
+      "folder_name": "EXTRACT_WC_09 - Darla Rachel Vidal",
+      "target_folder_id": "1OKhGBkXgehIr483Nqhk-Ljzz7di9Cep6",
+      "source_file_id": "1lybEpuNc3MCtv3z4iheNDfdhumUYGmY2",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 576261002
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 9,
+      "folder_name": "EXTRACT_WC_09 - Darla Rachel Vidal",
+      "target_folder_id": "1OKhGBkXgehIr483Nqhk-Ljzz7di9Cep6",
+      "source_file_id": "1gS95VUInnDgK_d8_e1qZkLeMVCEGCfTY",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 3190679930
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 9,
+      "folder_name": "EXTRACT_WC_09 - Darla Rachel Vidal",
+      "target_folder_id": "1OKhGBkXgehIr483Nqhk-Ljzz7di9Cep6",
+      "source_file_id": "1XCjgOkduZbjDBeXS3rSgL37QMgAAM_0y",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 905755443
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1bGHPN_OhulYp7X_ACXoRJDNUrl3l3h_L",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 520669227
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1RTog7ijqUu0yzDXrFHrQcqXXZM2SaZJa",
+      "filename": "10.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 337124223
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1xSQZNiy7Jh-_FwPDby7UphGaOL9_Us_R",
+      "filename": "6.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1252761596
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1IZt-AUrBasNFjunyTP3hI271al8xIthk",
+      "filename": "8.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 265523161
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1Jr5JW6ODhNsax7GyTnn9R5lULL1n4Y1V",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1048150140
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1mLHxswfgnQrKbiwUzS7JQ3IwjE6JvWYc",
+      "filename": "9.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 80183833
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1JW_1mPQnuQw1lHKMnPZh1VTdP0OZ6Ihy",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1054249608
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1k8ptIwCfpX8eCIncaJDQvDQyAg6G5TPP",
+      "filename": "11.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 710359517
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 10,
+      "folder_name": "EXTRACT_WC_10 - Michelle Bongiovi",
+      "target_folder_id": "14MQYIPwq8SypNbAkDlyGjDRFH2N0QCgj",
+      "source_file_id": "1dXk1qYkQMKIzKWqYnmU27_7Zqoj4QaE2",
+      "filename": "7.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1673361222
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 11,
+      "folder_name": "EXTRACT_WC_11 - Red Skirt Airport Incident",
+      "target_folder_id": "1mYMgkQ6oa98pG9lS9JN0sUpfgo0w2EeJ",
+      "source_file_id": "1Zs3IoJZEQLnv8F4RgczCz0VD8lCBkA0Q",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 586793548
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 11,
+      "folder_name": "EXTRACT_WC_11 - Red Skirt Airport Incident",
+      "target_folder_id": "1mYMgkQ6oa98pG9lS9JN0sUpfgo0w2EeJ",
+      "source_file_id": "1f8jUXLLTi0kIOyl6CSCma1RFVQMyZ9-D",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 111828041
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 11,
+      "folder_name": "EXTRACT_WC_11 - Red Skirt Airport Incident",
+      "target_folder_id": "1mYMgkQ6oa98pG9lS9JN0sUpfgo0w2EeJ",
+      "source_file_id": "1lOjgwiX7CJA0OJLOoOAru8XA0zOY7__1",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 50672628
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 11,
+      "folder_name": "EXTRACT_WC_11 - Red Skirt Airport Incident",
+      "target_folder_id": "1mYMgkQ6oa98pG9lS9JN0sUpfgo0w2EeJ",
+      "source_file_id": "1iwr5eyaFD-mYNoe12DBpfPOhfiQnLzB6",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 956982940
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 12,
+      "folder_name": "EXTRACT_WC_12 - Alexandria Patricia Bloom",
+      "target_folder_id": "1gkQrZJ2P7uO8xRumAHjfNPWKgd8ckZgE",
+      "source_file_id": "1CL5nFtS-LaBYnVRmfP6ogOI5IzzCYrm-",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1917955438
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 12,
+      "folder_name": "EXTRACT_WC_12 - Alexandria Patricia Bloom",
+      "target_folder_id": "1gkQrZJ2P7uO8xRumAHjfNPWKgd8ckZgE",
+      "source_file_id": "1lRu3z_V0bItoOWIAtnpJyvCV0960sdX3",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1671610934
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "16zUcB5g6Ps_aKp7cxHCvx9ijxnUaJBfM",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 34540366
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1l7Lg59u6Uq13QRgQu6BkaybDMDGQYSEY",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 170215385
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1SIy0ugSTBmi4DHAjk36RAHqob0zpejzy",
+      "filename": "9.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 115110143
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1O8c4h9p227Mg1KH9y03LnIIS0aOYAXWd",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 37922436
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1Z7QLzZUkKcz-J5y6YH2kqLzzyG2Yo6aC",
+      "filename": "5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 130502784
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "15WZdQsm4cis_zC5D8X2E5MWkVp9Cb0Q_",
+      "filename": "8.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 205542486
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "17CigrPDYhWjpAl0qd3QJlJqqzZXS27oK",
+      "filename": "10.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 334324833
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1_AojYn1R95LCVNAyXnWC6EGLuZyo30Nc",
+      "filename": "7.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 484779868
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 14,
+      "folder_name": "EXTRACT_WC_14 - Port Charlotte Domestic Battery",
+      "target_folder_id": "11spX0NdOra65t0-y5MHjWkJA7_Ogb-Lk",
+      "source_file_id": "1lawYAYxybrHoz8GMrY13i3OJInKsDT-x",
+      "filename": "6.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 71423898
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 15,
+      "folder_name": "EXTRACT_WC_15 - Arianna Lein",
+      "target_folder_id": "1ey4MF8nkW56bOcueaJ3ZL_55krYY_4O7",
+      "source_file_id": "1G1umKDYbGg7bHCjWcceapbZMkhn4QqhJ",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1034750450
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 15,
+      "folder_name": "EXTRACT_WC_15 - Arianna Lein",
+      "target_folder_id": "1ey4MF8nkW56bOcueaJ3ZL_55krYY_4O7",
+      "source_file_id": "1a_kaH7jvw5G_ozIXEyeOGOIMw012qQuH",
+      "filename": "2023-1678 911 audio.wav",
+      "mimeType": "audio/wav",
+      "expected_size": 784044
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 15,
+      "folder_name": "EXTRACT_WC_15 - Arianna Lein",
+      "target_folder_id": "1ey4MF8nkW56bOcueaJ3ZL_55krYY_4O7",
+      "source_file_id": "1PyL8pNlQkWif6FpRg9Hy7X45savym7L1",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1342695763
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 16,
+      "folder_name": "EXTRACT_WC_16 - Taylor Crowningshield",
+      "target_folder_id": "1b3DBFppyYKaCQhGcr7Rtw_CmW0j1In3u",
+      "source_file_id": "1z-ziquRFt8bZnXyluwpEbTXEThNUaBUd",
+      "filename": "5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 389196944
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 16,
+      "folder_name": "EXTRACT_WC_16 - Taylor Crowningshield",
+      "target_folder_id": "1b3DBFppyYKaCQhGcr7Rtw_CmW0j1In3u",
+      "source_file_id": "1_69YXOh_Jl8_1hFD9p5BlL0Zw6z2Cw0q",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1861694157
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 16,
+      "folder_name": "EXTRACT_WC_16 - Taylor Crowningshield",
+      "target_folder_id": "1b3DBFppyYKaCQhGcr7Rtw_CmW0j1In3u",
+      "source_file_id": "1AK1Y9WCS3zmjSrwZsKIdF4IE3tN49Lxc",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 569415688
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 16,
+      "folder_name": "EXTRACT_WC_16 - Taylor Crowningshield",
+      "target_folder_id": "1b3DBFppyYKaCQhGcr7Rtw_CmW0j1In3u",
+      "source_file_id": "1A6-ZiYJ8RBnpMhVpbQUYoG2AbcZ8snjm",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 743843886
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 16,
+      "folder_name": "EXTRACT_WC_16 - Taylor Crowningshield",
+      "target_folder_id": "1b3DBFppyYKaCQhGcr7Rtw_CmW0j1In3u",
+      "source_file_id": "1tiUV8y7NPvMKlTjDqFKvTLCDY1hzoqOu",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 644252999
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "1CmjCx8hJCz2wq-aMw7x88UwGN8RErdm4",
+      "filename": "-RELEASE-_TARGET.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 37288944
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "1ErvMXF7t-Jy4IzXEuc3ctIeChV2IF5XX",
+      "filename": "_-RELEASE-_CARLA_E_NISHIKURA.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1481721943
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "1Qc1bs5WGJq2WMz4txYmEzP13PO2QeQUS",
+      "filename": "-RELEASE-_TARGET-3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 78898250
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "17ExSOQ9bk5gF8uKculYPGv1e2gl_VEgs",
+      "filename": "-RELEASE-_TARGET-5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 475111334
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "1HxsnWFxEHRqjPQc-AounUY74Rm5Crgmx",
+      "filename": "RELEASE_(Extraction_1.1)_(Clip_1.1)_TARGET.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 118609133
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "14CCTKu0hGW_NGt63l4sQM1W9IrS8C5qr",
+      "filename": "-RELEASE-_TARGET-2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 49470037
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 17,
+      "folder_name": "EXTRACT_WC_17 - Carla Nishikura",
+      "target_folder_id": "1e_av2IzAz4YVZoqlzX38TFMiM_YddJGK",
+      "source_file_id": "1W_lhkA1FjQa8Hbni9LwLauuuceVOwPpX",
+      "filename": "-RELEASE-_TARGET-4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 84293128
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 18,
+      "folder_name": "EXTRACT_WC_18 - Alexis Jean Waddington",
+      "target_folder_id": "1x2k4F-l6Gmt6DpJwoaFl7lFcbRQuLibf",
+      "source_file_id": "1JovUckgOVIt61JJp2Kg8AA7nhw6WbS8g",
+      "filename": "-RELEASE-.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 32925949
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 18,
+      "folder_name": "EXTRACT_WC_18 - Alexis Jean Waddington",
+      "target_folder_id": "1x2k4F-l6Gmt6DpJwoaFl7lFcbRQuLibf",
+      "source_file_id": "1-VQBVKHARunVEH8-BxqSP3H5RGeRwpAW",
+      "filename": "-RELEASE--5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 947113242
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 18,
+      "folder_name": "EXTRACT_WC_18 - Alexis Jean Waddington",
+      "target_folder_id": "1x2k4F-l6Gmt6DpJwoaFl7lFcbRQuLibf",
+      "source_file_id": "1F4DGIJRRdWgovhVRPspoYeTxy90GbaXP",
+      "filename": "-RELEASE--3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 326141350
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 18,
+      "folder_name": "EXTRACT_WC_18 - Alexis Jean Waddington",
+      "target_folder_id": "1x2k4F-l6Gmt6DpJwoaFl7lFcbRQuLibf",
+      "source_file_id": "1WyUxQIvNes9q_aguVsL7UYVkrFrmv9Eo",
+      "filename": "-RELEASE--4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 690524784
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 18,
+      "folder_name": "EXTRACT_WC_18 - Alexis Jean Waddington",
+      "target_folder_id": "1x2k4F-l6Gmt6DpJwoaFl7lFcbRQuLibf",
+      "source_file_id": "1tRfQNT3rvEtEdz2W7zCGeWSCRPU7qRWI",
+      "filename": "-RELEASE--2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 178310878
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 20,
+      "folder_name": "EXTRACT_WC_20 - Vivian Anna Bond",
+      "target_folder_id": "1h8MXVOuu2CZr9MhLq8L0KKea5Ab9HuBW",
+      "source_file_id": "10Dt0uUjmIO-2z4rj1ZCGgEDdimKpqfAG",
+      "filename": "-RELEASE-_McCall.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1613910967
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 20,
+      "folder_name": "EXTRACT_WC_20 - Vivian Anna Bond",
+      "target_folder_id": "1h8MXVOuu2CZr9MhLq8L0KKea5Ab9HuBW",
+      "source_file_id": "1meJM3Bqpt7OYdIMuWjDyOnuxqqw-oYBA",
+      "filename": "-RELEASE-_SR_100_E_Aviation_Dr.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 395006561
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 20,
+      "folder_name": "EXTRACT_WC_20 - Vivian Anna Bond",
+      "target_folder_id": "1h8MXVOuu2CZr9MhLq8L0KKea5Ab9HuBW",
+      "source_file_id": "1XIwwemT4CraAPbz9d13CHyGqO7ZfF_ek",
+      "filename": "-RELEASE-_SR_100_E_Aviation_Dr-2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 398828760
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AAluYM2lk6ZynwW2Yui_tn0/1.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AAluYM2lk6ZynwW2Yui_tn0/1.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AHT9wWttcXXSiM417LWnQww/2.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AHT9wWttcXXSiM417LWnQww/2.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/ADR40wzg3N-guOEp28aJF2Y/3.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/ADR40wzg3N-guOEp28aJF2Y/3.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "3.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AGxzlcnOg2w7k6UxYiTYGt4/4.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AGxzlcnOg2w7k6UxYiTYGt4/4.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "4.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AAzHJvo5y6atF1BOIVmTJlg/5.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AAzHJvo5y6atF1BOIVmTJlg/5.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "5.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AJak0gAqAbxvJlPzwBDZGRk/6.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/AJak0gAqAbxvJlPzwBDZGRk/6.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "6.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 21,
+      "folder_name": "EXTRACT_WC_21 - Suzanne Pink Garnett",
+      "target_folder_id": "1n3Q6K5-zuSbHAKzlJDSrAjE2ozzgyGrk",
+      "page_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/ACpG5VBQC7Y5UVZUG5nYW2Y/7.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/49yx7dl56ey931d6uqady/ACpG5VBQC7Y5UVZUG5nYW2Y/7.mp4?rlkey=mi4i06br8f9mty23gr2xtjgsv&dl=1",
+      "filename": "7.mp4"
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 22,
+      "folder_name": "EXTRACT_WC_22 - Darielle Lerona Thomas",
+      "target_folder_id": "1mj-sjsJ-nA3UFsigd3OA9G1GrBUHDYaH",
+      "source_file_id": "1BYhNkJr555aEAwQ_N1zBmdH0v0Fsp9Qn",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1021924104
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 22,
+      "folder_name": "EXTRACT_WC_22 - Darielle Lerona Thomas",
+      "target_folder_id": "1mj-sjsJ-nA3UFsigd3OA9G1GrBUHDYaH",
+      "source_file_id": "1j2vX7cudexFoFZPhU2-eaMmHnjCzxU55",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 2180118519
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 22,
+      "folder_name": "EXTRACT_WC_22 - Darielle Lerona Thomas",
+      "target_folder_id": "1mj-sjsJ-nA3UFsigd3OA9G1GrBUHDYaH",
+      "source_file_id": "1W70qQzMyyWasTDfBE13sN0ljXZv8rHSJ",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1950955840
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1vOgxmidQOOLnVoF80mUCifAfs4eQh6Ok",
+      "filename": "6.MOV",
+      "mimeType": "video/quicktime",
+      "expected_size": 7237237
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1JfYtVrZsK1v0cnOrt0aylKZjWzIK-Dsm",
+      "filename": "13.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 263358302
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1JKHE89Afc_lnEptK9YYljYY4HHdzsCME",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1093202526
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1not2L0oW9qD41R0J1c_C3eom8bC6Ln49",
+      "filename": "audio 1.m4a",
+      "mimeType": "audio/x-m4a",
+      "expected_size": 828462
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1KMBtpgB4ifg9_vhSJGlEtGizFDhb86QU",
+      "filename": "9.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 155102671
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1StofeuXcY3Ex-Hg6A0HwxxEmMi1EvCL-",
+      "filename": "11.MOV",
+      "mimeType": "video/quicktime",
+      "expected_size": 29975749
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1N2R1_lXT84-wStJGwso69mZlG5laz4WT",
+      "filename": "7.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 741178988
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1vE_DBlZF2WzSdQMPrzbFk3ksA4zY6dqm",
+      "filename": "15.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1800447249
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1rLy_zdOifb_lBPYH6DInIt3AVCYKxdVM",
+      "filename": "10.MOV",
+      "mimeType": "video/quicktime",
+      "expected_size": 22746689
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1XIofdu6lKNCwDMKn2TJv10IlQhMsv4wC",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1736242756
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "17HO0VCPVzxgGlEtJE3z5Lut7_rGELUFG",
+      "filename": "8.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 255505359
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1OwvEIvkZRyp7rb6YdFIl_JJP5Oc3iPJ6",
+      "filename": "14.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 438051648
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1E4MVDy-Ignn_0N1bU9iOXR-agarE4YLg",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 19525718
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1RnRcDHEplJCcl5FAtMHP6QzYsspElluF",
+      "filename": "12.MOV",
+      "mimeType": "video/quicktime",
+      "expected_size": 57301257
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1SDQRJz6dj4Hp_3MZ7KHmPQtaJQnhYrV2",
+      "filename": "Axon_Body_3_Video_2025-04-12_1444_X60334868.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 159778063
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 25,
+      "folder_name": "EXTRACT_WC_25 - Daniella Segura",
+      "target_folder_id": "1-qOmiBTwHSFqWrxxCGD6z1W--hggefw-",
+      "source_file_id": "1qG_dVMe9P1yAKN5kL23r7XRyPl7bi7kW",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 26536971
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "181YrnLvqxGhijB-OaLBtsOwg__mBu4hA",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 450995276
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "1UKEbhn_GjFwE8pmSAFAXUbqmK-zt0nmL",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 93777079
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "1aQ_XoIQh4wXe6hW2yrb6a5onGy4koM6W",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 357068619
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "1HJBLRpipU5fEQ7WV89VCjtVaezIkywYQ",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 483836024
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "1Im0IEp7qZ5vFXkJs5Z3xdSKjCXJ2zGUE",
+      "filename": "5.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 374935730
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 26,
+      "folder_name": "EXTRACT_WC_26 - Heather Marie Noack",
+      "target_folder_id": "1y-Ci566xFgIHhY2M5O7LhkcfZ5qVfpRE",
+      "source_file_id": "1YBf325nlAmINkVAgyyR__S3n_a9f-dHK",
+      "filename": "6.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 825178951
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 27,
+      "folder_name": "EXTRACT_WC_27 - Kathleen Kim Fowler",
+      "target_folder_id": "1qudqkhsC7sE88AJSMuIKfn_GHkO6cjMl",
+      "source_file_id": "1wb8CkgXc9pVSSi-iGP6esPPdKQkrFVVt",
+      "filename": "3.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1167349316
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 27,
+      "folder_name": "EXTRACT_WC_27 - Kathleen Kim Fowler",
+      "target_folder_id": "1qudqkhsC7sE88AJSMuIKfn_GHkO6cjMl",
+      "source_file_id": "1l4er_AfgHDNMutBPF8kJ-vpt-uekgxrw",
+      "filename": "1.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 213313168
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 27,
+      "folder_name": "EXTRACT_WC_27 - Kathleen Kim Fowler",
+      "target_folder_id": "1qudqkhsC7sE88AJSMuIKfn_GHkO6cjMl",
+      "source_file_id": "1y8p7mVoZALk2mWXe308KH7_FYXPLmqUB",
+      "filename": "2.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 1555080120
+    },
+    {
+      "task_type": "wc_gdrive",
+      "row": 27,
+      "folder_name": "EXTRACT_WC_27 - Kathleen Kim Fowler",
+      "target_folder_id": "1qudqkhsC7sE88AJSMuIKfn_GHkO6cjMl",
+      "source_file_id": "13jqkgOnEQhx2an1Ri2CTDzJgNYUUU0bq",
+      "filename": "4.mp4",
+      "mimeType": "video/mp4",
+      "expected_size": 4411430062
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 28,
+      "folder_name": "EXTRACT_WC_28 - Erica M. Higgins",
+      "target_folder_id": "1Mipuz1ckIC3Xirrk51qJ3VNoDCH3dV0f",
+      "page_url": "https://www.dropbox.com/scl/fo/tblek0lvdqidsuntrserh/AKn5LyhRUDS-oZre3cI2qcM/Erika%20Ortega_202309090322_Erika%20Orteg%20redacted.mp4?rlkey=c15kjczqqqt9wdq0lnkn9473c&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/tblek0lvdqidsuntrserh/AKn5LyhRUDS-oZre3cI2qcM/Erika%20Ortega_202309090322_Erika%20Orteg%20redacted.mp4?rlkey=c15kjczqqqt9wdq0lnkn9473c&dl=1",
+      "filename": "Erika Ortega_202309090322_Erika Orteg redacted.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 29,
+      "folder_name": "EXTRACT_WC_29 - Brittany Widen",
+      "target_folder_id": "1O7CkbwHazzuP9keqzCJUG7MaPDf3W98j",
+      "page_url": "https://www.dropbox.com/scl/fo/2ffl9d5h52i5uc2rhhnxd/AF_Yg3E_dRVluZ6VeYq1hTM/B-81?rlkey=23wgagmfz4q2gigym3kseji5z&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/2ffl9d5h52i5uc2rhhnxd/AF_Yg3E_dRVluZ6VeYq1hTM/B-81?rlkey=23wgagmfz4q2gigym3kseji5z&dl=1",
+      "filename": "B-81.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 29,
+      "folder_name": "EXTRACT_WC_29 - Brittany Widen",
+      "target_folder_id": "1O7CkbwHazzuP9keqzCJUG7MaPDf3W98j",
+      "page_url": "https://www.dropbox.com/scl/fo/2ffl9d5h52i5uc2rhhnxd/AAc45WPHGpL4UQZycZYLJtY/B-89?rlkey=23wgagmfz4q2gigym3kseji5z&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/2ffl9d5h52i5uc2rhhnxd/AAc45WPHGpL4UQZycZYLJtY/B-89?rlkey=23wgagmfz4q2gigym3kseji5z&dl=1",
+      "filename": "B-89.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AAJVO3ySimk2ww9oZ4lkJMw/2a790833-5fdd-47b5-939e-e3560ceb3c48.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AAJVO3ySimk2ww9oZ4lkJMw/2a790833-5fdd-47b5-939e-e3560ceb3c48.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "2a790833-5fdd-47b5-939e-e3560ceb3c48.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ANo-J8i0a41Ovb60eY4hlOU/3f2ffc11-c204-4f96-9bf6-9495c1b81c33.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ANo-J8i0a41Ovb60eY4hlOU/3f2ffc11-c204-4f96-9bf6-9495c1b81c33.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "3f2ffc11-c204-4f96-9bf6-9495c1b81c33.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJIWWx10jIoXHPUJwF75BFA/5c6c8061-cc44-4e20-98b0-2e5724265819.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJIWWx10jIoXHPUJwF75BFA/5c6c8061-cc44-4e20-98b0-2e5724265819.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "5c6c8061-cc44-4e20-98b0-2e5724265819.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJnVOvwMc71eISdrXkAf2DY/5d775360-110a-4383-91f0-1ba088c943be.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJnVOvwMc71eISdrXkAf2DY/5d775360-110a-4383-91f0-1ba088c943be.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "5d775360-110a-4383-91f0-1ba088c943be.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AFtj7YsXNWxS7nz6MbWyhEA/7bd9a372-53b3-45e9-959e-20e052df6075.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AFtj7YsXNWxS7nz6MbWyhEA/7bd9a372-53b3-45e9-959e-20e052df6075.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "7bd9a372-53b3-45e9-959e-20e052df6075.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ADhpKr5lhCsXWs0hOaEysMk/016b9343-76b8-47b1-9945-eb768279f305.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ADhpKr5lhCsXWs0hOaEysMk/016b9343-76b8-47b1-9945-eb768279f305.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "016b9343-76b8-47b1-9945-eb768279f305.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AD-UsNNe-7Vq9TdwlriONE8/30d2dfc8-fc89-4420-95b0-c03084f4eb9d.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AD-UsNNe-7Vq9TdwlriONE8/30d2dfc8-fc89-4420-95b0-c03084f4eb9d.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "30d2dfc8-fc89-4420-95b0-c03084f4eb9d.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AKj3RMIlLRnsL3wcMJJgthE/88d425c8-50ca-4b4a-ae54-c09243593c18.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AKj3RMIlLRnsL3wcMJJgthE/88d425c8-50ca-4b4a-ae54-c09243593c18.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "88d425c8-50ca-4b4a-ae54-c09243593c18.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AADIpWghzPlNWay7gU8IK-0/249efaae-906d-4ce9-95bc-d7fc990e5bc0.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AADIpWghzPlNWay7gU8IK-0/249efaae-906d-4ce9-95bc-d7fc990e5bc0.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "249efaae-906d-4ce9-95bc-d7fc990e5bc0.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJnUIEswL2VNvubOKJCvxOo/590c3079-e5fc-417c-b193-f3ca5a91cfef.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJnUIEswL2VNvubOKJCvxOo/590c3079-e5fc-417c-b193-f3ca5a91cfef.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "590c3079-e5fc-417c-b193-f3ca5a91cfef.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AHRWa3u3_yPf35MQ7KeoEeE/686d6f34-8219-4d61-ae0a-d978861638b5.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AHRWa3u3_yPf35MQ7KeoEeE/686d6f34-8219-4d61-ae0a-d978861638b5.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "686d6f34-8219-4d61-ae0a-d978861638b5.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ANpYP8pV1MoDcigl8z48LOo/2653f8f3-281f-40d7-ac91-a97b21257442.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ANpYP8pV1MoDcigl8z48LOo/2653f8f3-281f-40d7-ac91-a97b21257442.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "2653f8f3-281f-40d7-ac91-a97b21257442.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AKky3zLExKwS-KiehV42jd4/a7b77d00-b05d-4407-96e2-946d596f9b50.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AKky3zLExKwS-KiehV42jd4/a7b77d00-b05d-4407-96e2-946d596f9b50.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "a7b77d00-b05d-4407-96e2-946d596f9b50.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ACSp60Ch5FiCfnSb1HliV74/ab1e9743-7a25-44f4-ad2a-eaf2217a13c1.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/ACSp60Ch5FiCfnSb1HliV74/ab1e9743-7a25-44f4-ad2a-eaf2217a13c1.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "ab1e9743-7a25-44f4-ad2a-eaf2217a13c1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJRsjn6KC0-GrrZDDY6JCMg/b3a2e9d5-48f4-42b4-9740-a0bf80e65a30.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AJRsjn6KC0-GrrZDDY6JCMg/b3a2e9d5-48f4-42b4-9740-a0bf80e65a30.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "b3a2e9d5-48f4-42b4-9740-a0bf80e65a30.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 30,
+      "folder_name": "EXTRACT_WC_30 - Chloe Maryn Runner",
+      "target_folder_id": "1ZmVv-6bq2lZ2QckHxqeYzBysn45RLkzb",
+      "page_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AHIRgOtrEnS2U6BzR2Q38LM/b296f89b-0b73-4a3d-b48f-ae711ed15ee0.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/zji64o5jmotyq2bkpsff4/AHIRgOtrEnS2U6BzR2Q38LM/b296f89b-0b73-4a3d-b48f-ae711ed15ee0.mp4?rlkey=z785pqshk70g71ap8rc12b7un&dl=1",
+      "filename": "b296f89b-0b73-4a3d-b48f-ae711ed15ee0.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ADpqF81ZfeKDBb-1rBC9g_I/_Clip_1_1_BWC_S3_S1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ADpqF81ZfeKDBb-1rBC9g_I/_Clip_1_1_BWC_S3_S1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_BWC_S3_S1 (1).mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOaHRTEre98t9Wl7L9tC5Z8/_Clip_1_1_BWC_S3_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOaHRTEre98t9Wl7L9tC5Z8/_Clip_1_1_BWC_S3_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_BWC_S3_S1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ADAwvV5yelWFi3p3F20uH5M/_Clip_1_1_bwc_s4n_s1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ADAwvV5yelWFi3p3F20uH5M/_Clip_1_1_bwc_s4n_s1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_bwc_s4n_s1 (1).mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOSsg36pq5RxONBq2Zg-b9g/_Clip_1_1_bwc_s4n_s1%20%282%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOSsg36pq5RxONBq2Zg-b9g/_Clip_1_1_bwc_s4n_s1%20%282%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_bwc_s4n_s1 (2).mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOYlTS_jl46tahoz2qvq1Jc/_Clip_1_1_bwc_s4N_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AOYlTS_jl46tahoz2qvq1Jc/_Clip_1_1_bwc_s4N_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_bwc_s4N_S1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ACQ6WVVwpbbs1-7VIQ03weo/_Clip_1_1_S1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/ACQ6WVVwpbbs1-7VIQ03weo/_Clip_1_1_S1%20%281%29.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_S1 (1).mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AC1qkMHMZxa24vITa0JiQiA/_Clip_1_1_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AC1qkMHMZxa24vITa0JiQiA/_Clip_1_1_S1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_1_1_S1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 31,
+      "folder_name": "EXTRACT_WC_31 - Kimberly Anne Slack",
+      "target_folder_id": "1izWOy1zVd-k4WWKiL2mn7qt6S8RiZsVd",
+      "page_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AISe2pOehpByI3HUrpSamac/_Clip_2_1_bwc_s4n_s1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/7f6nl9x98oolcm5gjiu29/AISe2pOehpByI3HUrpSamac/_Clip_2_1_bwc_s4n_s1.mp4?rlkey=rcvywjvxfa1js9qkx5zq40ygz&dl=1",
+      "filename": "_Clip_2_1_bwc_s4n_s1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 34,
+      "folder_name": "EXTRACT_WC_34 - Jhoxelin Garay-Camera",
+      "target_folder_id": "1-cpq0HO2EV0fHILLObxG0r6ZzmO7rJtT",
+      "page_url": "https://www.dropbox.com/scl/fo/5uwgfphk5nq2h0wt8cuxt/AAbRMLP2ug6pchBFEspo3lI/1?rlkey=vgvnt6pgvyqjidf5l8evb3mgk&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/5uwgfphk5nq2h0wt8cuxt/AAbRMLP2ug6pchBFEspo3lI/1?rlkey=vgvnt6pgvyqjidf5l8evb3mgk&dl=1",
+      "filename": "1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 34,
+      "folder_name": "EXTRACT_WC_34 - Jhoxelin Garay-Camera",
+      "target_folder_id": "1-cpq0HO2EV0fHILLObxG0r6ZzmO7rJtT",
+      "page_url": "https://www.dropbox.com/scl/fo/5uwgfphk5nq2h0wt8cuxt/ADuvJptI4yQiUYk_OLpOdFo/2?rlkey=vgvnt6pgvyqjidf5l8evb3mgk&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/5uwgfphk5nq2h0wt8cuxt/ADuvJptI4yQiUYk_OLpOdFo/2?rlkey=vgvnt6pgvyqjidf5l8evb3mgk&dl=1",
+      "filename": "2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AFUVY80MrM_W4EQ9wQzEolk/_Clip_1_1_DUI_Alcohol.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AFUVY80MrM_W4EQ9wQzEolk/_Clip_1_1_DUI_Alcohol.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_1_1_DUI_Alcohol.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AB9GOEU0ImDrJYGdWUq-NOM/_Clip_1_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AB9GOEU0ImDrJYGdWUq-NOM/_Clip_1_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_1_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADXbqiAfGSClnUO4n01tlkU/_Clip_2_1_DUI_Alcohol.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADXbqiAfGSClnUO4n01tlkU/_Clip_2_1_DUI_Alcohol.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_2_1_DUI_Alcohol.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AJJrj1TljKgswnyvHH_iUwg/_Clip_4_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AJJrj1TljKgswnyvHH_iUwg/_Clip_4_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_4_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AEnMetHnswgW9gxzDkKfLUU/_Clip_6_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AEnMetHnswgW9gxzDkKfLUU/_Clip_6_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_6_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AITBX_EyTqDFfRz0kiyX6kA/_Clip_7_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AITBX_EyTqDFfRz0kiyX6kA/_Clip_7_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_7_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AIwjYPdz6wtzTvhEULP_8UI/_Clip_8_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AIwjYPdz6wtzTvhEULP_8UI/_Clip_8_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Clip_8_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AFTAtzTEJwalFn0bWI9vnsE/_Extraction_1_1_Clip_1_1_DUI_Alcohol__1_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AFTAtzTEJwalFn0bWI9vnsE/_Extraction_1_1_Clip_1_1_DUI_Alcohol__1_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_Clip_1_1_DUI_Alcohol__1_.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AEHj2BxPkjadlo59iaft8Bc/_Extraction_1_1_Clip_1_1_DUI_ALCOHOL.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AEHj2BxPkjadlo59iaft8Bc/_Extraction_1_1_Clip_1_1_DUI_ALCOHOL.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_Clip_1_1_DUI_ALCOHOL.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AGMa0-sTTqQyGK3U22HnpMU/_Extraction_1_1_Clip_2_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AGMa0-sTTqQyGK3U22HnpMU/_Extraction_1_1_Clip_2_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_Clip_2_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AC5sMrs2TDmjFiZrV9p9aYk/_Extraction_1_1_Clip_3_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AC5sMrs2TDmjFiZrV9p9aYk/_Extraction_1_1_Clip_3_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_Clip_3_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AMC0OIytWBPRa2zRbEKNAIk/_Extraction_1_1_Clip_5_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AMC0OIytWBPRa2zRbEKNAIk/_Extraction_1_1_Clip_5_1_DUI.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_Clip_5_1_DUI.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ANlDazbBx6qLppFSXfiOBH0/_Extraction_1_1_DUI_ALCOHOL__1_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ANlDazbBx6qLppFSXfiOBH0/_Extraction_1_1_DUI_ALCOHOL__1_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_DUI_ALCOHOL__1_.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADql0kyJC0O6q4JL78_xCZU/_Extraction_1_1_DUI_Alcohol__2_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADql0kyJC0O6q4JL78_xCZU/_Extraction_1_1_DUI_Alcohol__2_.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_DUI_Alcohol__2_.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADIWgDRUCYegpezsmfsydKA/_Extraction_1_1_DUI_ALCOHOL.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/ADIWgDRUCYegpezsmfsydKA/_Extraction_1_1_DUI_ALCOHOL.mp4?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "_Extraction_1_1_DUI_ALCOHOL.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 36,
+      "folder_name": "EXTRACT_WC_36 - Alyssa M. Guzman",
+      "target_folder_id": "1i8J-MnUB2eqyyJa-3xrjU6WSA0PL4Nb3",
+      "page_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AMWF1_SJ_WVzXMr-PuraMlo/18cc5cd4-146a-8a1f-9576-e68250bbbf35.m4a?rlkey=eg3zykehofhitxbhypoyage03&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/f4d87tvkzx8d78parwh8r/AMWF1_SJ_WVzXMr-PuraMlo/18cc5cd4-146a-8a1f-9576-e68250bbbf35.m4a?rlkey=eg3zykehofhitxbhypoyage03&dl=1",
+      "filename": "18cc5cd4-146a-8a1f-9576-e68250bbbf35.m4a"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AINQMKdUIJ1FB5cVkK15dAA/1.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AINQMKdUIJ1FB5cVkK15dAA/1.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "1.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ALutHIMCVQAFyutzHKwGv3A/2.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ALutHIMCVQAFyutzHKwGv3A/2.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ANLyrMm09hFiF5T6nuEf0x8/3.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ANLyrMm09hFiF5T6nuEf0x8/3.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "3.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AJ5oGxL7DaojpvjF0NE3WEA/4.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AJ5oGxL7DaojpvjF0NE3WEA/4.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "4.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AJjIW72rKebXabblGJBFAGY/5.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AJjIW72rKebXabblGJBFAGY/5.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "5.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AKyO1QagSFh9SvAVN0ibl-U/6.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AKyO1QagSFh9SvAVN0ibl-U/6.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "6.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ANpmMhO6oD-KpjfTz7CJ_6k/7.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/ANpmMhO6oD-KpjfTz7CJ_6k/7.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "7.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AIrOp1pvLCusmwu_3Lx9u0s/8.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AIrOp1pvLCusmwu_3Lx9u0s/8.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "8.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AIqCs6HMBg8Cnl6F2Ox4ZI4/9.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AIqCs6HMBg8Cnl6F2Ox4ZI4/9.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "9.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AAztZYdSHKwwUkJGGXSg8QA/10.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AAztZYdSHKwwUkJGGXSg8QA/10.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "10.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AHoDM4IOu1zo_jFvd_yFlD4/14.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AHoDM4IOu1zo_jFvd_yFlD4/14.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "14.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AHLBG5tBgC0KLHJouCFREvY/15.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AHLBG5tBgC0KLHJouCFREvY/15.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "15.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AL4VSrsaBZyHVnY2ZWfZYI4/16.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AL4VSrsaBZyHVnY2ZWfZYI4/16.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "16.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 37,
+      "folder_name": "EXTRACT_WC_37 - Serina Anne Ruggiero",
+      "target_folder_id": "1AawB4NgWZ4TgOX0-11WZ4mSI6EgwgH_4",
+      "page_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AFm7ckRBHYO3ycSK2mj14CU/17.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/0y5hy4aoc4vz2lnbtcg6w/AFm7ckRBHYO3ycSK2mj14CU/17.mp4?rlkey=r9mgyj3jxs8n6me1rmm0379dh&dl=1",
+      "filename": "17.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 38,
+      "folder_name": "EXTRACT_WC_38 - Abryelle Ware & Aryelle L. Ware",
+      "target_folder_id": "1xP5McV-_GEQS8uvmm26-I-eAXUa9_tNS",
+      "page_url": "https://www.dropbox.com/scl/fo/cm4u3we91pzrenrh1m9v4/APAwyVyZd4dMhk10MRNFAgg/%28Clip_1.1%29_3100_LAKESHIRE_DR.mp4?rlkey=02cavh41sl3sp1ig9lpt5bcyk&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/cm4u3we91pzrenrh1m9v4/APAwyVyZd4dMhk10MRNFAgg/%28Clip_1.1%29_3100_LAKESHIRE_DR.mp4?rlkey=02cavh41sl3sp1ig9lpt5bcyk&dl=1",
+      "filename": "(Clip_1.1)_3100_LAKESHIRE_DR.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AI4YBq0i545fIKvJXYnD6wQ/_Clip_1.1__Redaction__2_Blake_St._Fire_2500017163_.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AI4YBq0i545fIKvJXYnD6wQ/_Clip_1.1__Redaction__2_Blake_St._Fire_2500017163_.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "_Clip_1.1__Redaction__2_Blake_St._Fire_2500017163_.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AG4nE87aaRuN46GE6Ejnt0o/For_Release_2_Blake_St_.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AG4nE87aaRuN46GE6Ejnt0o/For_Release_2_Blake_St_.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_2_Blake_St_.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKZPI5rHnJgZmxx5gGpevQs/For_Release_2_Blake_St_Highland_Ave.Axon_Body_4_Video_2025-02-17_2210_D01A8390P.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKZPI5rHnJgZmxx5gGpevQs/For_Release_2_Blake_St_Highland_Ave.Axon_Body_4_Video_2025-02-17_2210_D01A8390P.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_2_Blake_St_Highland_Ave.Axon_Body_4_Video_2025-02-17_2210_D01A8390P.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AHPeau1F_oWTN5d8DRbBESw/For_Release_2_Blake_St._Fire_2500017163%29_Axon_Body_4_Video_2025-02-17_2047_D01A98515.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AHPeau1F_oWTN5d8DRbBESw/For_Release_2_Blake_St._Fire_2500017163%29_Axon_Body_4_Video_2025-02-17_2047_D01A98515.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_2_Blake_St._Fire_2500017163)_Axon_Body_4_Video_2025-02-17_2047_D01A98515.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AIE5_51SHoFJfji6sHmob5A/For_Release_67_at_2_Blake_St-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AIE5_51SHoFJfji6sHmob5A/For_Release_67_at_2_Blake_St-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_67_at_2_Blake_St-2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/ACv5VBgSMZ0cUtDcenvqFEY/For_Release_67_at_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/ACv5VBgSMZ0cUtDcenvqFEY/For_Release_67_at_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_67_at_2_Blake_St.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AE3K5Tmub9xhUpZodOnCz8U/For_Release_Axon_Fleet_3_Front_Camera_Video_2025-02-17_2103.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AE3K5Tmub9xhUpZodOnCz8U/For_Release_Axon_Fleet_3_Front_Camera_Video_2025-02-17_2103.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Axon_Fleet_3_Front_Camera_Video_2025-02-17_2103.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKqrs1h4tD8zgMJHmZHHnPo/For_Release_sig_67_%40_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKqrs1h4tD8zgMJHmZHHnPo/For_Release_sig_67_%40_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_sig_67_@_2_Blake_St.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AGJTky-kK7Db0IT_S6kXvf0/For_Release_Sig_67_%40_2_Blake_Street-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AGJTky-kK7Db0IT_S6kXvf0/For_Release_Sig_67_%40_2_Blake_Street-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Sig_67_@_2_Blake_Street-2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AEVG8vytlSsmv11ZnmNFDzI/For_Release_Sig_67_%40_2_Blake_Street.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AEVG8vytlSsmv11ZnmNFDzI/For_Release_Sig_67_%40_2_Blake_Street.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Sig_67_@_2_Blake_Street.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AOR4g8Hv4dl_oZ9w-LZDZqA/For_Release_sig_67_at_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AOR4g8Hv4dl_oZ9w-LZDZqA/For_Release_sig_67_at_2_Blake_St.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_sig_67_at_2_Blake_St.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKFMA6mZVQ4s17ES3khQqjU/For_Release_Signal_67_at_2_Blake_Street-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AKFMA6mZVQ4s17ES3khQqjU/For_Release_Signal_67_at_2_Blake_Street-2.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Signal_67_at_2_Blake_Street-2.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/ACYpg7Gcgn3H_0nNBj4HGgI/For_Release_Signal_67_at_2_Blake_Street-3.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/ACYpg7Gcgn3H_0nNBj4HGgI/For_Release_Signal_67_at_2_Blake_Street-3.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Signal_67_at_2_Blake_Street-3.mp4"
+    },
+    {
+      "task_type": "wc_dropbox",
+      "row": 39,
+      "folder_name": "EXTRACT_WC_39 - Kimberly Sullivan",
+      "target_folder_id": "1qcCHC3QX6ujBdugzv5VuL6towQmjCtnx",
+      "page_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AA9KQ3vN-2UpnlgweIi3WJU/For_Release_Signal_67_at_2_Blake_Street.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=0",
+      "raw_url": "https://www.dropbox.com/scl/fo/9q9yj7e1k75yqgu4aj46x/AA9KQ3vN-2UpnlgweIi3WJU/For_Release_Signal_67_at_2_Blake_Street.mp4?rlkey=lai75pt780deud2qzri79xe73&dl=1",
+      "filename": "For_Release_Signal_67_at_2_Blake_Street.mp4"
+    }
+  ],
+  "bw_tasks": [
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "01_COPA_2019-0004852_Log___2019-4852_BWC_Video_1_387538309.mp4",
+      "url": "https://player.vimeo.com/video/387538309",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "02_COPA_2019-0004852_Log___2019-4852_BWC_Video_2_387538591.mp4",
+      "url": "https://player.vimeo.com/video/387538591",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "03_COPA_2019-0004852_Log___2019-4852_BWC_Video_3_387538953.mp4",
+      "url": "https://player.vimeo.com/video/387538953",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "04_COPA_2019-0004852_Log___2019-4852_BWC_Video_4_387539551.mp4",
+      "url": "https://player.vimeo.com/video/387539551",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "05_COPA_2019-0004852_Log___2019-4852_BWC_Video_5_387567474.mp4",
+      "url": "https://player.vimeo.com/video/387567474",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "06_COPA_2019-0004852_Log___2019-4852_BWC_Video_6_387567627.mp4",
+      "url": "https://player.vimeo.com/video/387567627",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "07_COPA_2019-0004852_Log___2019-4852_BWC_Video_7_387567742.mp4",
+      "url": "https://player.vimeo.com/video/387567742",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "08_COPA_2019-0004852_Log___2019-4852_BWC_Video_8_387567848.mp4",
+      "url": "https://player.vimeo.com/video/387567848",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "09_COPA_2019-0004852_Log___2019-4852_BWC_Video_9_387567972.mp4",
+      "url": "https://player.vimeo.com/video/387567972",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "10_COPA_2019-0004852_Log___2019-4852_BWC_Video_10_387568091.mp4",
+      "url": "https://player.vimeo.com/video/387568091",
+      "referer": "https://www.chicagocopa.org/case/2019-0004852/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "01_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_1_708655329.mp4",
+      "url": "https://player.vimeo.com/video/708655329",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "02_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_2_708655887.mp4",
+      "url": "https://player.vimeo.com/video/708655887",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "03_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_3_708656843.mp4",
+      "url": "https://player.vimeo.com/video/708656843",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "04_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_4_708657445.mp4",
+      "url": "https://player.vimeo.com/video/708657445",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "05_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_5_708658847.mp4",
+      "url": "https://player.vimeo.com/video/708658847",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "06_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_6_708659860.mp4",
+      "url": "https://player.vimeo.com/video/708659860",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "07_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_7_708660361.mp4",
+      "url": "https://player.vimeo.com/video/708660361",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "08_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_8_708660873.mp4",
+      "url": "https://player.vimeo.com/video/708660873",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "09_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_9_708662745.mp4",
+      "url": "https://player.vimeo.com/video/708662745",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "10_COPA_2020-0003466_Log___2020-0003466_Body_Worn_Camera_10_708663123.mp4",
+      "url": "https://player.vimeo.com/video/708663123",
+      "referer": "https://www.chicagocopa.org/case/2020-0003466/"
+    },
+    {
+      "task_type": "bw_copa_vimeo",
+      "case_id": "BW_PORTAL_28",
+      "case_folder_id": "1HdZTpNTjwzrhxuOI6K-LXT_4W8m3dDg5",
+      "filename": "01_COPA_2019-0004249_Log___2019-4249_Body_Worn_Camera_386984600.mp4",
+      "url": "https://player.vimeo.com/video/386984600",
+      "referer": "https://www.chicagocopa.org/case/2019-0004249/"
+    }
+  ],
+  "bw_pdf_tasks": [
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "01_2019-4852-Blackbox.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2022/03/2019-4852-Blackbox.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "02_2019-0004852_Nonconcurrence-Letter.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Nonconcurrence-Letter.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "03_2019-0004852_Request-for-Review.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Request-for-Review.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "04_2019-0004852_Police-Board-Decision.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Police-Board-Decision.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "05_2019-0004852_Superintendent-Increas-of-Proposed-Penalty.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2022/09/2019-0004852_Superintendent-Increas-of-Proposed-Penalty.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "06_Arrest-Rpt-Kersh-Bernard-Final_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Arrest-Rpt-Kersh-Bernard-Final_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "07_Case-Report-JC527821_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Case-Report-JC527821_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_16",
+      "case_folder_id": "1RfP-Fh_dUdjaF0aAJxthHZZ2st1L_2v1",
+      "filename": "08_TRR-Williams-2019-4852_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-Williams-2019-4852_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "01_2020-0003466_FSR.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003466_FSR.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "02_2020-0003466_Concurrence.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/2020-0003466_Concurrence.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "03_Arrest-and-Processing-Report_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Arrest-and-Processing-Report_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "04_Case-Report-JD311144_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Case-Report-JD311144_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "05_Case-Report-JD314891_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Case-Report-JD314891_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "06_Cloherty-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Cloherty-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "07_Dorsch-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Dorsch-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "08_Kurth-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Kurth-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "09_Negron-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Negron-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "10_OGrady-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/OGrady-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "11_Rowe-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Rowe-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "12_TRR-Caramusa_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Caramusa_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "13_TRR-Wiszowaty_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/TRR-Wiszowaty_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "14_Vasiliadis-TRR_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Vasiliadis-TRR_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "15_Lovelle-Jordan-court-order-REDACTED-1.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/Lovelle-Jordan-court-order-REDACTED-1.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_19",
+      "case_folder_id": "1my2sBrTyPJWvctIKNnxBoTSUl24iyzZX",
+      "filename": "16_COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-OFFICER-INVOLVED-SHOOTING-AT-25th-DISTRICT.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/09/COPA-RELEASES-VIDEO-OTHER-MATERIALS-RELATED-TO-OFFICER-INVOLVED-SHOOTING-OFFICER-INVOLVED-SHOOTING-AT-25th-DISTRICT.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_28",
+      "case_folder_id": "1HdZTpNTjwzrhxuOI6K-LXT_4W8m3dDg5",
+      "filename": "01_OriginalCaseIncidentReport_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/OriginalCaseIncidentReport_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_28",
+      "case_folder_id": "1HdZTpNTjwzrhxuOI6K-LXT_4W8m3dDg5",
+      "filename": "02_Arrest-Report_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/Arrest-Report_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_28",
+      "case_folder_id": "1HdZTpNTjwzrhxuOI6K-LXT_4W8m3dDg5",
+      "filename": "03_TRR-C_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-C_REDACTED.pdf"
+    },
+    {
+      "case_id": "BW_PORTAL_28",
+      "case_folder_id": "1HdZTpNTjwzrhxuOI6K-LXT_4W8m3dDg5",
+      "filename": "04_TRR-D_REDACTED.pdf",
+      "url": "https://www.chicagocopa.org/wp-content/uploads/2020/01/TRR-D_REDACTED.pdf"
+    }
+  ]
+}

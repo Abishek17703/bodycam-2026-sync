@@ -1,0 +1,39 @@
+name: Sync Extract Women Cases and BW Portal
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload_extract_shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Free disk space on runner for parallel 1080p/4K HD streams
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+
+      - name: Install rclone, ffmpeg, yt-dlp, gdown, aria2, and google-auth
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone aria2
+          pip install --upgrade yt-dlp gdown google-auth requests
+
+      - name: Run Extract WC & BW Shard Worker with Owner OAuth Token + SA Pool
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_TOTAL: "20"
+          OWNER_CLIENT_ID: ${{ secrets.OWNER_CLIENT_ID }}
+          OWNER_CLIENT_SECRET: ${{ secrets.OWNER_CLIENT_SECRET }}
+          OWNER_REFRESH_TOKEN: ${{ secrets.OWNER_BW_REFRESH_TOKEN }}
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "${{ secrets.RCLONE_CONF_B64 }}" | base64 -d > ~/.config/rclone/rclone.conf
+          echo "${{ secrets.SA_KEYS_B64 }}" | base64 -d > ~/.config/rclone/sa_pool.json
+          python3 -u worker_extract_and_bw.py
