@@ -96,8 +96,8 @@ def delete_drive_file_id(fid):
 def cleanup_shortcuts_if_matched(folder_id, fn):
     existing = list_drive_folder(folder_id)
     for ef in existing:
-        if ef.get("mimeType") == "application/vnd.google-apps.shortcut" and ef.get("name") == fn:
-            log(f"  [CLEANUP SHORTCUT] Deleting shortcut {fn} ({ef['id']}) in {folder_id}")
+        if ef.get("mimeType") == "application/vnd.google-apps.shortcut" and (ef.get("name") == fn or os.path.splitext(ef.get("name", ""))[0] == os.path.splitext(fn)[0]):
+            log(f"  [CLEANUP SHORTCUT] Deleting shortcut {ef.get('name')} ({ef['id']}) in {folder_id}")
             delete_drive_file_id(ef["id"])
 
 def sa_upload_file_to_folder(fp, fn, folder_id, mime_type="video/mp4"):
@@ -161,25 +161,77 @@ def extract_fresh_dropbox_hls(page_url):
         cj = http.cookiejar.CookieJar()
         opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
         h = opener.open(urllib.request.Request(page_url, headers={"User-Agent": UA}), timeout=25).read().decode("utf-8", "ignore")
-        # Direct match first
         m_direct = re.findall(r'https://[^\s"\'\\<>]+hls_master_playlist[^\s"\'\\<>]+', h)
-        if m_direct:
-            return m_direct[-1]
-        # Base64 registerStreamedPrefetch chunks
+        candidates = list(m_direct)
         b64s = re.findall(r'registerStreamedPrefetch\s*\(\s*"[^"]+"\s*,\s*"([^"]+)"', h)
-        found = []
         for b in b64s:
             try:
                 raw = base64.b64decode(b).decode("latin1")
                 urls = re.findall(r'https://[A-Za-z0-9._/-]+hls_master_playlist/[A-Za-z0-9._/-]+/p\.m3u8', raw)
-                found.extend(urls)
+                candidates.extend(urls)
             except Exception:
                 pass
-        if found:
-            return found[-1]
+        for u in candidates:
+            try:
+                resp = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=10)
+                body = resp.read().decode("utf-8", "ignore")
+                if body.startswith("#EXTM3U"):
+                    return u
+            except Exception:
+                pass
+        if candidates:
+            return candidates[0]
     except Exception as e:
         log(f"  [DBX HLS EXTRACT ERR] {page_url}: {e}")
     return None
+
+def download_gdrive_authenticated_gvi(fid, out_fp):
+    tok = get_drive_token()
+    if not tok:
+        return False
+    try:
+        cj = http.cookiejar.CookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+        ep = f"https://drive.google.com/u/0/get_video_info?docid={fid}&drive_originator_app=303"
+        headers = {"User-Agent": UA, "Authorization": f"Bearer {tok}"}
+        body = opener.open(urllib.request.Request(ep, headers=headers), timeout=20).read().decode("utf-8", "ignore")
+        parsed = urllib.parse.parse_qs(body)
+        if parsed.get("status", [""])[0] != "ok":
+            log(f"    [GVI-303] status={parsed.get('status')} reason={parsed.get('reason')}")
+            return False
+        stream_url = None
+        if "fmt_stream_map" in parsed:
+            by_itag = {}
+            for p in parsed["fmt_stream_map"][0].split(","):
+                if "|" in p:
+                    it, u = p.split("|", 1)
+                    by_itag[it] = u
+            for pref in ("37", "22", "18", "59", "43"):
+                if pref in by_itag:
+                    stream_url = by_itag[pref]
+                    break
+            if not stream_url and by_itag:
+                stream_url = list(by_itag.values())[0]
+        if not stream_url and "player_response" in parsed:
+            pr = json.loads(parsed["player_response"][0])
+            sd = pr.get("streamingData", {})
+            all_fmts = sd.get("formats", []) + sd.get("adaptiveFormats", [])
+            for fmt in all_fmts:
+                if fmt.get("itag") == 140 and fmt.get("url"):
+                    stream_url = fmt["url"]
+                    break
+            if not stream_url and all_fmts:
+                stream_url = all_fmts[-1].get("url")
+        if not stream_url:
+            return False
+        log(f"    [GVI-303] Streaming authenticated playback URL for {fid}...")
+        req_s = urllib.request.Request(stream_url, headers={"User-Agent": UA, "Authorization": f"Bearer {tok}"})
+        with opener.open(req_s, timeout=1800) as resp, open(out_fp, "wb") as fo:
+            shutil.copyfileobj(resp, fo, length=1024*1024)
+        return os.path.exists(out_fp) and os.path.getsize(out_fp) > 5000
+    except Exception as e:
+        log(f"    [GVI-303 ERR] {fid}: {e}")
+        return False
 
 def process_wc_gdrive(t, idx):
     folder_id = t["target_folder_id"]
@@ -198,44 +250,29 @@ def process_wc_gdrive(t, idx):
     shutil.rmtree(tmp_dir, ignore_errors=True)
     os.makedirs(tmp_dir, exist_ok=True)
     out_fp = os.path.join(tmp_dir, fn)
-    view_url = f"https://drive.google.com/file/d/{fid}/view"
 
     try:
-        log(f"  [Row {t['row']}] Downloading GDrive view-only via yt-dlp: {fn} ({fid})...")
-        cmd = [
-            "yt-dlp",
-            "--concurrent-fragments", "16",
-            "--socket-timeout", "30",
-            "--retries", "5",
-            "--no-part",
-            "-o", out_fp,
-            view_url
-        ]
-        if mime.startswith("video/"):
-            cmd[1:1] = ["-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4"]
-        subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
+        log(f"  [Row {t['row']}] Downloading GDrive view-only via authenticated GVI-303: {fn} ({fid})...")
+        ok_gvi = download_gdrive_authenticated_gvi(fid, out_fp)
+        if not ok_gvi:
+            view_url = f"https://drive.google.com/file/d/{fid}/view"
+            cmd = [
+                "yt-dlp",
+                "--concurrent-fragments", "16",
+                "--socket-timeout", "30",
+                "--retries", "5",
+                "--no-part",
+                "-o", out_fp,
+                view_url
+            ]
+            if mime.startswith("video/"):
+                cmd[1:1] = ["-f", "bestvideo+bestaudio/best", "--merge-output-format", "mp4"]
+            subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
 
-        # Check if yt-dlp wrote with .mp4 extension when fn was .MOV
         if not os.path.exists(out_fp):
             cand = [os.path.join(tmp_dir, x) for x in os.listdir(tmp_dir) if os.path.isfile(os.path.join(tmp_dir, x))]
             if cand:
                 out_fp = cand[0]
-
-        if not os.path.exists(out_fp) or os.path.getsize(out_fp) < 5000:
-            # Fallback 1: direct Drive download URL using owner OAuth token (works for small/medium files & .wav/.m4a)
-            tok = get_drive_token()
-            if tok:
-                log(f"  [Row {t['row']}] Trying Drive alt=media fallback for {fn} ({fid})...")
-                subprocess.run([
-                    "curl", "-sL", "--max-time", "900",
-                    "-H", f"Authorization: Bearer {tok}",
-                    "-o", out_fp,
-                    f"https://www.googleapis.com/drive/v3/files/{fid}?alt=media&acknowledgeAbuse=true"
-                ], capture_output=True, text=True)
-        if not os.path.exists(out_fp) or os.path.getsize(out_fp) < 5000:
-            # Fallback 2: gdown
-            log(f"  [Row {t['row']}] Trying gdown fallback for {fn} ({fid})...")
-            subprocess.run(["gdown", "--fuzzy", view_url, "-O", out_fp], capture_output=True, text=True, timeout=900)
 
         if os.path.exists(out_fp) and os.path.getsize(out_fp) >= 5000:
             sz = os.path.getsize(out_fp)
@@ -295,7 +332,6 @@ def process_wc_dropbox(t, idx):
                 out_fp = cand[0]
 
         if os.path.exists(out_fp) and os.path.getsize(out_fp) >= 5000:
-            # Verify it is not an HTML error page
             with open(out_fp, "rb") as fchk:
                 head_bytes = fchk.read(64)
             if not head_bytes.lstrip().startswith((b"<!DOCTYPE", b"<html")):
@@ -312,90 +348,11 @@ def process_wc_dropbox(t, idx):
         shutil.rmtree(tmp_dir, ignore_errors=True)
     return False
 
-def process_bw_pdf(p):
-    case_fid = p["case_folder_id"]
-    dfolder_id = resolve_or_create_folder(case_fid, "Documents")
-    if not dfolder_id:
-        return False
-    fn = p["filename"]
-    url = p["url"].replace(" ", "%20")
-    existing = list_drive_folder(dfolder_id)
-    for ef in existing:
-        if ef["name"] == fn and int(ef.get("size", 0)) > 1000:
-            return True
-    tmp_fp = os.path.join(STAGING_ROOT, f"pdf_{SHARD_INDEX}_{re.sub(r'[^A-Za-z0-9_.-]', '_', fn)}")
-    try:
-        subprocess.run(["curl", "-sL", "--max-time", "180", "-A", UA, "-o", tmp_fp, url], capture_output=True)
-        if os.path.exists(tmp_fp) and os.path.getsize(tmp_fp) > 500:
-            ok = sa_upload_file_to_folder(tmp_fp, fn, dfolder_id, mime_type="application/pdf")
-            if ok:
-                log(f"  [{p['case_id']}] Uploaded PDF: {fn}")
-            return ok
-    finally:
-        try: os.remove(tmp_fp)
-        except Exception: pass
-    return False
-
-def process_bw_copa_vimeo(v, idx):
-    case_fid = v["case_folder_id"]
-    vfolder_id = resolve_or_create_folder(case_fid, "Videos")
-    if not vfolder_id:
-        return False
-    fn = v["filename"]
-    url = v["url"]
-    existing = list_drive_folder(vfolder_id)
-    for ef in existing:
-        if ef["name"] == fn and int(ef.get("size", 0)) > 1000000:
-            log(f"  [{v['case_id']}] Video already on Drive: {fn}")
-            return True
-
-    tmp_dir = os.path.join(STAGING_ROOT, f"bw_{idx}")
-    shutil.rmtree(tmp_dir, ignore_errors=True)
-    os.makedirs(tmp_dir, exist_ok=True)
-    out_fp = os.path.join(tmp_dir, fn)
-    try:
-        cmd = [
-            "yt-dlp",
-            "--referer", v.get("referer", "https://www.chicagocopa.org/"),
-            "-f", "bestvideo+bestaudio/best",
-            "--merge-output-format", "mp4",
-            "--concurrent-fragments", "16",
-            "--socket-timeout", "25",
-            "--retries", "5",
-            "--no-part",
-            "-o", out_fp,
-            url
-        ]
-        log(f"  [{v['case_id']}] Downloading COPA Vimeo: {fn} ({url})...")
-        subprocess.run(cmd, capture_output=True, text=True, timeout=1200)
-        if os.path.exists(out_fp) and os.path.getsize(out_fp) > 100000:
-            sz = os.path.getsize(out_fp)
-            up_ok = sa_upload_file_to_folder(out_fp, fn, vfolder_id, mime_type="video/mp4")
-            if up_ok:
-                log(f"  [BW-COPA COMPLETE] {v['case_id']} -> {fn} ({sz/1e6:.1f} MB)")
-            return up_ok
-    except Exception as e:
-        log(f"  [{v['case_id']}] Error downloading {fn}: {e}")
-    finally:
-        shutil.rmtree(tmp_dir, ignore_errors=True)
-    return False
-
 def main():
     payload = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
     wc_tasks = payload.get("wc_tasks", [])
-    bw_tasks = payload.get("bw_tasks", [])
-    bw_pdfs = payload.get("bw_pdf_tasks", [])
-
-    # 1. BW PDFs
-    my_pdfs = [p for i, p in enumerate(bw_pdfs) if i % SHARD_TOTAL == SHARD_INDEX]
-    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_pdfs)}/{len(bw_pdfs)} BW PDFs...")
-    for p in my_pdfs:
-        process_bw_pdf(p)
-
-    # 2. Combined video tasks (WC + BW)
-    all_vids = wc_tasks + bw_tasks
-    my_vids = [(i, t) for i, t in enumerate(all_vids) if i % SHARD_TOTAL == SHARD_INDEX]
-    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_vids)}/{len(all_vids)} total video tasks...")
+    my_vids = [(i, t) for i, t in enumerate(wc_tasks) if i % SHARD_TOTAL == SHARD_INDEX]
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_vids)}/{len(wc_tasks)} remaining WC tasks...")
 
     done = 0
     for idx, t in my_vids:
@@ -405,8 +362,6 @@ def main():
             ok = process_wc_gdrive(t, idx)
         elif ttype == "wc_dropbox":
             ok = process_wc_dropbox(t, idx)
-        elif ttype == "bw_copa_vimeo":
-            ok = process_bw_copa_vimeo(t, idx)
         if ok:
             done += 1
 
