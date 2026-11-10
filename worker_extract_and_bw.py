@@ -359,11 +359,87 @@ def process_wc_dropbox(t, idx):
         shutil.rmtree(tmp_dir, ignore_errors=True)
     return False
 
+def process_copa_vimeo(t, idx):
+    folder_id = t["target_folder_id"]
+    fn = t["filename"]
+    vid = t["vimeo_id"]
+
+    existing = list_drive_folder(folder_id)
+    for ef in existing:
+        if ef.get("mimeType") != "application/vnd.google-apps.shortcut" and ef["name"].lower() == fn.lower() and int(ef.get("size", 0)) > 10000:
+            log(f"  [COPA-VIMEO] Already uploaded: {fn} ({int(ef['size'])/1e6:.1f} MB)")
+            return True
+
+    tmp_dir = os.path.join(STAGING_ROOT, f"vimeo_{idx}")
+    shutil.rmtree(tmp_dir, ignore_errors=True)
+    os.makedirs(tmp_dir, exist_ok=True)
+    out_fp = os.path.join(tmp_dir, fn)
+
+    try:
+        v_url = f"https://player.vimeo.com/video/{vid}"
+        log(f"  [COPA-VIMEO] Downloading {v_url} -> {fn}...")
+        cmd = [
+            "yt-dlp",
+            "--referer", "https://www.chicagocopa.org/",
+            "-f", "bestvideo+bestaudio/best",
+            "--merge-output-format", "mp4",
+            "--concurrent-fragments", "16",
+            "--socket-timeout", "30",
+            "--retries", "5",
+            "--no-part",
+            "-o", out_fp,
+            v_url
+        ]
+        subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
+        if not os.path.exists(out_fp):
+            cand = [os.path.join(tmp_dir, x) for x in os.listdir(tmp_dir) if os.path.isfile(os.path.join(tmp_dir, x))]
+            if cand:
+                out_fp = cand[0]
+        if os.path.exists(out_fp) and os.path.getsize(out_fp) >= 10000:
+            sz = os.path.getsize(out_fp)
+            log(f"  [COPA-VIMEO] Downloaded {fn} ({sz/1e6:.1f} MB) -> SA uploading...")
+            up_ok = sa_upload_file_to_folder(out_fp, fn, folder_id, mime_type="video/mp4")
+            if up_ok:
+                log(f"  [COPA-VIMEO COMPLETE] {fn} ({sz/1e6:.1f} MB)")
+            return up_ok
+        log(f"  [COPA-VIMEO ERR] Failed to download {v_url}")
+    except Exception as e:
+        log(f"  [COPA-VIMEO EXC] {fn}: {e}")
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+    return False
+
+def process_copa_pdf(t, idx):
+    folder_id = t["target_folder_id"]
+    fn = t["filename"]
+    purl = t["pdf_url"]
+
+    existing = list_drive_folder(folder_id)
+    for ef in existing:
+        if ef.get("mimeType") != "application/vnd.google-apps.shortcut" and ef["name"].lower() == fn.lower() and int(ef.get("size", 0)) > 500:
+            log(f"  [COPA-PDF] Already uploaded: {fn}")
+            return True
+
+    tmp_dir = os.path.join(STAGING_ROOT, f"pdf_{idx}")
+    shutil.rmtree(tmp_dir, ignore_errors=True)
+    os.makedirs(tmp_dir, exist_ok=True)
+    out_fp = os.path.join(tmp_dir, fn)
+
+    try:
+        subprocess.run(["curl", "-sL", "--max-time", "60", "-A", UA, "-o", out_fp, purl], capture_output=True)
+        if os.path.exists(out_fp) and os.path.getsize(out_fp) > 500:
+            return sa_upload_file_to_folder(out_fp, fn, folder_id, mime_type="application/pdf")
+    except Exception as e:
+        log(f"  [COPA-PDF EXC] {fn}: {e}")
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+    return False
+
 def main():
     payload = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
     wc_tasks = payload.get("wc_tasks", [])
     my_vids = [(i, t) for i, t in enumerate(wc_tasks) if i % SHARD_TOTAL == SHARD_INDEX]
-    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_vids)}/{len(wc_tasks)} remaining WC tasks...")
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} assigned {len(my_vids)}/{len(wc_tasks)} tasks...")
 
     done = 0
     for idx, t in my_vids:
@@ -373,6 +449,10 @@ def main():
             ok = process_wc_gdrive(t, idx)
         elif ttype == "wc_dropbox":
             ok = process_wc_dropbox(t, idx)
+        elif ttype == "copa_vimeo":
+            ok = process_copa_vimeo(t, idx)
+        elif ttype == "copa_pdf":
+            ok = process_copa_pdf(t, idx)
         if ok:
             done += 1
 
