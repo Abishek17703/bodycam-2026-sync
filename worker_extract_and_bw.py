@@ -224,10 +224,21 @@ def download_gdrive_authenticated_gvi(fid, out_fp):
                 stream_url = all_fmts[-1].get("url")
         if not stream_url:
             return False
-        log(f"    [GVI-303] Streaming authenticated playback URL for {fid}...")
-        req_s = urllib.request.Request(stream_url, headers={"User-Agent": UA, "Authorization": f"Bearer {tok}"})
-        with opener.open(req_s, timeout=1800) as resp, open(out_fp, "wb") as fo:
-            shutil.copyfileobj(resp, fo, length=1024*1024)
+        log(f"    [GVI-303] Streaming authenticated playback URL for {fid} via 16-conn aria2c...")
+        cookie_str = "; ".join([f"{c.name}={c.value}" for c in cj])
+        cmd_aria = [
+            "aria2c",
+            "-x", "16",
+            "-s", "16",
+            "-k", "1M",
+            "--header", f"User-Agent: {UA}",
+            "--header", f"Authorization: Bearer {tok}",
+            "--header", f"Cookie: {cookie_str}",
+            "-d", os.path.dirname(out_fp),
+            "-o", os.path.basename(out_fp),
+            stream_url
+        ]
+        subprocess.run(cmd_aria, capture_output=True, text=True, timeout=600)
         return os.path.exists(out_fp) and os.path.getsize(out_fp) > 5000
     except Exception as e:
         log(f"    [GVI-303 ERR] {fid}: {e}")
