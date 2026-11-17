@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import os, sys, json, time, shutil, subprocess, urllib.request, urllib.parse, re
+import os, sys, json, time, shutil, subprocess, urllib.request, urllib.parse, re, ssl
 from datetime import datetime
 
 SHARD_INDEX = int(os.environ.get("SHARD_INDEX", "0"))
 SHARD_TOTAL = int(os.environ.get("SHARD_TOTAL", "1"))
+PAYLOAD_FILE = os.environ.get("PAYLOAD_FILE", "weekly_24_25_26_payload.json")
 STAGING_ROOT = f"/tmp/staging_weekly_s{SHARD_INDEX}"
 os.makedirs(STAGING_ROOT, exist_ok=True)
 
@@ -106,29 +107,32 @@ def upload_file_resumable(token, parent_id, local_path, remote_name=None):
 
 def download_box_folder(box_url, out_dir):
     from playwright.sync_api import sync_playwright
+    ctx_ssl = ssl.create_default_context()
+    ctx_ssl.check_hostname = False
+    ctx_ssl.verify_mode = ssl.CERT_NONE
+    html = urllib.request.urlopen(urllib.request.Request(box_url, headers={"User-Agent": "Mozilla/5.0"}), timeout=20, context=ctx_ssl).read().decode("utf-8", errors="ignore")
+    fids = re.findall(r'"typedID":"f_(\d+)"[^}]*"name":"([^"]+)"', html)
+    share = box_url.rstrip("/").split("/")[-1]
+    log(f"  Box {share}: found {len(fids)} files")
     downloaded = []
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(accept_downloads=True)
         page = ctx.new_page()
-        page.goto(box_url, wait_until="networkidle", timeout=45000)
-        time.sleep(3)
-        # Click "Download" button in Box top bar to download all as zip OR individual rows
-        try:
-            with page.expect_download(timeout=180000) as dl_info:
-                btn = page.locator("button:has-text('Download')").first
-                btn.click()
-            dl = dl_info.value
-            zp = os.path.join(out_dir, dl.suggested_filename or "box_release.zip")
-            dl.save_as(zp)
-            if zp.lower().endswith(".zip"):
-                subprocess.run(["unzip", "-o", "-q", zp, "-d", out_dir], check=False)
-                os.remove(zp)
-            for root, _, files in os.walk(out_dir):
-                for fn in files:
-                    downloaded.append(os.path.join(root, fn))
-        except Exception as e:
-            log(f"  [BOX DL ERR] {e}")
+        for fid, fname in fids:
+            try:
+                furl = f"https://njoag.app.box.com/s/{share}/file/{fid}"
+                page.goto(furl, wait_until="domcontentloaded", timeout=45000)
+                page.wait_for_selector('[data-resin-target="download"], button[aria-label*="Download"], button:has-text("Download")', timeout=25000)
+                with page.expect_download(timeout=300000) as dl_info:
+                    page.locator('[data-resin-target="download"], button[aria-label*="Download"], button:has-text("Download")').first.click(force=True)
+                dl = dl_info.value
+                out_p = os.path.join(out_dir, dl.suggested_filename or fname)
+                dl.save_as(out_p)
+                downloaded.append(out_p)
+                log(f"  Box DL OK: {os.path.basename(out_p)}")
+            except Exception as e:
+                log(f"  Box file {fname} err: {e}")
         browser.close()
     return downloaded
 
@@ -153,6 +157,10 @@ def process_case(case):
         for pidx, purl in enumerate(case.get("pdf_urls", []), 1):
             pname = os.path.basename(urllib.parse.urlparse(purl).path) or f"Report_{pidx:02d}.pdf"
             subprocess.run(["curl", "-sL", "-o", os.path.join(case_dir, pname), purl], check=False, timeout=60)
+    elif case["source_type"] == "direct_urls":
+        for idx, vurl in enumerate(case["video_urls"], 1):
+            vname = urllib.parse.unquote(os.path.basename(urllib.parse.urlparse(vurl).path)) or f"Clip_{idx:02d}.mp4"
+            subprocess.run(["curl", "-sL", "-o", os.path.join(case_dir, vname), vurl], check=False, timeout=600)
     elif case["source_type"] == "njoag_box":
         download_box_folder(case["portal_url"], case_dir)
 
@@ -168,7 +176,6 @@ def process_case(case):
         shutil.rmtree(case_dir, ignore_errors=True)
         return
 
-    # Upload to BODYCAM AUTOMATION -> year -> category -> folder_name
     tok_main = get_token(TOK_MAIN_REF)
     cat_id_main = get_or_create_folder(tok_main, YEAR_ROOTS_MAIN[yr], cat)
     case_fid_main = get_or_create_folder(tok_main, cat_id_main, folder_name)
@@ -176,7 +183,6 @@ def process_case(case):
         upload_file_resumable(tok_main, case_fid_main, fp)
     log(f"{cid}: uploaded to BODYCAM AUTOMATION/{yr}/{cat}")
 
-    # If 2026, ALSO upload to bodycamfoia948 -> 2026 Cases -> category -> folder_name
     if yr == "2026":
         tok_948 = get_token(TOK_948_REF)
         cat_id_948 = get_or_create_folder(tok_948, ROOT_2026_948, cat)
@@ -188,9 +194,9 @@ def process_case(case):
     shutil.rmtree(case_dir, ignore_errors=True)
 
 def main():
-    payload = json.load(open("weekly_24_25_26_payload.json", encoding="utf-8"))
+    payload = json.load(open(PAYLOAD_FILE, encoding="utf-8"))
     my_cases = [c for i, c in enumerate(payload) if i % SHARD_TOTAL == SHARD_INDEX]
-    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} handling {len(my_cases)} cases")
+    log(f"Shard {SHARD_INDEX}/{SHARD_TOTAL} handling {len(my_cases)} cases from {PAYLOAD_FILE}")
     for c in my_cases:
         try:
             process_case(c)
