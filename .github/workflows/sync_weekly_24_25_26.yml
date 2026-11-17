@@ -1,0 +1,37 @@
+name: Weekly 2026 2025 2024 Portal Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'
+
+jobs:
+  sync_shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg unzip
+          pip install --upgrade yt-dlp playwright
+          playwright install chromium
+
+      - name: Run Weekly 2024-2026 Portal Worker
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_TOTAL: "11"
+          OWNER_CLIENT_ID: ${{ secrets.OWNER_CLIENT_ID }}
+          OWNER_CLIENT_SECRET: ${{ secrets.OWNER_CLIENT_SECRET }}
+          OWNER_REFRESH_TOKEN: ${{ secrets.OWNER_2026_REFRESH_TOKEN }}
+          OWNER_2026_REFRESH_TOKEN: ${{ secrets.OWNER_2026_REFRESH_TOKEN }}
+          OWNER_BW_REFRESH_TOKEN: ${{ secrets.OWNER_BW_REFRESH_TOKEN }}
+        run: |
+          python3 -u worker_weekly_24_25_26.py
