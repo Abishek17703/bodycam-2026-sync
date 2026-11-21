@@ -1,0 +1,100 @@
+[
+  {
+    "year": "2026",
+    "case_id": "NJOAG_piswq1p7wai1d4mvx0t5rrhbt1nlpltu",
+    "folder": "[2026-10-14] NJOAG OPIA \u2014 Radio Transmissions and Police Body-Worn Camera Footage from Ongoing Inv",
+    "category": "Critical Incidents & Felony Takedowns",
+    "source_type": "njoag_box",
+    "portal_url": "https://njoag.box.com/s/piswq1p7wai1d4mvx0t5rrhbt1nlpltu",
+    "video_urls": [
+      "https://njoag.box.com/s/piswq1p7wai1d4mvx0t5rrhbt1nlpltu"
+    ],
+    "pdf_urls": [],
+    "summary": "Radio Transmissions and Police Body-Worn Camera Footage from Ongoing Investigation of Civilian Death During June 2, 2026, Police Encounter i"
+  },
+  {
+    "year": "2026",
+    "case_id": "COPA_2026-0002897",
+    "folder": "[2026-08-06] Chicago COPA Log #2026-0002897 (1 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2026-0002897/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1215934317"
+    ]
+  },
+  {
+    "year": "2026",
+    "case_id": "COPA_2026-0000268",
+    "folder": "[2026-03-19] Chicago COPA Log #2026-0000268 (7 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2026-0000268/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1174098822",
+      "https://player.vimeo.com/video/1174098795",
+      "https://player.vimeo.com/video/1174098840",
+      "https://player.vimeo.com/video/1174098883",
+      "https://player.vimeo.com/video/1174098904",
+      "https://player.vimeo.com/video/1174098915",
+      "https://player.vimeo.com/video/1174098936"
+    ]
+  },
+  {
+    "year": "2025",
+    "case_id": "COPA_2025-0003972",
+    "folder": "[2025-09-30] Chicago COPA Log #2025-0003972 (4 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2025-0003972/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1121982989",
+      "https://player.vimeo.com/video/1121983059",
+      "https://player.vimeo.com/video/1121983120",
+      "https://player.vimeo.com/video/1121983144"
+    ]
+  },
+  {
+    "year": "2025",
+    "case_id": "COPA_2025-0003873",
+    "folder": "[2025-09-18] Chicago COPA Log #2025-0003873 (4 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2025-0003873/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1119122162",
+      "https://player.vimeo.com/video/1119122117",
+      "https://player.vimeo.com/video/1119122090",
+      "https://player.vimeo.com/video/1119122045"
+    ]
+  },
+  {
+    "year": "2025",
+    "case_id": "COPA_2025-0001291",
+    "folder": "[2025-05-14] Chicago COPA Log #2025-0001291 (1 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2025-0001291/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1083697927"
+    ]
+  },
+  {
+    "year": "2025",
+    "case_id": "COPA_2025-0000832",
+    "folder": "[2025-04-09] Chicago COPA Log #2025-0000832 (8 Clips)",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "source_type": "copa_vimeo",
+    "portal_url": "https://www.chicagocopa.org/case/2025-0000832/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1073657754",
+      "https://player.vimeo.com/video/1073657818",
+      "https://player.vimeo.com/video/1073657620",
+      "https://player.vimeo.com/video/1073657672",
+      "https://player.vimeo.com/video/1073657602",
+      "https://player.vimeo.com/video/1073657468",
+      "https://player.vimeo.com/video/1073657547",
+      "https://player.vimeo.com/video/1073657570"
+    ]
+  }
+]
