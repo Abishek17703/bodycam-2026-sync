@@ -1,0 +1,95 @@
+[
+  {
+    "case_id": "NYAG_marcus-burks",
+    "year": "2026",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2026] NYAG OSI \u2014 Marcus Burks (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1198743052?h=16721637f3",
+      "https://player.vimeo.com/video/1198481273?h=7a786910b3",
+      "https://player.vimeo.com/video/1198470046?h=74b9ddad65"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_bravo-nondo",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Bravo Nondo (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1194377695?h=98bef35159"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_royston-bacchus",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Royston Bacchus (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1161477510?h=fccac352f7"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_bernie-russo",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Bernie Russo (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1107548269?h=61f006ebbe",
+      "https://player.vimeo.com/video/1107549327?h=761a22294b",
+      "https://player.vimeo.com/video/1107548789?h=f5a1cf0d52",
+      "https://player.vimeo.com/video/1107549015?h=7db963dd7a"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_shelton-ennis",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Shelton Ennis (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1157301797?h=5f0cdd17bc",
+      "https://player.vimeo.com/video/1157299753?h=81ea292144"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_matthew-brown",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Matthew Brown (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1079925691?h=3e9c1979c7",
+      "https://player.vimeo.com/video/1079924410?h=657a4d4f4e",
+      "https://player.vimeo.com/video/1079925171?h=79567a17e1"
+    ],
+    "pdf_urls": []
+  },
+  {
+    "case_id": "NYAG_jose-francisco-escobar-vasquez",
+    "year": "2025",
+    "category": "Officer Involved Shootings & Critical Incidents",
+    "folder": "[2025] NYAG OSI \u2014 Jose Francisco Escobar Vasquez (Fatal Investigation)",
+    "source_type": "copa_vimeo",
+    "referer": "https://ag.ny.gov/",
+    "video_urls": [
+      "https://player.vimeo.com/video/1093852027?h=8a1b30af15",
+      "https://player.vimeo.com/video/1093852221?h=bc8e8b6179"
+    ],
+    "pdf_urls": []
+  }
+]
