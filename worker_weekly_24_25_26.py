@@ -119,7 +119,24 @@ def download_box_folder(box_url, out_dir):
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(accept_downloads=True)
         page = ctx.new_page()
+        try:
+            page.goto(f"https://njoag.box.com/s/{share}", wait_until="domcontentloaded", timeout=45000)
+            page.wait_for_timeout(2000)
+        except Exception:
+            pass
         for fid, fname in fids:
+            try:
+                dl_url = f"https://njoag.app.box.com/index.php?rm=box_download_shared_file&shared_name={share}&file_id=f_{fid}"
+                resp = ctx.request.get(dl_url, timeout=300000)
+                if resp.ok and len(resp.body()) > 1024:
+                    out_p = os.path.join(out_dir, fname)
+                    with open(out_p, "wb") as fp:
+                        fp.write(resp.body())
+                    downloaded.append(out_p)
+                    log(f"  Box Direct DL OK: {fname} ({len(resp.body())}b)")
+                    continue
+            except Exception as e:
+                log(f"  Box direct {fname} err: {e}")
             try:
                 furl = f"https://njoag.app.box.com/s/{share}/file/{fid}"
                 page.goto(furl, wait_until="domcontentloaded", timeout=45000)
