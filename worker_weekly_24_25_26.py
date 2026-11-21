@@ -165,7 +165,7 @@ def process_case(case):
         for idx, vurl in enumerate(case["video_urls"], 1):
             out_tmpl = os.path.join(case_dir, f"Clip_{idx:02d}_%(id)s.%(ext)s")
             cmd = [
-                "yt-dlp", "--referer", "https://www.chicagocopa.org/",
+                "yt-dlp", "--referer", case.get("referer", "https://www.chicagocopa.org/"),
                 "-f", "bv*[height>=720]+ba/b[height>=720]/bv*+ba/b",
                 "--merge-output-format", "mp4",
                 "--no-warnings", "-q", "-o", out_tmpl, vurl
