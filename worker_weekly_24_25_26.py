@@ -153,8 +153,61 @@ def download_box_folder(box_url, out_dir):
         browser.close()
     return downloaded
 
+def patch_file_resumable(token, file_id, local_path, mime="application/octet-stream"):
+    fsize = os.path.getsize(local_path)
+    init_req = urllib.request.Request(
+        f"https://www.googleapis.com/upload/drive/v3/files/{file_id}?uploadType=resumable&fields=id",
+        data=b"{}",
+        method="PATCH",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json; charset=UTF-8",
+            "X-Upload-Content-Type": mime,
+            "X-Upload-Content-Length": str(fsize),
+        }
+    )
+    init_resp = urllib.request.urlopen(init_req, timeout=30)
+    upload_url = init_resp.headers["Location"]
+    chunk_size = 16 * 1024 * 1024
+    with open(local_path, "rb") as f:
+        offset = 0
+        while offset < fsize:
+            chunk = f.read(chunk_size)
+            end = offset + len(chunk) - 1
+            up_req = urllib.request.Request(
+                upload_url, data=chunk, method="PUT",
+                headers={"Content-Length": str(len(chunk)), "Content-Range": f"bytes {offset}-{end}/{fsize}"}
+            )
+            try:
+                resp = urllib.request.urlopen(up_req, timeout=180)
+                return json.loads(resp.read().decode())["id"]
+            except urllib.error.HTTPError as e:
+                if e.code == 308:
+                    offset = end + 1
+                else:
+                    raise
+    return None
+
 def process_case(case):
     cid = case["case_id"]
+    if case.get("source_type") == "clearance_decrypted":
+        fn = case["name"].replace("/", "_")
+        case_dir = os.path.join(STAGING_ROOT, cid)
+        os.makedirs(case_dir, exist_ok=True)
+        out_p = os.path.join(case_dir, fn)
+        subprocess.run(["curl", "-sL", "--retry", "3", "-H", f"Cookie: {case['cookie']}", "-o", out_p, case["url"]], check=False, timeout=900)
+        if os.path.exists(out_p) and os.path.getsize(out_p) > 0:
+            tok_main = get_token(TOK_MAIN_REF)
+            fid = case.get("drive_file_id")
+            if fid:
+                patch_file_resumable(tok_main, fid, out_p, mime=case.get("mime") or "application/octet-stream")
+            else:
+                upload_file_resumable(tok_main, case["parent_id"], out_p, remote_name=fn)
+            log(f"{cid}: decrypted upload {fn} ({os.path.getsize(out_p)}b)")
+        else:
+            log(f"{cid}: FAILED decrypted download {fn}")
+        shutil.rmtree(case_dir, ignore_errors=True)
+        return
     if case.get("source_type") == "direct_file":
         pid = case["parent_id"]
         fn = case["name"].replace("/", "_")
