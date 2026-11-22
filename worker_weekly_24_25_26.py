@@ -155,6 +155,26 @@ def download_box_folder(box_url, out_dir):
 
 def process_case(case):
     cid = case["case_id"]
+    if case.get("source_type") == "direct_file":
+        pid = case["parent_id"]
+        fn = case["name"].replace("/", "_")
+        case_dir = os.path.join(STAGING_ROOT, cid)
+        os.makedirs(case_dir, exist_ok=True)
+        out_p = os.path.join(case_dir, fn)
+        tok_main = get_token(TOK_MAIN_REF)
+        q = urllib.parse.quote(f"'{pid}' in parents and name='{fn.replace(chr(39), '')}' and trashed=false")
+        existing = drive_req(f"https://www.googleapis.com/drive/v3/files?q={q}&fields=files(id,size)", tok_main).get("files", [])
+        if existing and int(existing[0].get("size", 0)) == int(case.get("size") or 0) and int(existing[0].get("size", 0)) > 0:
+            shutil.rmtree(case_dir, ignore_errors=True)
+            return
+        subprocess.run(["curl", "-sL", "--retry", "3", "-o", out_p, case["url"]], check=False, timeout=900)
+        if os.path.exists(out_p) and os.path.getsize(out_p) > 0:
+            upload_file_resumable(tok_main, pid, out_p, remote_name=fn)
+            log(f"{cid}: uploaded {fn} ({os.path.getsize(out_p)}b)")
+        else:
+            log(f"{cid}: FAILED download {fn}")
+        shutil.rmtree(case_dir, ignore_errors=True)
+        return
     yr = case["year"]
     cat = case["category"]
     folder_name = case["folder"]
